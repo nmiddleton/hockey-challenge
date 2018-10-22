@@ -241,4 +241,14 @@ describe('Predictions', function () {
             expect(prediction.getFixtureList()).to.equal(fixture_list);
         });
     });
+    describe('finders', function () {
+        beforeEach(function () {
+            prediction.setLeagueTable(league_table);
+            prediction.setFixtureList(fixture_list);
+        });
+        it('can find the division for a team so that we can look at the fixtures or performance', function () {
+            expect(prediction.getDivisionFor('Chelmsford 7')).to.equal('10se');
+            expect(prediction.getDivisionFor('Braintree 1')).to.not.equal('10se');
+        });
+    });
 });
