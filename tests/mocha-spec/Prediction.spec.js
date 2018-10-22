@@ -432,5 +432,17 @@ describe('Predictions', function () {
                 }
             );
         });
+        it('can lookup the relative goal difference and make a prediction', function () {
+            let fixture = {
+                'home_team': 'Chelmsford 7',
+                'away_team': 'Old Loughts Willows 2'
+            };
+            expect(prediction.onGoalDifference(fixture)).to.deep.equal(
+                {
+                    'Chelmsford 7': 7,
+                    'Old Loughts Willows 2': 3
+                }
+            );
+        });
     });
 });
