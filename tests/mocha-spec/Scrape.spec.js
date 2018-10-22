@@ -29,6 +29,12 @@ describe('Scraping..', function () {
                 expect(result).to.deep.equal(expected_league_as_json());
             }).done(done);
         });
+        it('should collect the divisions so that we can then query the fixtures for each division', function (done) {
+            let expected_league_divisions = [ '3se', '4se', '5se', '6se', '7se', '8se', '9se', '10se' ];
+            Scrape().EMLTables().then(function (result) {
+                expect(Scrape().getLeagueDivisions(result)).to.deep.equal(expected_league_divisions);
+            }).done(done);
+        });
     });
 });
 
