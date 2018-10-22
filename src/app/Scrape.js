@@ -1,12 +1,15 @@
 const request = require("request-promise"),
     q = require('q'),
     cheerio = require("cheerio"),
-    _ = require("lodash");
+    _ = require("lodash"),
+    moment = require('moment');
 
-let this_league = {};
+let this_league = {},
+    fixture_list = {};
 
 function Scrape() {
     const eml_table_url = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tablesmen.asp?divblock=SE&Submit=League+table',
+        eml_performance_base_url = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/resultsmen.asp?division=',
         performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
 
     function EMLTables() {
@@ -17,7 +20,7 @@ function Scrape() {
 
         request.get(eml_table_url).then(function (result) {
             const $ = cheerio.load(result);
-            // No css classes aarg! Looking for the width 150 of the element
+            // No css classes. Looking for the width 150 of the element == disgusting
             return q($('td').each(function (i, elem) {
                 let td_text = $(this).text().trim();
                 if ($(this).attr('width') === '150') {
@@ -25,7 +28,6 @@ function Scrape() {
                     td_text = td_text.trim();
                     if (_.startsWith(td_text, 'DIVISION')) {
                         division = _.trim(td_text.toLowerCase(), '\s+division ');
-                        // console.log('_.set(', this_league, this_division, {});
                         // Initialize the division object
                         _.set(this_league, division, {});
                     } else if (_.words(td_text).length > 0) {
@@ -55,10 +57,72 @@ function Scrape() {
         return _.keys(league);
     }
 
+    function EMLFixtures(divisions) {
+        let deferred = q.defer();
+        // create array of promises
+        let division_get_promises = _.map(divisions, function (division) {
+            return EMLFixturesFor(division);
+        });
+        q.allSettled(division_get_promises).then(function (division_responses) {
+            _.forEach(division_responses, function (response) {
+                _.assign(fixture_list, response.value);
+            });
+            deferred.resolve(fixture_list);
+        }).done();
+        return deferred.promise;
+
+    }
+
+    function EMLFixturesFor(division) {
+        let division_fixtures = {};
+        //Initialize the division object
+        division_fixtures[division] = {};
+        let eml_performance_url = eml_performance_base_url + division,
+            deferred = q.defer();
+
+        request.get(eml_performance_url).then(function (result) {
+            const $ = cheerio.load(result);
+            let fixture_date = '',
+                home_team = '',
+                away_team = '';
+            return q($('td').each(function (i, elem) {
+                let td_text = $(this).text().trim();
+
+                //Again, no cheerio anchors except for td width :(
+                if ($(this).attr('width') === '225') {
+                    // Is the td the date or home team in fixture?
+                    if (moment(td_text, 'DD-MMM-YY', true).isValid() || moment(td_text, 'D-MMM-YY', true).isValid()) {
+                        // is a date
+                        fixture_date = td_text;
+                        _.set(division_fixtures[division], fixture_date, []);
+                    } else {
+                        // is a home team
+                        home_team = td_text;
+                    }
+                }
+                if ($(this).attr('width') === '275') {
+                    if (_.words(td_text).length > 0) {
+                        // is away team
+                        away_team = td_text;
+                        // date, home_team and away_team found, create the JSON record
+                        division_fixtures[division][fixture_date].push({home_team: home_team, away_team: away_team});
+                    }
+                }
+            })).then(function () {
+                // return the fixtures for this division
+                deferred.resolve(division_fixtures);
+            }).catch(function (err) {
+                deferred.reject('Error with fixture list', err);
+            });
+
+        });
+        return deferred.promise;
+    }
 
     return {
         EMLTables: EMLTables,
         getLeagueDivisions: getLeagueDivisions,
+        EMLFixtures: EMLFixtures
     }
 }
 
