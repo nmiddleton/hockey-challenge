@@ -93,7 +93,7 @@ function Scrape() {
                     // Is the td the date or home team in fixture?
                     if (moment(td_text, 'DD-MMM-YY', true).isValid() || moment(td_text, 'D-MMM-YY', true).isValid()) {
                         // is a date
-                        fixture_date = td_text;
+                        fixture_date = sanitiseDate(td_text);
                         _.set(division_fixtures[division], fixture_date, []);
                     } else {
                         // is a home team
@@ -118,8 +118,16 @@ function Scrape() {
         });
         return deferred.promise;
     }
+    function sanitiseDate(date){
+        if (date.length === 8){
+            return 0 + date; //pad leading zero in 1-Dec-18 > 01-Dec-18
+        } else {
+            return date;
+        }
+    }
 
     return {
+        fixture_list: fixture_list,
         EMLTables: EMLTables,
         getLeagueDivisions: getLeagueDivisions,
         EMLFixtures: EMLFixtures

@@ -12,13 +12,187 @@ describe('Predictions', function () {
         sandbox = sinon.sandbox.create();
         prediction = new Prediction();
         fixture_list = {
-            '10se': {
-                '1-Dec-18': [
+            '3se': {
+                '17-Nov-18': [
                     {
-                        'away_team': 'Chelmsford 7',
-                        'home_team': 'Brentwood 4'
+                        'home_team': 'Brentwood 1',
+                        'away_team': 'Southend 1'
+                    },
+                    {
+                        'home_team': 'Wapping 5',
+                        'away_team': 'Braintree 1'
+                    },
+                    {
+                        'home_team': 'Maldon 1',
+                        'away_team': 'Wapping 6'
+                    },
+                    {
+                        'home_team': 'East London 3',
+                        'away_team': 'Redbridge & Ilford 1'
+                    },
+                    {
+                        'home_team': 'Crostyx 2',
+                        'away_team': 'Clacton 1'
+                    },
+                    {
+                        'home_team': 'Upminster 2',
+                        'away_team': 'Brentwood 2'
                     }
-                ]
+                ],
+                '24-Nov-18': [
+                    {
+                        'home_team': 'Wapping 5',
+                        'away_team': 'Maldon 1'
+                    },
+                    {
+                        'home_team': 'Braintree 1',
+                        'away_team': 'Brentwood 1'
+                    },
+                    {
+                        'home_team': 'Southend 1',
+                        'away_team': 'East London 3'
+                    },
+                    {
+                        'home_team': 'Redbridge & Ilford 1',
+                        'away_team': 'Crostyx 2'
+                    },
+                    {
+                        'home_team': 'Clacton 1',
+                        'away_team': 'Upminster 2'
+                    },
+                    {
+                        'home_team': 'Brentwood 2',
+                        'away_team': 'Wapping 6'
+                    }
+                ],
+                '01-Dec-18': [
+                    {
+                        'home_team': 'Brentwood 1',
+                        'away_team': 'Wapping 5'
+                    },
+                    {
+                        'home_team': 'Maldon 1',
+                        'away_team': 'Brentwood 2'
+                    },
+                    {
+                        'home_team': 'East London 3',
+                        'away_team': 'Braintree 1'
+                    },
+                    {
+                        'home_team': 'Crostyx 2',
+                        'away_team': 'Southend 1'
+                    },
+                    {
+                        'home_team': 'Upminster 2',
+                        'away_team': 'Redbridge & Ilford 1'
+                    },
+                    {
+                        'home_team': 'Wapping 6',
+                        'away_team': 'Clacton 1'
+                    }
+                ],
+                '08-Dec-18': [
+                    {
+                        'home_team': 'Maldon 1',
+                        'away_team': 'Brentwood 1'
+                    },
+                    {
+                        'home_team': 'East London 3',
+                        'away_team': 'Wapping 5'
+                    },
+                    {
+                        'home_team': 'Crostyx 2',
+                        'away_team': 'Braintree 1'
+                    },
+                    {
+                        'home_team': 'Upminster 2',
+                        'away_team': 'Southend 1'
+                    },
+                    {
+                        'home_team': 'Wapping 6',
+                        'away_team': 'Redbridge & Ilford 1'
+                    },
+                    {
+                        'home_team': 'Brentwood 2',
+                        'away_team': 'Clacton 1'
+                    }
+                ],
+                '15-Dec-18': []
+            },
+            '10se': {
+                '17-Nov-18': [
+                    {
+                        'home_team': 'Braintree 5',
+                        'away_team': 'Romford 3'
+                    },
+                    {
+                        'home_team': 'Chelmsford 7',
+                        'away_team': 'Saffron Walden 8'
+                    },
+                    {
+                        'home_team': 'East London 9',
+                        'away_team': 'Waltham Forest 5'
+                    },
+                    {
+                        'home_team': 'Old Loughts Willows 2',
+                        'away_team': 'Old Southendian 6'
+                    }
+                ],
+                '24-Nov-18': [
+                    {
+                        'home_team': 'Old Loughts Willows 2',
+                        'away_team': 'East London 9'
+                    },
+                    {
+                        'home_team': 'Romford 3',
+                        'away_team': 'Old Southendian 6'
+                    },
+                    {
+                        'home_team': 'Saffron Walden 8',
+                        'away_team': 'Braintree 5'
+                    },
+                    {
+                        'home_team': 'Waltham Forest 5',
+                        'away_team': 'Chelmsford 7'
+                    }
+                ],
+                '01-Dec-18': [
+                    {
+                        'home_team': 'Braintree 5',
+                        'away_team': 'Waltham Forest 5'
+                    },
+                    {
+                        'home_team': 'Chelmsford 7',
+                        'away_team': 'Old Loughts Willows 2'
+                    },
+                    {
+                        'home_team': 'Old Southendian 6',
+                        'away_team': 'Saffron Walden 8'
+                    },
+                    {
+                        'home_team': 'Romford 3',
+                        'away_team': 'East London 9'
+                    }
+                ],
+                '08-Dec-18': [
+                    {
+                        'home_team': 'East London 9',
+                        'away_team': 'Chelmsford 7'
+                    },
+                    {
+                        'home_team': 'Old Loughts Willows 2',
+                        'away_team': 'Braintree 5'
+                    },
+                    {
+                        'home_team': 'Saffron Walden 8',
+                        'away_team': 'Romford 3'
+                    },
+                    {
+                        'home_team': 'Waltham Forest 5',
+                        'away_team': 'Old Southendian 6'
+                    }
+                ],
+                '15-Dec-18': []
             }
         };
         league_table = {
@@ -249,6 +423,14 @@ describe('Predictions', function () {
         it('can find the division for a team so that we can look at the fixtures or performance', function () {
             expect(prediction.getDivisionFor('Chelmsford 7')).to.equal('10se');
             expect(prediction.getDivisionFor('Braintree 1')).to.not.equal('10se');
+        });
+        it('can find next fixtures for a team', function () {
+            expect(prediction.getNextFixtureFor('29-Nov-18', 'Chelmsford 7')).to.deep.equal(
+                {
+                    'home_team': 'Chelmsford 7',
+                    'away_team': 'Old Loughts Willows 2'
+                }
+            );
         });
     });
 });
