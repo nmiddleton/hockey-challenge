@@ -51,8 +51,14 @@ function Scrape() {
         return deferred.promise;
     }
 
+    function getLeagueDivisions(league) {
+        return _.keys(league);
+    }
+
+
     return {
-        EMLTables: EMLTables
+        EMLTables: EMLTables,
+        getLeagueDivisions: getLeagueDivisions,
     }
 }
 
