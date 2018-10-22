@@ -236,5 +236,9 @@ describe('Predictions', function () {
             prediction.setLeagueTable(league_table);
             expect(prediction.getLeagueTable()).to.equal(league_table);
         });
+        it('can set and get the fixtures table to use', function () {
+            prediction.setFixtureList(fixture_list);
+            expect(prediction.getFixtureList()).to.equal(fixture_list);
+        });
     });
 });
