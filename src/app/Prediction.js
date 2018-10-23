@@ -72,28 +72,12 @@ function Prediction() {
         }
         return moment(date, 'DD-MMM-YY', true).isValid();
     }
-    function onGoalDifference(fixture) {
-        let goal_diff = {},
+    function getPerformanceProperty(fixture, performance_indicator) {
+        let performance = {},
             division = getDivisionFor(fixture.home_team);
-        goal_diff[fixture.home_team] = _.get(league_tables[division][fixture.home_team], 'goal_difference');
-        goal_diff[fixture.away_team] = _.get(league_tables[division][fixture.away_team], 'goal_difference');
-        return goal_diff;
-    }
-
-    function onDefenders(fixture) {
-        let defender_performance = {},
-            division = getDivisionFor(fixture.home_team);
-        defender_performance[fixture.home_team] = _.get(league_tables[division][fixture.home_team], 'against');
-        defender_performance[fixture.away_team] = _.get(league_tables[division][fixture.away_team], 'against');
-        return defender_performance;
-    }
-
-    function onForwards(fixture) {
-        let forward_performance = {},
-            division = getDivisionFor(fixture.home_team);
-        forward_performance[fixture.home_team] = _.get(league_tables[division][fixture.home_team], 'for');
-        forward_performance[fixture.away_team] = _.get(league_tables[division][fixture.away_team], 'for');
-        return forward_performance;
+        performance[fixture.home_team] = _.get(league_tables[division][fixture.home_team], performance_indicator);
+        performance[fixture.away_team] = _.get(league_tables[division][fixture.away_team], performance_indicator);
+        return performance;
     }
 
     return {
@@ -103,9 +87,7 @@ function Prediction() {
         setFixtureList: setFixtureList,
         getDivisionFor: getDivisionFor,
         getNextFixtureFor: getNextFixtureFor,
-        onGoalDifference: onGoalDifference,
-        onDefenders: onDefenders,
-        onForwards: onForwards
+        getPerformanceProperty: getPerformanceProperty
     }
 }
 

@@ -432,7 +432,7 @@ describe('Predictions', function () {
                 }
             );
         });
-        if ('can lookup any given league standing property for a prediction', function () {
+        it('can lookup any given league standing property for a prediction', function () {
             let fixture = {
                 'home_team': 'Chelmsford 7',
                 'away_team': 'Old Loughts Willows 2'
