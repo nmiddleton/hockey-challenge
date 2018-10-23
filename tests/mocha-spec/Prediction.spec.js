@@ -439,8 +439,8 @@ describe('Predictions', function () {
             };
             expect(prediction.onGoalDifference(fixture)).to.deep.equal(
                 {
-                    'Chelmsford 7': 7,
-                    'Old Loughts Willows 2': 3
+                    'Chelmsford 7': '7',
+                    'Old Loughts Willows 2': '3'
                 }
             );
         });

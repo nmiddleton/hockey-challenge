@@ -72,6 +72,13 @@ function Prediction() {
         }
         return moment(date, 'DD-MMM-YY', true).isValid();
     }
+    function onGoalDifference(fixture) {
+        let goal_diff = {},
+            division = getDivisionFor(fixture.home_team);
+        goal_diff[fixture.home_team] = _.get(league_tables[division][fixture.home_team], 'goal_difference');
+        goal_diff[fixture.away_team] = _.get(league_tables[division][fixture.away_team], 'goal_difference');
+        return goal_diff;
+    }
 
     return {
         getLeagueTable: getLeagueTable,
@@ -79,7 +86,8 @@ function Prediction() {
         getFixtureList: getFixtureList,
         setFixtureList: setFixtureList,
         getDivisionFor: getDivisionFor,
-        getNextFixtureFor: getNextFixtureFor
+        getNextFixtureFor: getNextFixtureFor,
+        onGoalDifference: onGoalDifference
     }
 }
 
