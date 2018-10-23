@@ -432,36 +432,24 @@ describe('Predictions', function () {
                 }
             );
         });
-        it('can lookup the relative goal difference and make a prediction', function () {
+        if ('can lookup any given league standing property for a prediction', function () {
             let fixture = {
                 'home_team': 'Chelmsford 7',
                 'away_team': 'Old Loughts Willows 2'
             };
-            expect(prediction.onGoalDifference(fixture)).to.deep.equal(
+            expect(prediction.getPerformanceProperty(fixture, 'goal_difference')).to.deep.equal(
                 {
                     'Chelmsford 7': '7',
                     'Old Loughts Willows 2': '3'
                 }
             );
-        });
-        it('can lookup the defensive goals and make a prediction about defenders', function () {
-            let fixture = {
-                'home_team': 'Chelmsford 7',
-                'away_team': 'Old Loughts Willows 2'
-            };
-            expect(prediction.onDefenders(fixture)).to.deep.equal(
+            expect(prediction.getPerformanceProperty(fixture, 'against')).to.deep.equal(
                 {
                     'Chelmsford 7': '3',
                     'Old Loughts Willows 2': '4'
                 }
             );
-        });
-        it('can lookup the offensive goals and make a prediction about forwards', function () {
-            let fixture = {
-                'home_team': 'Chelmsford 7',
-                'away_team': 'Old Loughts Willows 2'
-            };
-            expect(prediction.onForwards(fixture)).to.deep.equal(
+            expect(prediction.getPerformanceProperty(fixture, 'for')).to.deep.equal(
                 {
                     'Chelmsford 7': '10',
                     'Old Loughts Willows 2': '7'
