@@ -21,7 +21,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -61,7 +61,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -101,7 +101,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -111,7 +111,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -124,7 +124,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -155,7 +155,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -165,7 +165,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -186,7 +186,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -196,7 +196,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
@@ -248,7 +248,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -288,7 +288,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -328,7 +328,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -338,7 +338,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -351,7 +351,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -382,7 +382,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -392,7 +392,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -413,7 +413,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -423,7 +423,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
@@ -475,7 +475,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -515,7 +515,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -555,7 +555,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -565,7 +565,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -578,7 +578,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -609,7 +609,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -619,7 +619,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -640,7 +640,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -650,7 +650,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
@@ -702,7 +702,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -742,7 +742,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -782,7 +782,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -792,7 +792,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -805,7 +805,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -836,7 +836,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -846,7 +846,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -867,7 +867,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -877,7 +877,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
@@ -929,7 +929,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -969,7 +969,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -1009,7 +1009,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -1019,7 +1019,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -1032,7 +1032,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -1063,7 +1063,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -1073,7 +1073,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -1094,7 +1094,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -1104,7 +1104,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
@@ -1156,7 +1156,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -1196,7 +1196,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -1236,7 +1236,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -1246,7 +1246,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -1259,7 +1259,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -1290,7 +1290,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -1300,7 +1300,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -1321,7 +1321,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -1331,7 +1331,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
@@ -1383,7 +1383,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -1423,7 +1423,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -1463,7 +1463,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -1473,7 +1473,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -1486,7 +1486,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -1517,7 +1517,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -1527,7 +1527,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -1548,7 +1548,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -1558,7 +1558,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
@@ -1610,7 +1610,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "East London 7"
             }],
-            "6-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
+            "06-Oct-18": [{"home_team": "Brentwood 4", "away_team": "Chelmsford 4"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Braintree 2"
             }, {"home_team": "Colchester 3", "away_team": "Saffron Walden 4"}, {
@@ -1650,7 +1650,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Brentwood 4"
             }],
-            "3-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
+            "03-Nov-18": [{"home_team": "Brentwood 4", "away_team": "Maldon 2"}, {
                 "home_team": "Wapping 9",
                 "away_team": "East London 7"
             }, {"home_team": "Colchester 3", "away_team": "Chelmsford 5"}, {
@@ -1690,7 +1690,7 @@ module.exports = function () {
                 "home_team": "Basildon 1",
                 "away_team": "Saffron Walden 4"
             }],
-            "1-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
+            "01-Dec-18": [{"home_team": "Brentwood 4", "away_team": "Wapping 9"}, {
                 "home_team": "Old Loughts Academy",
                 "away_team": "Basildon 1"
             }, {"home_team": "East London 6", "away_team": "Colchester 3"}, {
@@ -1700,7 +1700,7 @@ module.exports = function () {
                 "home_team": "Saffron Walden 4",
                 "away_team": "Maldon 2"
             }],
-            "8-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
+            "08-Dec-18": [{"home_team": "Old Loughts Academy", "away_team": "Brentwood 4"}, {
                 "home_team": "East London 6",
                 "away_team": "Wapping 9"
             }, {"home_team": "Chelmsford 4", "away_team": "Colchester 3"}, {
@@ -1713,7 +1713,7 @@ module.exports = function () {
             "15-Dec-18": [],
             "22-Dec-18": [],
             "29-Dec-18": [],
-            "5-Jan-19": [],
+            "05-Jan-19": [],
             "12-Jan-19": [{"home_team": "Maldon 2", "away_team": "Old Loughts Academy"}, {
                 "home_team": "Brentwood 4",
                 "away_team": "East London 6"
@@ -1744,7 +1744,7 @@ module.exports = function () {
                 "home_team": "Colchester 3",
                 "away_team": "Basildon 1"
             }],
-            "2-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
+            "02-Feb-19": [{"home_team": "Saffron Walden 4", "away_team": "Brentwood 4"}, {
                 "home_team": "Basildon 1",
                 "away_team": "Wapping 9"
             }, {"home_team": "Maldon 2", "away_team": "Colchester 3"}, {
@@ -1754,7 +1754,7 @@ module.exports = function () {
                 "home_team": "Braintree 2",
                 "away_team": "East London 6"
             }],
-            "9-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
+            "09-Feb-19": [{"home_team": "Old Loughts Academy", "away_team": "Chelmsford 5"}, {
                 "home_team": "Colchester 3",
                 "away_team": "East London 7"
             }, {"home_team": "Wapping 9", "away_team": "Maldon 2"}, {
@@ -1775,7 +1775,7 @@ module.exports = function () {
                 "away_team": "Chelmsford 4"
             }],
             "23-Feb-19": [],
-            "2-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
+            "02-Mar-19": [{"home_team": "Old Loughts Academy", "away_team": "Colchester 3"}, {
                 "home_team": "Wapping 9",
                 "away_team": "Chelmsford 5"
             }, {"home_team": "Brentwood 4", "away_team": "East London 7"}, {
@@ -1785,7 +1785,7 @@ module.exports = function () {
                 "home_team": "Chelmsford 4",
                 "away_team": "Basildon 1"
             }],
-            "9-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
+            "09-Mar-19": [{"home_team": "Chelmsford 5", "away_team": "Brentwood 4"}, {
                 "home_team": "Colchester 3",
                 "away_team": "Wapping 9"
             }, {"home_team": "Saffron Walden 4", "away_team": "Old Loughts Academy"}, {
