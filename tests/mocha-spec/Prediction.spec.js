@@ -444,5 +444,29 @@ describe('Predictions', function () {
                 }
             );
         });
+        it('can lookup the defensive goals and make a prediction about defenders', function () {
+            let fixture = {
+                'home_team': 'Chelmsford 7',
+                'away_team': 'Old Loughts Willows 2'
+            };
+            expect(prediction.onDefenders(fixture)).to.deep.equal(
+                {
+                    'Chelmsford 7': '3',
+                    'Old Loughts Willows 2': '4'
+                }
+            );
+        });
+        it('can lookup the offensive goals and make a prediction about forwards', function () {
+            let fixture = {
+                'home_team': 'Chelmsford 7',
+                'away_team': 'Old Loughts Willows 2'
+            };
+            expect(prediction.onForwards(fixture)).to.deep.equal(
+                {
+                    'Chelmsford 7': '10',
+                    'Old Loughts Willows 2': '7'
+                }
+            );
+        });
     });
 });
