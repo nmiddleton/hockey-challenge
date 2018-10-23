@@ -80,6 +80,22 @@ function Prediction() {
         return goal_diff;
     }
 
+    function onDefenders(fixture) {
+        let defender_performance = {},
+            division = getDivisionFor(fixture.home_team);
+        defender_performance[fixture.home_team] = _.get(league_tables[division][fixture.home_team], 'against');
+        defender_performance[fixture.away_team] = _.get(league_tables[division][fixture.away_team], 'against');
+        return defender_performance;
+    }
+
+    function onForwards(fixture) {
+        let forward_performance = {},
+            division = getDivisionFor(fixture.home_team);
+        forward_performance[fixture.home_team] = _.get(league_tables[division][fixture.home_team], 'for');
+        forward_performance[fixture.away_team] = _.get(league_tables[division][fixture.away_team], 'for');
+        return forward_performance;
+    }
+
     return {
         getLeagueTable: getLeagueTable,
         setLeagueTable: setLeagueTable,
@@ -87,7 +103,9 @@ function Prediction() {
         setFixtureList: setFixtureList,
         getDivisionFor: getDivisionFor,
         getNextFixtureFor: getNextFixtureFor,
-        onGoalDifference: onGoalDifference
+        onGoalDifference: onGoalDifference,
+        onDefenders: onDefenders,
+        onForwards: onForwards
     }
 }
 
