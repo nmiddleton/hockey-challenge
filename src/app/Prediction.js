@@ -4,7 +4,8 @@ const _ = require('lodash'),
 
 function Prediction() {
     let fixture_list,
-        league_tables;
+        league_tables,
+        team_performance_data;
 
     function setLeagueTable(tables) {
         league_tables = tables;
@@ -20,6 +21,28 @@ function Prediction() {
 
     function getFixtureList() {
         return fixture_list;
+    }
+
+    function  setTeamPerformanceData () {
+        team_performance_data  = constructTeamPerformanceData();
+    }
+
+    function constructTeamPerformanceData() {
+        let team_perf_data = [];
+        _.forEach(_.keys(league_tables), function (division) {
+
+            _.forEach(_.keys(league_tables[division]), function (team) {
+                let team_stats = (league_tables[division][team]);
+                team_stats['division'] = division;
+                team_stats['id'] = team;
+                team_perf_data.push(team_stats);
+            })
+        });
+        return team_perf_data;
+    }
+
+    function getTeamPerformanceData() {
+        return team_performance_data;
     }
 
     function getDivisionFor(team) {
@@ -85,6 +108,9 @@ function Prediction() {
         setLeagueTable: setLeagueTable,
         getFixtureList: getFixtureList,
         setFixtureList: setFixtureList,
+        getTeamPerformanceData: getTeamPerformanceData,
+        constructTeamPerformanceData: constructTeamPerformanceData,
+        setTeamPerformanceData: setTeamPerformanceData,
         getDivisionFor: getDivisionFor,
         getNextFixtureFor: getNextFixtureFor,
         getPerformanceProperty: getPerformanceProperty

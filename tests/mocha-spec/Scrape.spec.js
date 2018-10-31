@@ -14,7 +14,6 @@ describe('Scraping..', function () {
         beforeEach(function () {
             sandbox = sinon.sandbox.create();
             sandbox.stub(request, 'get').resolves(eml_table_html());
-
         });
         afterEach(function () {
             sandbox.restore();
@@ -50,6 +49,4 @@ describe('Scraping..', function () {
             }).done(done);
         });
     });
-
 });
-
