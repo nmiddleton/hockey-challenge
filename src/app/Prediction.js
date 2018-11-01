@@ -119,3 +119,13 @@ function Prediction() {
 
 
 module.exports = Prediction;
+// Manual Testing
+//
+// Scrape = require('./Scrape');
+//
+// let prediction = new Prediction();
+// Scrape().EMLTables().then(function (result) {
+//   prediction.setLeagueTable(result);
+//   prediction.setTeamPerformanceData();
+//   console.log(JSON.stringify(prediction.getTeamPerformanceData() ,null,4));
+// });
