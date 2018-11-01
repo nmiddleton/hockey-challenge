@@ -6,7 +6,7 @@ module.exports = function (req, res, next) {
   Scrape().EMLTables().then(function (result) {
     prediction.setLeagueTable(result);
     prediction.setTeamPerformanceData();
-    console.log(JSON.stringify(prediction.getTeamPerformanceData(), null, 4));
+    // console.log(JSON.stringify(prediction.getTeamPerformanceData(), null, 4));
     res.send(JSON.stringify(prediction.getTeamPerformanceData() ,null,4));
     res.end();
   });
