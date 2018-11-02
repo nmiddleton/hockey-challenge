@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { TeamPerformancesComponent} from "./team-performances/team-performances.component";
 import {HttpClientModule} from "@angular/common/http";
+import {TeamFilterComponent} from "./team-filter/team-filter.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -13,7 +14,8 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        TeamPerformancesComponent
+        TeamPerformancesComponent,
+        TeamFilterComponent
       ],
     }).compileComponents();
   }));

@@ -1,3 +1,6 @@
+<app-team-filter (teamFilterChangedEmitter)="handleTeamFilterChanged($event)"></app-team-filter>
+<button (click)="getTeamPerformances()">Refresh</button>
+<br/>
 <table>
   <tr>
     <td> division </td>
@@ -12,7 +15,7 @@
     <td> points </td>
 
   </tr>
-  <tr *ngFor="let teamPerformance of team_performances">
+  <tr *ngFor="let teamPerformance of filtered_team_performances">
     <td> {{ teamPerformance.division }} </td>
     <td> {{ teamPerformance.id }} </td>
     <td> {{ teamPerformance.played }} </td>

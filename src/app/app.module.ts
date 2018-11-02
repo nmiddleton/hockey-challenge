@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeamPerformanceService } from './team-performance.service';
 import { TeamPerformancesComponent } from './team-performances/team-performances.component';
+import { TeamFilterComponent } from './team-filter/team-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamPerformancesComponent
+    TeamPerformancesComponent,
+    TeamFilterComponent
   ],
   imports: [
     BrowserModule,

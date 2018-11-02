@@ -7,12 +7,16 @@ import { defer } from "rxjs";
 import {TeamPerformance} from "./team-performance";
 
 // Promisify a response
-export function promisedResponse<T>(data: T) {
+export function promisedResponseResolved<T>(data: T) {
   return defer(() => Promise.resolve(data));
+}
+export function promisedResponseRejected<T>(errorObject: any) {
+  return defer(() => Promise.reject(errorObject));
 }
 
 describe('TeamPerformanceService', () => {
-  let HttpClientSpy: { get: jasmine.Spy },
+  let HttpClientResolvedSpy: { get: jasmine.Spy },
+    HttpClientRejectedSpy: { get: jasmine.Spy },
     teamPerformanceServiceWithHTTPStub: TeamPerformanceService;
   const expectedTeamPerformances: TeamPerformance[] = [
     {
@@ -42,19 +46,32 @@ describe('TeamPerformanceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({imports: [ HttpClientModule ]});
     // stub out http
-    HttpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    HttpClientSpy.get.and.returnValue(promisedResponse(expectedTeamPerformances));
-    // inject into service constructor
-    teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientSpy)
+    HttpClientResolvedSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    HttpClientRejectedSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    HttpClientResolvedSpy.get.and.returnValue(promisedResponseResolved(expectedTeamPerformances));
+    HttpClientRejectedSpy.get.and.returnValue(promisedResponseRejected({status: 500, message: 'Something broke'}));
+
   });
 
   it('should be created', () => {
     const service: TeamPerformanceService = TestBed.get(TeamPerformanceService);
     expect(service).toBeTruthy();
   });
-  it(' retrieves all of the team performances', () => {
+  it('retrieves all of the team performances', (done: DoneFn) => {
+    // inject into service constructor
+    teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientResolvedSpy);
     teamPerformanceServiceWithHTTPStub.getTeamPerformance().subscribe(result => {
-      expect(result).toEqual(expectedTeamPerformances);
+      expect(result).toBe(expectedTeamPerformances);
+      done();
+    });
+  });
+  it('continues to pass through if the team performance call fails but increments an error count', (done: DoneFn) => {
+    // inject into service constructor
+    teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientRejectedSpy);
+    teamPerformanceServiceWithHTTPStub.getTeamPerformance().subscribe(result => {
+      expect(teamPerformanceServiceWithHTTPStub.error_count).toEqual(1);
+      expect(result).toEqual([]);
+      done();
     });
   });
 });
