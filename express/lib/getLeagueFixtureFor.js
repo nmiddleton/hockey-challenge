@@ -1,5 +1,6 @@
 const Prediction = require('../../src/app/Prediction'),
-  Scrape = require('../../src/app/Scrape');
+  Scrape = require('../../src/app/Scrape'),
+  moment = require('moment');
 
 module.exports = function (req, res, next) {
   let prediction = new Prediction(),
@@ -9,11 +10,10 @@ module.exports = function (req, res, next) {
     prediction.setTeamPerformanceData();
     scrape.EMLFixtures(scrape.getLeagueDivisions(league)).then(function(){
       prediction.setFixtureList(scrape.fixture_list);
-      console.log('id',req.params.id);
       if (req.params.id){
-        res.send(JSON.stringify(prediction.getNextFixtureFor('30-Nov-18',req.params.id),null,4));
+        res.send(JSON.stringify(prediction.getNextFixtureFor(moment.utc().format('DD-MMM-YY'),req.params.id),null,4));
       } else {
-        res.send(JSON.stringify(scrape.fixture_list, null, 4));
+        res.send(JSON.stringify(prediction.getFixtureList(scrape.fixture_list), null, 4));
       }
       res.end();
     })
