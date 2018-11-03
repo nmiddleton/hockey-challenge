@@ -1,7 +1,8 @@
 var express = require('express'),
     // router = express.Router(),
     bodyParser= require('body-parser'),
-    teamPerformanceRouter = require('./routes/teamPerformanceRouter');
+    teamPerformanceRouter = require('./routes/teamPerformanceRouter'),
+    leagueFixturesRouter = require('./routes/leagueFixturesRouter');
 const app = express();
 const port = 3333;
 
@@ -17,6 +18,7 @@ app.use(function(req, res, next) {
 
 // Routes
 app.use('/team_performance', teamPerformanceRouter);
+app.use('/league_fixtures', leagueFixturesRouter);
 
 // Defaults
 app.get('/', (req, res) => res.send('Welcome to Express API server'));
