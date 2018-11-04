@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { TeamPerformancesComponent} from "./team-performances/team-performances.component";
 import {HttpClientModule} from "@angular/common/http";
 import {TeamFilterComponent} from "./team-filter/team-filter.component";
+import {TeamPredictionComponent} from "./team-prediction/team-prediction.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         TeamPerformancesComponent,
-        TeamFilterComponent
+        TeamFilterComponent,
+        TeamPredictionComponent
       ],
     }).compileComponents();
   }));

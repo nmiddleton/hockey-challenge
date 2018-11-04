@@ -1,0 +1,9 @@
+<app-team-performances (teamPredictionEmitter)="makePredictions($event)"></app-team-performances>
+<table>
+  <tr><td>TEAM</td><td>Defensive weakness</td><td>Offensive Strength</td></tr>
+  <tr *ngFor="let prediction of filtered_team_predictions">
+    <td>{{ prediction.team }}</td>
+    <td>{{ prediction.str_defence }}</td>
+    <td>{{ prediction.str_offence }}</td>
+  </tr>
+</table>
