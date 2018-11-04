@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { TeamPerformance } from "../team-performance";
 import { TeamPerformanceService } from "../team-performance.service";
-import {Event} from "@angular/router";
+
 
 @Component({
   selector: 'app-team-performances',
