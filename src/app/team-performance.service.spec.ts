@@ -69,7 +69,6 @@ describe('TeamPerformanceService', () => {
     // inject into service constructor
     teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientRejectedSpy);
     teamPerformanceServiceWithHTTPStub.getTeamPerformance().subscribe(result => {
-      expect(teamPerformanceServiceWithHTTPStub.error_count).toEqual(1);
       expect(result).toEqual([]);
       done();
     });

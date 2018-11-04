@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { TeamPerformance } from "../team-performance";
 import { TeamPerformanceService } from "../team-performance.service";
+import {Event} from "@angular/router";
 
 @Component({
   selector: 'app-team-performances',
@@ -9,7 +10,7 @@ import { TeamPerformanceService } from "../team-performance.service";
   styleUrls: ['./team-performances.component.scss']
 })
 export class TeamPerformancesComponent implements OnInit {
-  filtered_team_performances: TeamPerformance[];
+  public filtered_team_performances: TeamPerformance[];
   team_filter_changed_to: string;
 
   constructor(private teamPerformanceService: TeamPerformanceService) {}
@@ -31,5 +32,10 @@ export class TeamPerformancesComponent implements OnInit {
           return this.team_filter_changed_to ? team_performance.id.toUpperCase().startsWith(this.team_filter_changed_to, 0) : team_performance.id;
         })
       );
+  }
+  @Output() teamPredictionEmitter = new EventEmitter<TeamPerformance[]>();
+
+  getTeamPredictions(){
+    this.teamPredictionEmitter.emit(this.filtered_team_performances);
   }
 }
