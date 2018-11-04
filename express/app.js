@@ -2,7 +2,8 @@ var express = require('express'),
     // router = express.Router(),
     bodyParser= require('body-parser'),
     teamPerformanceRouter = require('./routes/teamPerformanceRouter'),
-    leagueFixturesRouter = require('./routes/leagueFixturesRouter');
+    leagueFixturesRouter = require('./routes/leagueFixturesRouter'),
+    cache = require('memory-cache');
 const app = express();
 const port = 3333;
 
@@ -16,12 +17,35 @@ app.use(function(req, res, next) {
   next();
 });
 
+//Cache
+let memCache = new cache.Cache();
+let cacheMiddleware = (duration) => {
+  return (req, res, next) => {
+    let key =  '__express__' + req.originalUrl || req.url;
+    let cacheContent = memCache.get(key);
+    if(cacheContent){
+      console.log('it was cached');
+      res.send( cacheContent );
+      return;
+    }else{
+      console.log('it wasnt cached');
+      res.sendResponse = res.send;
+      res.send = (body) => {
+        memCache.put(key,body,duration*1000);
+        res.sendResponse(body);
+      };
+      next();
+    }
+  }
+};
+app.use(cacheMiddleware(300));
+
 // Routes
-app.use('/team_performance', teamPerformanceRouter);
+app.use('/team_performance',teamPerformanceRouter);
 app.use('/league_fixtures', leagueFixturesRouter);
 
 // Defaults
-app.get('/', (req, res) => res.send('Welcome to Express API server'));
+app.get('/', cacheMiddleware(300), (req, res) => res.send('Welcome to Express API server'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
