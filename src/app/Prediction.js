@@ -54,7 +54,8 @@ function Prediction() {
     function getNextFixtureFor(dd_mmm_yy, team) {
         let next_fixture_date,
             target_date_as_moment,
-            date_closeness = 365;
+            date_closeness = 365,
+            next_fixture_for = { id: team};
         if (dateIsValid(dd_mmm_yy)) {
             target_date_as_moment = moment(dd_mmm_yy, 'DD-MMM-YY', true)
         } else {
@@ -81,9 +82,12 @@ function Prediction() {
             _.some(fixture_list[division_of_team][next_fixture_date], {'home_team': team})
             || _.some(fixture_list[division_of_team][next_fixture_date], {'away_team': team})
         ) {
-            return _.find(fixture_list[division_of_team][next_fixture_date], function (fixture) {
+            let fixture_found =  _.find(fixture_list[division_of_team][next_fixture_date], function (fixture) {
                 return team === fixture.home_team || team === fixture.away_team;
-            })
+            });
+            next_fixture_for.home_team = fixture_found.home_team;
+            next_fixture_for.away_team = fixture_found.away_team;
+            return next_fixture_for;
         } else {
             throw new Error('No fixture found for team: ' + team + 'in div: ' + division_of_team);
         }
@@ -95,13 +99,6 @@ function Prediction() {
         }
         return moment(date, 'DD-MMM-YY', true).isValid();
     }
-    function getPerformanceProperty(fixture, performance_indicator) {
-        let performance = {},
-            division = getDivisionFor(fixture.home_team);
-        performance[fixture.home_team] = _.get(league_tables[division][fixture.home_team], performance_indicator);
-        performance[fixture.away_team] = _.get(league_tables[division][fixture.away_team], performance_indicator);
-        return performance;
-    }
 
     return {
         getLeagueTable: getLeagueTable,
@@ -112,8 +109,7 @@ function Prediction() {
         constructTeamPerformanceData: constructTeamPerformanceData,
         setTeamPerformanceData: setTeamPerformanceData,
         getDivisionFor: getDivisionFor,
-        getNextFixtureFor: getNextFixtureFor,
-        getPerformanceProperty: getPerformanceProperty
+        getNextFixtureFor: getNextFixtureFor
     }
 }
 

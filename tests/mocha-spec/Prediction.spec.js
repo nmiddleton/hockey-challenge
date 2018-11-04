@@ -675,32 +675,9 @@ describe('Predictions', function () {
         it('can find next fixtures for a team', function () {
             expect(prediction.getNextFixtureFor('29-Nov-18', 'Chelmsford 7')).to.deep.equal(
                 {
-                    'home_team': 'Chelmsford 7',
-                    'away_team': 'Old Loughts Willows 2'
-                }
-            );
-        });
-        it('can lookup any given league standing property for a prediction', function () {
-            let fixture = {
-                'home_team': 'Chelmsford 7',
-                'away_team': 'Old Loughts Willows 2'
-            };
-            expect(prediction.getPerformanceProperty(fixture, 'goal_difference')).to.deep.equal(
-                {
-                    'Chelmsford 7': '7',
-                    'Old Loughts Willows 2': '3'
-                }
-            );
-            expect(prediction.getPerformanceProperty(fixture, 'against')).to.deep.equal(
-                {
-                    'Chelmsford 7': '3',
-                    'Old Loughts Willows 2': '4'
-                }
-            );
-            expect(prediction.getPerformanceProperty(fixture, 'for')).to.deep.equal(
-                {
-                    'Chelmsford 7': '10',
-                    'Old Loughts Willows 2': '7'
+                    id: 'Chelmsford 7',
+                    home_team: 'Chelmsford 7',
+                    away_team: 'Old Loughts Willows 2'
                 }
             );
         });
