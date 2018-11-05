@@ -4,28 +4,40 @@
 <br/>
 <table>
   <tr>
-    <td> division </td>
-    <td> id </td>
-    <td> played </td>
-    <td> win </td>
-    <td> draw </td>
-    <td> lose </td>
-    <td> for </td>
-    <td> against </td>
-    <td> goal_difference </td>
-    <td> points </td>
+    <td> division</td>
+    <td> id</td>
+    <td> played</td>
+    <td> win</td>
+    <td> draw</td>
+    <td> lose</td>
+    <td> for</td>
+    <td> against</td>
+    <td> goal_difference</td>
+    <td> points</td>
 
   </tr>
+  <tr *ngFor="let teamPerformance of all_team_performances$ | async" [hidden]="!!filtered_team_performances">
+    <td> {{ teamPerformance.division }}</td>
+    <td> {{ teamPerformance.id }}</td>
+    <td> {{ teamPerformance.played }}</td>
+    <td> {{ teamPerformance.win }}</td>
+    <td> {{ teamPerformance.draw }}</td>
+    <td> {{ teamPerformance.lose }}</td>
+    <td> {{ teamPerformance.for }}</td>
+    <td> {{ teamPerformance.against }}</td>
+    <td> {{ teamPerformance.goal_difference }}</td>
+    <td> {{ teamPerformance.points }}</td>
+  </tr>
   <tr *ngFor="let teamPerformance of filtered_team_performances">
-    <td> {{ teamPerformance.division }} </td>
-    <td> {{ teamPerformance.id }} </td>
-    <td> {{ teamPerformance.played }} </td>
-    <td> {{ teamPerformance.win }} </td>
-    <td> {{ teamPerformance.draw }} </td>
-    <td> {{ teamPerformance.lose }} </td>
-    <td> {{ teamPerformance.for }} </td>
-    <td> {{ teamPerformance.against }} </td>
-    <td> {{ teamPerformance.goal_difference }} </td>
-    <td> {{ teamPerformance.points }} </td>
+    <td> {{ teamPerformance.division }}</td>
+    <td> {{ teamPerformance.id }}</td>
+    <td> {{ teamPerformance.played }}</td>
+    <td> {{ teamPerformance.win }}</td>
+    <td> {{ teamPerformance.draw }}</td>
+    <td> {{ teamPerformance.lose }}</td>
+    <td> {{ teamPerformance.for }}</td>
+    <td> {{ teamPerformance.against }}</td>
+    <td> {{ teamPerformance.goal_difference }}</td>
+    <td> {{ teamPerformance.points }}</td>
   </tr>
 </table>
