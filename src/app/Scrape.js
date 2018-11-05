@@ -2,15 +2,15 @@ const request = require("request-promise"),
     q = require('q'),
     cheerio = require("cheerio"),
     _ = require("lodash"),
-    moment = require('moment');
+    moment = require('moment'),
+    api_url_EMLTable = 'http://localhost:3333/eml_table',
+    api_url_EMLFixtures = 'http://localhost:3333/eml_fixtures/';
 
 let this_league = {},
     fixture_list = {};
 
 function Scrape() {
-    const eml_table_url = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tablesmen.asp?divblock=SE&Submit=League+table',
-        eml_performance_base_url = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/resultsmen.asp?division=',
-        performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
+        const performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
 
     function EMLTables() {
         let division,
@@ -18,7 +18,7 @@ function Scrape() {
             value_count,
             deferred = q.defer();
 
-        request.get(eml_table_url).then(function (result) {
+        request.get(api_url_EMLTable).then(function (result) {
             const $ = cheerio.load(result);
             // No css classes. Looking for the width 150 of the element == disgusting
             return q($('td').each(function (i, elem) {
@@ -77,7 +77,7 @@ function Scrape() {
         let division_fixtures = {};
         //Initialize the division object
         division_fixtures[division] = {};
-        let eml_performance_url = eml_performance_base_url + division,
+        let eml_performance_url = api_url_EMLFixtures + division,
             deferred = q.defer();
 
         request.get(eml_performance_url).then(function (result) {
