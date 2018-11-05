@@ -23,4 +23,10 @@ export class TeamPerformanceService {
         catchError(serviceHelpers.handleErrorAndContinue('get team_performance', []))
       );
   }
+  public getTeamPerformanceFor(team?: string): Observable<TeamPerformance> {
+    return this.http.get<any>(API_URL + '/team_performance/' + team)
+      .pipe(
+        catchError(serviceHelpers.handleErrorAndContinue('get team_performance for ' + team, []))
+      );
+  }
 }
