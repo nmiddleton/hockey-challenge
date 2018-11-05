@@ -3,6 +3,8 @@ var express = require('express'),
     bodyParser= require('body-parser'),
     teamPerformanceRouter = require('./routes/teamPerformanceRouter'),
     leagueFixturesRouter = require('./routes/leagueFixturesRouter'),
+    EMLTableRouter = require('./routes/EMLTableRouter'),
+    EMLFixturesRouter = require('./routes/EMLFixturesRouter'),
     cache = require('memory-cache');
 const app = express();
 const port = 3333;
@@ -24,10 +26,12 @@ let cacheMiddleware = (duration) => {
     let key =  '__express__' + req.originalUrl || req.url;
     let cacheContent = memCache.get(key);
     if(cacheContent){
+      console.log('cache hit', req.originalUrl);
       res.send( cacheContent );
       return;
     }else{
       res.sendResponse = res.send;
+      console.log('cache miss', req.originalUrl);
       res.send = (body) => {
         memCache.put(key,body,duration*1000);
         res.sendResponse(body);
@@ -37,6 +41,10 @@ let cacheMiddleware = (duration) => {
   }
 };
 app.use(cacheMiddleware(300));
+
+//Externals
+app.use('/eml_table',EMLTableRouter);
+app.use('/eml_fixtures',EMLFixturesRouter);
 
 // Routes
 app.use('/team_performance',teamPerformanceRouter);
