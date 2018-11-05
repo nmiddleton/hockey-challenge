@@ -12,6 +12,7 @@ const API_URL = environment.apiURL;
 })
 export class LeagueFixturesService {
 
+
   constructor(
     private http: HttpClient) {
   }

@@ -56,7 +56,11 @@ describe('LeagueFixturesService', () => {
         '05-Jan-19': []
       }
     },
-    expectedFixtureListFor = {'home_team': 'Brentwood 1', 'away_team': 'Wapping 5'};
+    expectedFixtureListFor = {
+      id: 'Brentwood 1',
+      home_team: 'Brentwood 1',
+      away_team: 'Wapping 5'
+    };
 
   beforeEach(() => {
       TestBed.configureTestingModule({imports: [HttpClientModule]});
@@ -66,7 +70,6 @@ describe('LeagueFixturesService', () => {
       HttpClientResolvedSpy.get.and.returnValue(promisedResponseResolved(expectedFixtureList));
       HttpClientRejectedSpy.get.and.returnValue(promisedResponseRejected({status: 500, message: 'Something broke'}));
       // inject into service constructor
-      LeagueFixturesServiceWithHTTPStub = new LeagueFixturesService(<any> HttpClientResolvedSpy);
     }
   )
   ;
@@ -76,18 +79,21 @@ describe('LeagueFixturesService', () => {
     expect(service).toBeTruthy();
   });
   it('retrieves all of the fixtures', (done: DoneFn) => {
+    LeagueFixturesServiceWithHTTPStub = new LeagueFixturesService(<any> HttpClientResolvedSpy);
     LeagueFixturesServiceWithHTTPStub.getFixtureList().subscribe(result => {
       expect(result).toBe(expectedFixtureList);
       done();
     });
   });
   it('continues to pass through if the fixtures call fails', (done: DoneFn) => {
+    LeagueFixturesServiceWithHTTPStub = new LeagueFixturesService(<any> HttpClientRejectedSpy);
     LeagueFixturesServiceWithHTTPStub.getFixtureList().subscribe(result => {
       expect(result).toEqual([]);
       done();
     });
   });
   it('retrieves next fixture for a given team', (done: DoneFn) => {
+    LeagueFixturesServiceWithHTTPStub = new LeagueFixturesService(<any> HttpClientResolvedSpy);
     HttpClientResolvedSpy.get.and.returnValue(promisedResponseResolved(expectedFixtureListFor));
     HttpClientRejectedSpy.get.and.returnValue(promisedResponseRejected({status: 500, message: 'Something broke'}));
     LeagueFixturesServiceWithHTTPStub.getFixtureListFor('Brentwood 1').subscribe(result => {
