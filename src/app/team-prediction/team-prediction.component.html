@@ -1,9 +1,16 @@
 <app-team-performances (teamPredictionEmitter)="makePredictions($event)"></app-team-performances>
 <table>
-  <tr><td>TEAM</td><td>Defensive weakness</td><td>Offensive Strength</td></tr>
+  <tr><td>TEAM</td><td>Defensive weakness</td><td>Offensive Strength</td><td>Opposition Team</td><td>Opposition Defensive weakness</td><td>Opposition Offensive Strength</td><td>score defence</td><td>score attack</td><td>score total</td><td>Location</td></tr>
   <tr *ngFor="let prediction of filtered_team_predictions">
     <td>{{ prediction.team }}</td>
     <td>{{ prediction.str_defence }}</td>
     <td>{{ prediction.str_offence }}</td>
+    <td>{{ prediction.oppo_team }}</td>
+    <td>{{ prediction.oppo_defence }}</td>
+    <td>{{ prediction.oppo_offence }}</td>
+    <td>{{prediction.score_def}}</td>
+    <td>{{prediction.score_off}}</td>
+    <td>{{prediction.score_total}}</td>
+    <td>{{prediction.home_or_away}}</td>
   </tr>
 </table>

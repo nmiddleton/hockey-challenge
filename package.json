@@ -48,6 +48,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/lodash": "^4.14.117",
     "@types/node": "~8.9.4",
+    "@types/sinon": "^5.0.5",
     "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.2",
     "codelyzer": "~4.5.0",
