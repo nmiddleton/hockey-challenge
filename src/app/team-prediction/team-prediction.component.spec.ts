@@ -53,21 +53,21 @@ describe('TeamPredictionComponent', () => {
       oppo_team_performance = new TeamPerformance('Chelmsford 1',
         'se03', '6', '4', '0', '2',
         '17', '7', '10', '12');
-    // it('should create the expected team prediction class', () => {
-    //   const expected_team_prediction = new TeamPrediction(team_performance, team, 3, 1, 6, oppo, 2, 1, 3, 1, 2, 3, 'Home');
-    //   expect(expected_team_prediction.team).toEqual(team);
-    //   expect(expected_team_prediction.str_league).toEqual(3);
-    //   expect(expected_team_prediction.str_defence).toEqual(1);
-    //   expect(expected_team_prediction.str_offence).toEqual(6);
-    //   expect(expected_team_prediction.oppo_team).toEqual(oppo);
-    //   expect(expected_team_prediction.oppo_league).toEqual(2);
-    //   expect(expected_team_prediction.oppo_defence).toEqual(1);
-    //   expect(expected_team_prediction.oppo_offence).toEqual(3);
-    //   expect(expected_team_prediction.score_def).toEqual(1);
-    //   expect(expected_team_prediction.score_off).toEqual(2);
-    //   expect(expected_team_prediction.score_total).toEqual(3);
-    //   expect(expected_team_prediction.home_or_away).toEqual('Home');
-    // });
+    it('should create the expected team prediction class', () => {
+      const expected_team_prediction = new TeamPrediction(team_performance, team, 3, 1, 6, oppo, 2, 1, 3, 1, 2, 3, 'Home');
+      expect(expected_team_prediction.team).toEqual(team);
+      expect(expected_team_prediction.str_league).toEqual(3);
+      expect(expected_team_prediction.str_defence).toEqual(1);
+      expect(expected_team_prediction.str_offence).toEqual(6);
+      expect(expected_team_prediction.oppo_team).toEqual(oppo);
+      expect(expected_team_prediction.oppo_league).toEqual(2);
+      expect(expected_team_prediction.oppo_defence).toEqual(1);
+      expect(expected_team_prediction.oppo_offence).toEqual(3);
+      expect(expected_team_prediction.score_def).toEqual(1);
+      expect(expected_team_prediction.score_off).toEqual(2);
+      expect(expected_team_prediction.score_total).toEqual(3);
+      expect(expected_team_prediction.home_or_away).toEqual('Home');
+    });
     it('getLeagueStrength', () => {
       expect(component.getLeagueStrength(team_performance)).toEqual(3.0);
     });
