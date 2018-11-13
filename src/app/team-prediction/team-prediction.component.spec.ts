@@ -68,12 +68,12 @@ describe('TeamPredictionComponent', () => {
     //   expect(expected_team_prediction.score_total).toEqual(3);
     //   expect(expected_team_prediction.home_or_away).toEqual('Home');
     // });
-    // it('getLeagueStrength', () => {
-    //   expect(component.getLeagueStrength(team_performance)).toEqual(3.0);
-    // });
-    // it('getDefensiveWeakness', () => {
-    //   expect(component.getDefensiveWeakness(team_performance)).toEqual(1.2);
-    // });
+    it('getLeagueStrength', () => {
+      expect(component.getLeagueStrength(team_performance)).toEqual(3.0);
+    });
+    it('getDefensiveWeakness', () => {
+      expect(component.getDefensiveWeakness(team_performance)).toEqual(1.2);
+    });
     it('getOffensiveStrength', () => {
       expect(component.getOffensiveStrength(oppo_team_performance)).toEqual(2.8);
     });
