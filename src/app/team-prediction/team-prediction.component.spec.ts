@@ -68,9 +68,9 @@ describe('TeamPredictionComponent', () => {
     // it('getLeagueStrength', () => {
     //   expect(component.getLeagueStrength(team_performance)).toEqual(3.0);
     // });
-    it('getDefensiveWeakness', () => {
-      expect(component.getDefensiveWeakness(team_performance)).toEqual(1.2);
-    });
+    // it('getDefensiveWeakness', () => {
+    //   expect(component.getDefensiveWeakness(team_performance)).toEqual(1.2);
+    // });
     // it('getOffensiveStrength', () => {
     //   expect(component.getOffensiveStrength(team_performance)).toEqual(5.2);
     // });
