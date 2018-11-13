@@ -30,6 +30,7 @@
     "cheerio": "^1.0.0-rc.2",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
+    "intl": "^1.2.5",
     "lodash": "^4.17.11",
     "memory-cache": "^0.2.0",
     "moment": "^2.22.2",
