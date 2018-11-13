@@ -66,7 +66,7 @@ describe('TeamPredictionComponent', () => {
       expect(expected_team_prediction.home_or_away).toEqual('Home');
     });
     it('getLeagueStrength', () => {
-      expect(component.getLeagueStrength(team_performance)).toEqual(3);
+      expect(component.getLeagueStrength(team_performance)).toEqual(3.0);
     });
     it('getDefensiveWeakness', () => {
       expect(component.getDefensiveWeakness(team_performance)).toEqual(1.2);
