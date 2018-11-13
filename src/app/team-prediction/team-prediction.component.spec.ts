@@ -49,7 +49,7 @@ describe('TeamPredictionComponent', () => {
         id: 'Brentwood 1'
       },
     team = 'Brentwood 1',
-    oppo: 'Chelmsford 1';
+    oppo = 'Chelmsford 1';
     it('should create the expected team prediction class', () => {
       const expected_team_prediction = new TeamPrediction(team_performance, team, 3, 1, 6, oppo, 2, 1, 3, 1, 2, 3, 'Home');
       expect(expected_team_prediction.team).toEqual(team);
