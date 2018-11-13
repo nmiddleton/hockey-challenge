@@ -10,7 +10,18 @@ export class TeamPerformance {
   goal_difference: string;
   points: string;
 
-  constructor(id: string, division: string, played: string, win: string, draw: string, lose: string, gfor: string, gagainst: string, goal_difference: string, points: string) {
+  constructor(
+    id: string,
+    division: string,
+    played: string,
+    win: string,
+    draw: string,
+    lose: string,
+    gfor: string,
+    gagainst: string,
+    goal_difference: string,
+    points: string
+  ) {
     this.id = id;
     this.division = division;
     this.played = played;

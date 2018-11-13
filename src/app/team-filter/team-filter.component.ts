@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-team-filter',
@@ -6,6 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./team-filter.component.scss']
 })
 export class TeamFilterComponent implements OnInit {
+  @Output() teamFilterChangedEmitter = new EventEmitter<string>();
 
   constructor() {
   }
@@ -13,11 +14,7 @@ export class TeamFilterComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Output() teamFilterChangedEmitter = new EventEmitter<string>();
-
-  setFilter(team_starts_with: string){
+  setFilter(team_starts_with: string) {
     this.teamFilterChangedEmitter.emit(team_starts_with);
   }
-
-
 }

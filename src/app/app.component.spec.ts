@@ -1,10 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { TeamPerformancesComponent} from "./team-performances/team-performances.component";
-import {HttpClientModule} from "@angular/common/http";
-import {TeamFilterComponent} from "./team-filter/team-filter.component";
-import {TeamPredictionComponent} from "./team-prediction/team-prediction.component";
+import { TeamPerformancesComponent} from './team-performances/team-performances.component';
+import {HttpClientModule} from '@angular/common/http';
+import {TeamFilterComponent} from './team-filter/team-filter.component';
+import {TeamPredictionComponent} from './team-prediction/team-prediction.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

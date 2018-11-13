@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {TeamPrediction} from "../team-prediction";
-import {TeamPerformance} from "../team-performance";
-import {LeagueFixturesService} from "../league-fixtures.service";
-import {TeamPerformanceService} from "../team-performance.service";
-import {Observable} from "rxjs";
-import {TeamFixture} from "../team-fixture";
+import {TeamPrediction} from '../team-prediction';
+import {TeamPerformance} from '../team-performance';
+import {LeagueFixturesService} from '../league-fixtures.service';
+import {TeamPerformanceService} from '../team-performance.service';
+import {Observable} from 'rxjs';
+import {TeamFixture} from '../team-fixture';
 
 @Component({
   selector: 'app-team-prediction',
@@ -26,15 +26,15 @@ export class TeamPredictionComponent implements OnInit {
   }
 
   getLeagueStrength(team_performance: TeamPerformance) {
-    return Math.round((parseInt(team_performance.points) / parseInt(team_performance.played)));
+    return Math.round((parseInt(team_performance.points, 10) / parseInt(team_performance.played, 10)) * 10) / 10;
   }
 
   getDefensiveWeakness(team_performance: TeamPerformance) {
-    return Math.round((parseInt(team_performance.against) / parseInt(team_performance.played)));
+    return Math.round((parseInt(team_performance.against, 10) / parseInt(team_performance.played, 10)) * 10) / 10;
   }
 
   getOffensiveStrength(team_performance: TeamPerformance) {
-    return Math.round((parseInt(team_performance.for) / parseInt(team_performance.played)));
+    return Math.round((parseInt(team_performance.for, 10) / parseInt(team_performance.played, 10)) * 10) / 10;
   }
 
   getNextFixture(team: string) {
@@ -51,8 +51,8 @@ export class TeamPredictionComponent implements OnInit {
     event.forEach(team_performance => {
         this.getNextFixture(team_performance.id);
         this.filtered_team_fixture$.subscribe(team_fixture => {
-          let oppo_team = team_fixture.id === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
-          let home_fixture_bonus = team_fixture.id === team_fixture.home_team ? 1 : 0;
+          const oppo_team = team_fixture.id === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
+          const home_fixture_bonus = team_fixture.id === team_fixture.home_team ? 1 : 0;
           this.getOppoTeamPerformance(oppo_team);
           this.oppo_team_performance$.subscribe(oppo_team_performance => {
             this.filtered_team_predictions.push(new TeamPrediction(
@@ -65,12 +65,17 @@ export class TeamPredictionComponent implements OnInit {
               this.getLeagueStrength(oppo_team_performance),
               this.getDefensiveWeakness(oppo_team_performance),
               this.getOffensiveStrength(oppo_team_performance),
-              Math.round((this.getDefensiveWeakness(team_performance) + this.getOffensiveStrength(oppo_team_performance)) / 2) + home_fixture_bonus,
-              Math.round((this.getOffensiveStrength(team_performance) + this.getDefensiveWeakness(oppo_team_performance)) / 2) + home_fixture_bonus,
-              Math.round((this.getOffensiveStrength(team_performance) + this.getDefensiveWeakness(oppo_team_performance)) / 2) + home_fixture_bonus - Math.round((this.getDefensiveWeakness(team_performance) + this.getOffensiveStrength(oppo_team_performance)) / 2),
+              Math.round((this.getDefensiveWeakness(team_performance) +
+                this.getOffensiveStrength(oppo_team_performance)) / 2) - home_fixture_bonus,
+              Math.round((this.getOffensiveStrength(team_performance) +
+                this.getDefensiveWeakness(oppo_team_performance)) / 2) + home_fixture_bonus,
+              (this.getOffensiveStrength(team_performance) +
+                this.getDefensiveWeakness(oppo_team_performance)) / 2 + home_fixture_bonus -
+              (this.getDefensiveWeakness(team_performance) + this.getOffensiveStrength(oppo_team_performance)) / 2 +
+              this.getLeagueStrength(team_performance) - this.getLeagueStrength(oppo_team_performance),
               home_fixture_bonus === 1 ? 'Home' : 'Away'
-            ))
-          })
+            ));
+          });
         });
       }
     );

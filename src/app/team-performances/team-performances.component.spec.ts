@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamPerformancesComponent } from './team-performances.component';
 import { TeamFilterComponent } from '../team-filter/team-filter.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TeamPerformancesComponent', () => {
   let component: TeamPerformancesComponent;
@@ -29,7 +29,7 @@ describe('TeamPerformancesComponent', () => {
     expect(component).toBeTruthy();
   });
   it('handles the team filter event change, setting this.team_filter_changed_to', () => {
-    let event = 'New team searched..';
+    const event = 'New team searched..';
     component.handleTeamFilterChanged(event);
     expect(component.team_filter_changed_to).toBe(event.toUpperCase());
   });

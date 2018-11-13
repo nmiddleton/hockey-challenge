@@ -1,4 +1,4 @@
-import {TeamPerformance} from "./team-performance";
+import {TeamPerformance} from './team-performance';
 
 export class TeamPrediction {
   performance: TeamPerformance;
@@ -15,7 +15,19 @@ export class TeamPrediction {
   score_total: number;
   home_or_away: string;
 
-  constructor(team_performance: TeamPerformance, team: string, strength_league: number, strength_defence: number, strength_offence: number, oppo_team: string, oppo_league: number, oppo_defence: number, oppo_offence: number, score_def: number, score_off: number, score_total: number, home_or_away: string)  {
+  constructor(team_performance: TeamPerformance,
+              team: string,
+              strength_league: number,
+              strength_defence: number,
+              strength_offence: number,
+              oppo_team: string,
+              oppo_league: number,
+              oppo_defence: number,
+              oppo_offence: number,
+              score_def: number,
+              score_off: number,
+              score_total: number,
+              home_or_away: string) {
     this.performance = team_performance;
     this.team = team;
     this.str_league = strength_league;

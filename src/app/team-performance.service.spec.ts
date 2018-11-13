@@ -1,10 +1,10 @@
 import {TestBed} from '@angular/core/testing';
 
 import {TeamPerformanceService} from './team-performance.service';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 
-import {defer} from "rxjs";
-import {TeamPerformance} from "./team-performance";
+import {defer} from 'rxjs';
+import {TeamPerformance} from './team-performance';
 
 // Promisify a response
 export function promisedResponseResolved<T>(data: T) {
@@ -19,8 +19,7 @@ describe('TeamPerformanceService', () => {
   let HttpClientResolvedSpy: { get: jasmine.Spy },
     HttpClientRejectedSpy: { get: jasmine.Spy },
     teamPerformanceServiceWithHTTPStub: TeamPerformanceService;
-  const expectedSingleTeamPerformance =
-      {
+  const expectedSingleTeamPerformance = {
         played: '6',
         win: '6',
         draw: '0',

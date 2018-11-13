@@ -1,9 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
-import {TeamPerformance} from "../team-performance";
-import {TeamPerformanceService} from "../team-performance.service";
+import {TeamPerformance} from '../team-performance';
+import {TeamPerformanceService} from '../team-performance.service';
 
-import { Observable} from "rxjs";
+import { Observable} from 'rxjs';
 
 @Component({
   selector: 'app-team-performances',
@@ -16,6 +16,9 @@ export class TeamPerformancesComponent implements OnInit {
   all_team_performances$: Observable<TeamPerformance[]>;
 
   constructor(private teamPerformanceService: TeamPerformanceService) {}
+
+  @Output() teamPredictionEmitter = new EventEmitter<TeamPerformance[]>();
+
   ngOnInit() {
     this.getTeamPerformances();
   }
@@ -25,8 +28,10 @@ export class TeamPerformancesComponent implements OnInit {
     this.team_filter_changed_to = event.toUpperCase();
     this.all_team_performances$.subscribe(team_performances => {
       this.filtered_team_performances = team_performances.filter((team_performance: TeamPerformance) => {
-        return this.team_filter_changed_to ? team_performance.id.toUpperCase().startsWith(this.team_filter_changed_to, 0) : team_performance.id;
-      })
+        return this.team_filter_changed_to ?
+          team_performance.id.toUpperCase().startsWith(this.team_filter_changed_to, 0) :
+          team_performance.id;
+      });
     });
   }
 
@@ -34,9 +39,8 @@ export class TeamPerformancesComponent implements OnInit {
     // returns an Observable array of TeamPerformance
     this.all_team_performances$ = this.teamPerformanceService.getTeamPerformance();
   }
-  @Output() teamPredictionEmitter = new EventEmitter<TeamPerformance[]>();
 
-  getTeamPredictions(){
+  getTeamPredictions() {
     this.teamPredictionEmitter.emit(this.filtered_team_performances);
   }
 }

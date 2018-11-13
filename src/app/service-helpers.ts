@@ -1,6 +1,6 @@
-import {Observable, of} from "rxjs";
+import {Observable, of} from 'rxjs';
 
-export class serviceHelpers {
+export class ServiceHelpers {
 
 
   static handleErrorAndContinue<T>(operation = 'operation', result?: T) {

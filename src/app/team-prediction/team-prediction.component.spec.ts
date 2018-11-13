@@ -1,11 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TeamPredictionComponent} from './team-prediction.component';
-import {TeamPerformance} from "../team-performance";
-import {TeamPerformancesComponent} from "../team-performances/team-performances.component";
-import {TeamFilterComponent} from "../team-filter/team-filter.component";
-import {HttpClientModule} from "@angular/common/http";
-import {TeamPrediction} from "../team-prediction";
+import {TeamPerformance} from '../team-performance';
+import {TeamPerformancesComponent} from '../team-performances/team-performances.component';
+import {TeamFilterComponent} from '../team-filter/team-filter.component';
+import {HttpClientModule} from '@angular/common/http';
+import {TeamPrediction} from '../team-prediction';
 
 describe('TeamPredictionComponent', () => {
   let component: TeamPredictionComponent;
@@ -36,7 +36,7 @@ describe('TeamPredictionComponent', () => {
   });
 
   describe('prediction functions', () => {
-    let team_performance: TeamPerformance = {
+    const team_performance: TeamPerformance = {
         played: '6',
         win: '6',
         draw: '0',
@@ -51,7 +51,7 @@ describe('TeamPredictionComponent', () => {
     team = 'Brentwood 1',
     oppo: 'Chelmsford 1';
     it('should create the expected team prediction class', () => {
-      let expected_team_prediction = new TeamPrediction(team_performance, team, 3, 1, 6, oppo, 2, 1, 3, 1, 2, 3, 'Home');
+      const expected_team_prediction = new TeamPrediction(team_performance, team, 3, 1, 6, oppo, 2, 1, 3, 1, 2, 3, 'Home');
       expect(expected_team_prediction.team).toEqual(team);
       expect(expected_team_prediction.str_league).toEqual(3);
       expect(expected_team_prediction.str_defence).toEqual(1);

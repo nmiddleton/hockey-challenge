@@ -8,7 +8,7 @@ import { TeamPerformanceService } from './team-performance.service';
 import { TeamPerformancesComponent } from './team-performances/team-performances.component';
 import { TeamFilterComponent } from './team-filter/team-filter.component';
 import { TeamPredictionComponent } from './team-prediction/team-prediction.component';
-import {LeagueFixturesService} from "./league-fixtures.service";
+import {LeagueFixturesService} from './league-fixtures.service';
 
 @NgModule({
   declarations: [

@@ -6,6 +6,6 @@ export class TeamFixture {
   constructor(id: string, home_team: string, away_team: string) {
     this.id = id;
     this.home_team = home_team;
-    this.away_team = away_team
+    this.away_team = away_team;
   }
 }
