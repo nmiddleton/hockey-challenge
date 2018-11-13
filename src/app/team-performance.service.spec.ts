@@ -83,7 +83,7 @@ describe('TeamPerformanceService', () => {
     // inject into service constructor
     teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientResolvedSpy);
     teamPerformanceServiceWithHTTPStub.getTeamPerformanceFor('Brentwood 1').subscribe(result => {
-      expect(result).toBe(expectedSingleTeamPerformance);
+      expect(result.valueOf()).toBe(expectedSingleTeamPerformance);
       done();
     });
   });
