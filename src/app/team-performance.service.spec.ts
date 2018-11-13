@@ -78,15 +78,15 @@ describe('TeamPerformanceService', () => {
       done();
     });
   });
-  it('retrieves single team performance', (done: DoneFn) => {
-    HttpClientResolvedSpy.get.and.returnValue(promisedResponseResolved(expectedSingleTeamPerformance));
-    // inject into service constructor
-    teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientResolvedSpy);
-    teamPerformanceServiceWithHTTPStub.getTeamPerformanceFor('Brentwood 1').subscribe(result => {
-      expect(result.valueOf()).toBe(expectedSingleTeamPerformance);
-      done();
-    });
-  });
+  // it('retrieves single team performance', (done: DoneFn) => {
+  //   HttpClientResolvedSpy.get.and.returnValue(promisedResponseResolved(expectedSingleTeamPerformance));
+  //   // inject into service constructor
+  //   teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientResolvedSpy);
+  //   teamPerformanceServiceWithHTTPStub.getTeamPerformanceFor('Brentwood 1').subscribe(result => {
+  //     expect(result.valueOf()).toBe(expectedSingleTeamPerformance);
+  //     done();
+  //   });
+  // });
   it('continues to pass through if the team performance call fails but increments an error count', (done: DoneFn) => {
     // inject into service constructor
     teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientRejectedSpy);
