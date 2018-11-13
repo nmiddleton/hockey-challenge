@@ -71,8 +71,8 @@ describe('TeamPredictionComponent', () => {
     // it('getDefensiveWeakness', () => {
     //   expect(component.getDefensiveWeakness(team_performance)).toEqual(1.2);
     // });
-    // it('getOffensiveStrength', () => {
-    //   expect(component.getOffensiveStrength(team_performance)).toEqual(5.2);
-    // });
+    it('getOffensiveStrength', () => {
+      expect(component.getOffensiveStrength(team_performance)).toEqual(5.2);
+    });
   });
 });
