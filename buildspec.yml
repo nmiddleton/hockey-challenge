@@ -3,14 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
-
-  finally:
-
   pre_build:
     commands:
-
     finally:
-
   build:
     commands:
     - npm install
@@ -20,12 +15,9 @@ phases:
     - zip -r dist.zip dist
     - ls -lart
     finally:
-
   post_build:
     commands:
-
     finally:
-
 artifacts:
   files:
   - 'dist.zip'
