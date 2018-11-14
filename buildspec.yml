@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+
+  finally:
+
+  pre_build:
+    commands:
+
+    finally:
+
+  build:
+    commands:
+    - npm install
+    - npm run lint
+    - npm run test
+    - npm run build
+    - zip -r dist.zip dist
+    - ls -lart
+    finally:
+
+  post_build:
+    commands:
+
+    finally:
+
+artifacts:
+  files:
+  - 'dist.zip'
+  - name ngm-$(date +%Y-%m-%d)
+  discard-paths: yes
