@@ -7,10 +7,9 @@ phases:
     - npm run lint
     - npm run test
     - npm run build
-    - zip -r dist.zip dist
     - mkdir target
-    - mv ./dist.zip ./target/dist.zip
+    - mv ./dist ./target/dist
     - ls -lart ./target
 artifacts:
   files:
-    - target/dist.zip
+    - target/dist/**/*
