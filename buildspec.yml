@@ -10,10 +10,10 @@ phases:
     - npm run test
     - npm run build
     - zip -r dist.zip dist
-    - ls -lart
+    - mkdir target
+    - mv ./dist.zip ./target/dist.zip
+    - ls -lart ./target
   post_build:
 artifacts:
   files:
-  - 'dist.zip'
-  - name ngm-$(date +%Y-%m-%d)
-  discard-paths: yes
+    - target/dist.zip
