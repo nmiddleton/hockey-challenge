@@ -1,6 +1,6 @@
 # HockeyChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+This project resulted as a friendly challenge between a few technically minded people at my hockey club. Can we use code to gain an advantage on each other and the reso of the field to improve our chances of winning a fantasy sports game. How am I doing? Let's go and see? https://chelmsford.fantasyclubhockey.co.uk/team-standings
 
 ## Development server
 
