@@ -48,11 +48,11 @@ const repository = (db) => {
       })
   }
   const getFixturesFor = (team) => {
-    const query_home_team = {home_team: team},
+    const query_team = {$or: [{home_team: team},{away_team: team} ] },
       team_fixtures = []
     return new Promise((resolve, reject) => {
       // Get the documents as a cursor (for iteration through)
-      const cursor = fixtures_collection.find(query_home_team)
+      const cursor = fixtures_collection.find(query_team)
 
 
       cursor.forEach((fixture) => {
@@ -73,10 +73,12 @@ const repository = (db) => {
   }
 
   const getNextFixtureFor = (team, dd_mmm_yy) => {
-    getFixturesFor(team)
-      .then((fixtures) => {
-        return getNextFixtureFrom(fixtures, dd_mmm_yy)
-      })
+    return new Promise((resolve, reject) => {
+      getFixturesFor(team)
+        .then((fixtures) => {
+          resolve(getNextFixtureFrom(fixtures, dd_mmm_yy))
+        })
+    })
   }
 
 
