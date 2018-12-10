@@ -11,4 +11,11 @@ module.exports = (app, options) => {
       })
       .catch(next)
   })
+  app.post('/fixtures', (req, res, next) => {
+    repo.refreshAllFixtures()
+      .then(fixtures => {
+        res.status(status.OK).json(fixtures)
+      })
+      .catch(next)
+  })
 }

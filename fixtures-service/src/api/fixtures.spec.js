@@ -25,16 +25,23 @@ describe('Fixtures API', () => {
     'fixture_date': '12-Jan-19',
     'home_team': 'Maldon 2'
   }];
+  // const mock_fixtures_source = require('../../../tests/mocha-spec/expectations/expected_fixtures_as_collection.js')
+  const sourceAllFixtures = () => {
+    return Promise.resolve(test_fixtures)
+  }
 
   let testRepo = {
     getAllFixtures() {
+      return Promise.resolve(test_fixtures)
+    },
+    refreshAllFixtures() {
       return Promise.resolve(test_fixtures)
     }
   }
 
   beforeEach(() => {
     return server.start({
-      port: 3000,
+      port: Math.floor(Math.random() * (1000)) + 3000,
       repo: testRepo
     }).then(serv => {
       app = serv
@@ -46,9 +53,22 @@ describe('Fixtures API', () => {
     app = null
   })
 
-  it('can return all fixtures2', (done) => {
+  it('can return all fixtures', (done) => {
     request(app)
       .get('/fixtures')
+      .expect((res) => {
+        res.body.should.containEql({
+          'away_team': 'Maldon 2',
+          'division': '3se',
+          'fixture_date': '29-Sep-18',
+          'home_team': 'Old Loughts Academy'
+        })
+      })
+      .expect(200, done)
+  })
+  it('can re-source all fixtures', (done) => {
+    request(app)
+      .post('/fixtures')
       .expect((res) => {
         res.body.should.containEql({
           'away_team': 'Maldon 2',

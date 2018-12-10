@@ -1,13 +1,14 @@
-const request = require("request-promise"),
+const request = require('request-promise'),
     q = require('q'),
-    cheerio = require("cheerio"),
-    _ = require("lodash"),
+    cheerio = require('cheerio'),
+    _ = require('lodash'),
     moment = require('moment'),
     api_url_EMLTable = 'http://localhost:3333/eml_table',
     api_url_EMLFixtures = 'http://localhost:3333/eml_fixtures/';
 
 let this_league = {},
     fixture_list = {};
+    fixture_collection = [];
 
 function Scrape() {
         const performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
@@ -118,6 +119,76 @@ function Scrape() {
         });
         return deferred.promise;
     }
+
+  function EMLFixturesAsCollection(divisions) {
+    let deferred = q.defer();
+    // create array of promises
+    let division_get_promises = _.map(divisions, function (division) {
+      return EMLFixturesAsCollectionFor(division);
+    });
+    q.allSettled(division_get_promises).then(function (division_responses) {
+      _.forEach(division_responses, function (response) {
+
+        fixture_collection = _.union(fixture_collection, response.value);
+      });
+      deferred.resolve(fixture_collection);
+    }).done();
+    return deferred.promise;
+
+  }
+
+  function EMLFixturesAsCollectionFor(division) {
+
+        //Initialize the division object
+        let eml_performance_url = api_url_EMLFixtures + division,
+          fixtures = [],
+            deferred = q.defer();
+
+    request.get(eml_performance_url).then(function (result) {
+            const $ = cheerio.load(result);
+            let
+              fixture_date = '',
+              home_team = '',
+              away_team = '';
+
+            return q($('td').each(function (i, elem) {
+                let td_text = $(this).text().trim();
+
+                //Again, no cheerio anchors except for td width :(
+                if ($(this).attr('width') === '225') {
+                    // Is the td the date or home team in fixture?
+                    if (moment(td_text, 'DD-MMM-YY', true).isValid() || moment(td_text, 'D-MMM-YY', true).isValid()) {
+                        // is a date
+                        fixture_date = sanitiseDate(td_text);
+                    } else {
+                        // is a home team
+                        home_team = td_text;
+                    }
+                }
+                if ($(this).attr('width') === '275') {
+                    if (_.words(td_text).length > 0) {
+                        // is away team
+                        away_team = td_text;
+                        // date, home_team and away_team found, create the JSON record
+                        fixtures.push({
+                          _id: fixture_date + ':' + home_team,
+                          division: division,
+                          fixture_date: fixture_date,
+                          home_team: home_team,
+                          away_team: away_team
+                        });
+                    }
+                }
+            })).then(function () {
+                // return the fixtures for this division
+                deferred.resolve(fixtures);
+            }).catch(function (err) {
+                deferred.reject(new Error('Error with fixture list: ' + err));
+            });
+
+        });
+        return deferred.promise;
+    }
     function sanitiseDate(date){
         if (date.length === 8){
             return 0 + date; //pad leading zero in 1-Dec-18 > 01-Dec-18
@@ -128,9 +199,11 @@ function Scrape() {
 
     return {
         fixture_list: fixture_list,
+        fixture_collection: fixture_collection,
         EMLTables: EMLTables,
         getLeagueDivisions: getLeagueDivisions,
-        EMLFixtures: EMLFixtures
+        EMLFixtures: EMLFixtures,
+        EMLFixturesAsCollection: EMLFixturesAsCollection
     }
 }
 

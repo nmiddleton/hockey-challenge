@@ -2,7 +2,6 @@ const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const cache = require('memory-cache')
-const spdy = require('spdy')
 const fixtureAPI = require('../api/fixtures')
 
 const start = (options) => {
@@ -51,8 +50,7 @@ const start = (options) => {
 
     fixtureAPI(app, options)
 
-    const server = spdy.createServer(options.ssl, app)
-      .listen(options.port, () => resolve(server))
+    const server = app.listen(options.port, () => resolve(server))
   })
 }
 
