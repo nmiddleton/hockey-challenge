@@ -1,7 +1,7 @@
 'use strict'
 const Scrape = require('../../../src/app/Scrape')
-const scrape = new Scrape();
-
+const scrape = new Scrape()
+const getNextFixtureFrom = require('./getNextFixtureFrom')
 
 const repository = (db) => {
   const fixtures_collection = db.collection('fixtures')
@@ -47,6 +47,37 @@ const repository = (db) => {
         })
       })
   }
+  const getFixturesFor = (team) => {
+    const query_home_team = {home_team: team},
+      team_fixtures = []
+    return new Promise((resolve, reject) => {
+      // Get the documents as a cursor (for iteration through)
+      const cursor = fixtures_collection.find(query_home_team)
+
+
+      cursor.forEach((fixture) => {
+        console.log('found!', JSON.stringify(fixture, null, 4));
+        // saves to private variable fixtures
+        team_fixtures.push(fixture)
+      }, (err, doc) => {
+        if (err) {
+          reject(new Error('Error finding fixtures: ' + err))
+        } else {
+          if (!!doc && doc.count === 0) {
+            console.log('None found')
+          }
+          resolve(team_fixtures)
+        }
+      })
+    })
+  }
+
+  const getNextFixtureFor = (team, dd_mmm_yy) => {
+    getFixturesFor(team)
+      .then((fixtures) => {
+        return getNextFixtureFrom(fixtures, dd_mmm_yy)
+      })
+  }
 
 
   // this will close the database connection
@@ -56,6 +87,8 @@ const repository = (db) => {
 
   return Object.create({
     getAllFixtures,
+    getFixturesFor,
+    getNextFixtureFor,
     refreshAllFixtures,
     disconnect
   })

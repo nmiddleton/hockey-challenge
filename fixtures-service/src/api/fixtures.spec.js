@@ -40,6 +40,11 @@ describe('Fixtures API', () => {
     },
     refreshAllFixtures() {
       return Promise.resolve(test_fixtures)
+    },
+    getFixturesFor(team) {
+      return Promise.resolve(test_fixtures.filter((fixture) => {
+        return fixture.home_team === team
+      }))
     }
   }
 
@@ -71,7 +76,7 @@ describe('Fixtures API', () => {
       })
       .expect(200, done)
   })
-  it('can re-source all fixtures', (done) => {
+  it('can refresh from source all fixtures with a POST', (done) => {
     request(app)
       .post('/fixtures')
       .expect((res) => {
@@ -82,6 +87,28 @@ describe('Fixtures API', () => {
           fixture_date: '29-Sep-18',
           home_team: 'Old Loughts Academy'
         })
+      })
+      .expect(200, done)
+  })
+  it('returns 200 for an known team\'s fixtures' , (done) => {
+    request(app)
+      .get('/fixtures/Maldon 2')
+      .expect((res) => {
+        res.body.should.deepEqual([
+          {
+            away_team: 'Basildon 1',
+            division: '3se',
+            fixture_date: '22-Sep-18',
+            home_team: 'Maldon 2',
+            _id: '22-Sep-18:Basildon 1'
+          }, {
+            away_team: 'Old Loughts Academy',
+            division: '4se',
+            fixture_date: '12-Jan-19',
+            home_team: 'Maldon 2',
+            _id: '12-Jan-19:Maldon 2'
+          }
+        ])
       })
       .expect(200, done)
   })
