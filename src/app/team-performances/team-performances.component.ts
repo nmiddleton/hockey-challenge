@@ -14,6 +14,7 @@ export class TeamPerformancesComponent implements OnInit {
   public filtered_team_performances: TeamPerformance[];
   team_filter_changed_to: string;
   all_team_performances$: Observable<TeamPerformance[]>;
+  filtered_team_performances$: Observable<TeamPerformance[]>;
 
   constructor(private teamPerformanceService: TeamPerformanceService) {}
 
@@ -25,13 +26,10 @@ export class TeamPerformancesComponent implements OnInit {
 
   handleTeamFilterChanged(event) {
     // get the teams matching this
+    this.filtered_team_performances$ = this.teamPerformanceService.getTeamPerformancesFor(event);
     this.team_filter_changed_to = event.toUpperCase();
-    this.all_team_performances$.subscribe(team_performances => {
-      this.filtered_team_performances = team_performances.filter((team_performance: TeamPerformance) => {
-        return this.team_filter_changed_to ?
-          team_performance.id.toUpperCase().startsWith(this.team_filter_changed_to, 0) :
-          team_performance.id;
-      });
+    this.filtered_team_performances$.subscribe(filtered_team_performances => {
+      this.filtered_team_performances = filtered_team_performances;
     });
   }
 
