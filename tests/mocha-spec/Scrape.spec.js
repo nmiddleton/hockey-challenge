@@ -5,6 +5,7 @@ const expect = require('chai').expect,
     eml_table_html = require('./stub_responses/EMLTablesResponse.js'),
     eml_fixtures_html = require('./stub_responses/EMLFixturesResponse.js'),
     expected_league_as_json = require('./expectations/expected_league_as_json.js'),
+    expected_league_as_collection = require('./expectations/expected_league_as_collection.js'),
     expected_fixtures_as_json = require('./expectations/expected_fixtures_as_json.js'),
     expected_fixtures_as_collection= require('./expectations/expected_fixtures_as_collection.js');
 
@@ -19,13 +20,18 @@ describe('Scraping..', function () {
         afterEach(function () {
             sandbox.restore();
         });
-        it('should parse the EML Table html into an object', function (done) {
-            Scrape().EMLTables().then(function (result) {
+        it('should parse the EML Table html into a JSON object', function (done) {
+            Scrape().EMLTablesAsJSON().then(function (result) {
                 expect(result).to.deep.equal(expected_league_as_json());
             }).done(done);
         });
+        it('should parse the EML Table html into a JSON collection for mongodb', function (done) {
+            Scrape().EMLTablesAsCollection().then(function (result) {
+                expect(result).to.deep.equal(expected_league_as_collection());
+            }).done(done);
+        });
         it('should collect the divisions so that we can then query the fixtures for each division', function (done) {
-            Scrape().EMLTables().then(function (result) {
+            Scrape().EMLTablesAsJSON().then(function (result) {
                 expect(Scrape().getLeagueDivisions(result)).to.deep.equal(expected_league_divisions);
             }).done(done);
         });
@@ -39,11 +45,6 @@ describe('Scraping..', function () {
         afterEach(function () {
           sandbox.restore();
         });
-        // it('the stub works', function () {
-        //     request.get('something').then(function (result) {
-        //         expect(result).to.equal(eml_fixtures_html());
-        //     });
-        // });
         it('should parse the EML Fixtures html into an object', function (done) {
           Scrape().EMLFixtures(expected_league_divisions).then(function (result) {
             expect(result).to.deep.equal(expected_fixtures_as_json());

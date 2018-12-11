@@ -13,7 +13,7 @@ let this_league = {},
 function Scrape() {
         const performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
 
-    function EMLTables() {
+    function EMLTablesAsJSON() {
         let division,
             team_name,
             value_count,
@@ -50,6 +50,49 @@ function Scrape() {
             }).catch(function (err) {
                 deferred.reject(err);
             });
+        });
+        return deferred.promise;
+    }
+    function EMLTablesAsCollection() {
+        let division,
+            value_count,
+            deferred = q.defer();
+
+        request.get(api_url_EMLTable).then(function (result) {
+            const $ = cheerio.load(result);
+            let team_performances = [];
+            let team_performance;
+                // No css classes. Looking for the width 150 of the element == disgusting
+                return q($('td').each(function (i, elem) {
+                    let td_text = $(this).text().trim();
+                    if ($(this).attr('width') === '150') {
+                        // DIV/team_name are both in the width 150 element
+                        td_text = td_text.trim();
+                        if (_.startsWith(td_text, 'DIVISION')) {
+                            division = _.trim(td_text.toLowerCase(), '\s+division ');
+                        } else if (_.words(td_text).length > 0) {
+                            // It's a team_name
+                            team_performance = {
+                                _id: td_text,
+                                division: division
+                            }
+                            value_count = 0; //start tracking the performance counter in the array of performance_property
+                        }
+                    } else if ($(this).attr('width') === '30') {
+                        // It's a performance property
+                        if (performance_property[value_count]) { //tracked
+                            team_performance[performance_property[value_count]] =  td_text;
+                        }
+                        value_count++;
+                        if (value_count === performance_property.length) {
+                            team_performances.push(team_performance);
+                        }
+                    }
+                })).then(function () {
+                    deferred.resolve(team_performances);
+                }).catch(function (err) {
+                    deferred.reject(err);
+                });
         });
         return deferred.promise;
     }
@@ -200,7 +243,8 @@ function Scrape() {
     return {
         fixture_list: fixture_list,
         fixture_collection: fixture_collection,
-        EMLTables: EMLTables,
+        EMLTablesAsJSON: EMLTablesAsJSON,
+        EMLTablesAsCollection: EMLTablesAsCollection,
         getLeagueDivisions: getLeagueDivisions,
         EMLFixtures: EMLFixtures,
         EMLFixturesAsCollection: EMLFixturesAsCollection
