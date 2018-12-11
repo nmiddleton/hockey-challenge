@@ -11,7 +11,7 @@ describe('Fixtures API', () => {
     home_team: 'Maldon 2',
     _id: '22-Sep-18:Basildon 1'
   }, {
-    away_team: 'Maldon 2',
+    away_team: 'Chelmsford 2',
     division: '3se',
     fixture_date: '29-Sep-18',
     home_team: 'Old Loughts Academy',
@@ -29,10 +29,6 @@ describe('Fixtures API', () => {
     home_team: 'Maldon 2',
     _id: '12-Jan-19:Maldon 2'
   }];
-  // const mock_fixtures_source = require('../../../tests/mocha-spec/expectations/expected_fixtures_as_collection.js')
-  const sourceAllFixtures = () => {
-    return Promise.resolve(test_fixtures)
-  }
 
   let testRepo = {
     getAllFixtures() {
@@ -43,7 +39,7 @@ describe('Fixtures API', () => {
     },
     getFixturesFor(team) {
       return Promise.resolve(test_fixtures.filter((fixture) => {
-        return fixture.home_team === team
+        return fixture.home_team === team || fixture.away_team === team
       }))
     }
   }
@@ -68,7 +64,7 @@ describe('Fixtures API', () => {
       .expect((res) => {
         res.body.should.containEql({
           _id: '29-Sep-18:Old Loughts Academy',
-          away_team: 'Maldon 2',
+          away_team: 'Chelmsford 2',
           division: '3se',
           fixture_date: '29-Sep-18',
           home_team: 'Old Loughts Academy'
@@ -82,7 +78,7 @@ describe('Fixtures API', () => {
       .expect((res) => {
         res.body.should.containEql({
           _id: '29-Sep-18:Old Loughts Academy',
-          away_team: 'Maldon 2',
+          away_team: 'Chelmsford 2',
           division: '3se',
           fixture_date: '29-Sep-18',
           home_team: 'Old Loughts Academy'
@@ -101,6 +97,12 @@ describe('Fixtures API', () => {
             fixture_date: '22-Sep-18',
             home_team: 'Maldon 2',
             _id: '22-Sep-18:Basildon 1'
+          }, {
+            away_team: 'Maldon 2',
+            division: '4se',
+            fixture_date: '08-Dec-18',
+            home_team: 'Basildon 1',
+            _id: '08-Dec-18:Basildon 1'
           }, {
             away_team: 'Old Loughts Academy',
             division: '4se',
