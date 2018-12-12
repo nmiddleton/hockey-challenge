@@ -17,6 +17,12 @@ export class TeamPerformanceService {
   constructor(
     private http: HttpClient) { }
 
+  public refreshTeamPerformance(): Observable<TeamPerformance[]> {
+    return this.http.post<TeamPerformance[]>(PERFORMANCES_API_URL + '/performances',null, {})
+      .pipe(
+        catchError(ServiceHelpers.handleErrorAndContinue('get team_performance', []))
+      );
+  }
   public getTeamPerformance(): Observable<TeamPerformance[]> {
     return this.http.get<TeamPerformance[]>(PERFORMANCES_API_URL + '/performances')
       .pipe(

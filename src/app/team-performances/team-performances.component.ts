@@ -21,7 +21,8 @@ export class TeamPerformancesComponent implements OnInit {
   @Output() teamPredictionEmitter = new EventEmitter<TeamPerformance[]>();
 
   ngOnInit() {
-    this.getTeamPerformances();
+    // Refresh performances from source with POST to /performances
+    this.all_team_performances$ = this.teamPerformanceService.refreshTeamPerformance();
   }
 
   handleTeamFilterChanged(event) {

@@ -32,13 +32,19 @@ const repository = (db) => {
     })
   }
   const getPerformanceFor = (team) => {
-    let team_query = {'id': team}
-    console.log('getPerformanceFor looking for', team);
+    let team_query = {'_id': team}
+    console.log('getPerformanceFor looking for', team_query);
 
     return new Promise((resolve, reject) => {
       // Get the documents as a cursor (for iteration through)
-      resolve(performances_collection.findOne(team_query))
+      performances_collection.findOne(team_query, (err,performance) => {
+        if (err) reject(err);
 
+        performance['id'] = performance['_id']
+        delete performance['_id']
+        resolve(performance)
+        }
+      )
     })
   }
 
@@ -71,18 +77,20 @@ const repository = (db) => {
   }
 
   const refreshAllPerformances = () => {
-    return Scrape().EMLTablesAsCollection()
-      .then((performances) => {
+    return new Promise((resolve, reject) => {
+      return Scrape().EMLTablesAsCollection()
+        .then((performances) => {
 
-        performances_collection.drop((err, res) => {
-          if (err) throw err
-          console.log('Collection dropped:')
+          performances_collection.drop((err, res) => {
+            console.log('Collection dropped:')
+          })
+          performances_collection.insertMany(performances, (err, res) => {
+            if (err) reject(err)
+            console.log('No. of performances inserted:', res.insertedCount)
+            resolve(performances)
+          })
         })
-        performances_collection.insertMany(performances, (err, res) => {
-          if (err) throw err
-          console.log('No. of documents inserted:', res.insertedCount)
-        })
-      })
+    })
   }
 
 
