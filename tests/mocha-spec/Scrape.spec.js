@@ -6,10 +6,10 @@ const expect = require('chai').expect,
   ewl_table_html = require('./stub_responses/EWLTablesResponse.js'),
   eml_fixtures_html = require('./stub_responses/EMLFixturesResponse.js'),
   ewl_fixtures_html = require('./stub_responses/EWLFixturesResponse.js'),
-  expected_performances_as_collection = require('./expectations/expected_performances_as_collection'),
+  expected_eml_performances_as_collection = require('./expectations/expected_eml_performances_as_collection'),
   expected_ewl_performances_as_collection = require('./expectations/expected_ewl_performances_as_collection'),
-  expected_fixtures_as_collection = require('./expectations/expected_fixtures_as_collection.js'),
-  expected_ewl_fixtures_as_collection = require('./expectations/expected_ewl_fixtures_as_collection.js');
+  expected_eml_fixtures_as_collection = require('./expectations/expected_eml_fixtures_as_collection'),
+  expected_ewl_fixtures_as_collection = require('./expectations/expected_ewl_fixtures_as_collection');
 
 let sandbox;
 describe('Scraping..', function () {
@@ -23,13 +23,13 @@ describe('Scraping..', function () {
     });
     it('should parse the EML Table html into a JSON collection for mongodb', function (done) {
       Scrape().EMLTablesAsCollection().then(function (result) {
-        expect(result).to.deep.equal(expected_performances_as_collection());
+        expect(result).to.deep.equal(expected_eml_performances_as_collection());
       }).done(done);
     });
   });
   describe('the EML divisions ', function () {
     it('gets the divisions from the team performances collection', function () {
-      expect(Scrape().getDivisionsFrom(expected_performances_as_collection())).to.deep.equal([ '3se', '4se', '5se', '6se', '7se', '8se', '9se', '10se' ])
+      expect(Scrape().getDivisionsFrom(expected_eml_performances_as_collection())).to.deep.equal([ '3se', '4se', '5se', '6se', '7se', '8se', '9se', '10se' ])
     });
   });
   describe('the EWL Tables', function () {
@@ -62,7 +62,7 @@ describe('Scraping..', function () {
     });
     it('should parse the EML Fixtures html into a JSON collection for mongodb', function (done) {
       Scrape().EMLFixturesAsCollection(['3se', '4se']).then(function (result) {
-        expect(result).to.deep.equal(expected_fixtures_as_collection());
+        expect(result).to.deep.equal(expected_eml_fixtures_as_collection());
       }).done(done);
     });
   });

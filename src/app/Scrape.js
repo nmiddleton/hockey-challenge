@@ -14,17 +14,13 @@ function Scrape() {
   const performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
 
   function EMLTablesAsCollection() {
-    return tableAsCollection(api_url_EMLTable)
+    return tableAsCollection(api_url_EMLTable, 'M')
   }
   function EWLTablesAsCollection() {
-    return tableAsCollection(api_url_EWLTable)
-  }
-function tablesAsCollection() {
-    return EMLTablesAsCollection()
-      .then(EWLTablesAsCollection)
+    return tableAsCollection(api_url_EWLTable, 'F')
   }
 
-  function tableAsCollection(url){
+  function tableAsCollection(url, gender){
     let division,
       value_count,
       deferred = q.defer();
@@ -47,8 +43,9 @@ function tablesAsCollection() {
           } else if (_.words(td_text).length > 0) {
             // It's a team_name
             team_performance = {
-              _id: td_text,
-              division: division
+              _id: gender + ':' + td_text,
+              division: division,
+              gender: gender
             }
             value_count = 0; //start tracking the performance counter in the array of performance_property
           }
@@ -95,6 +92,7 @@ function tablesAsCollection() {
     //Initialize the division object
     let ewl_performance_url = api_url_EWLFixtures + division,
       fixtures = [],
+      gender = 'F',
       deferred = q.defer();
 
     request.get(ewl_performance_url).then(function (result) {
@@ -118,11 +116,12 @@ function tablesAsCollection() {
             } else {
               [home_team, away_team] = _.split(td_text, ' : ');
               fixtures.push({
-                _id: fixture_date + ':' + home_team,
+                _id: gender + ':' + fixture_date + ':' + home_team,
                 division: division,
                 fixture_date: fixture_date,
                 home_team: home_team,
-                away_team: away_team
+                away_team: away_team,
+                gender: gender
               });
             }
           }
@@ -157,6 +156,7 @@ function tablesAsCollection() {
     //Initialize the division object
     let eml_performance_url = api_url_EMLFixtures + division,
       fixtures = [],
+      gender= 'M',
       deferred = q.defer();
 
     request.get(eml_performance_url).then(function (result) {
@@ -186,11 +186,12 @@ function tablesAsCollection() {
             away_team = td_text;
             // date, home_team and away_team found, create the JSON record
             fixtures.push({
-              _id: fixture_date + ':' + home_team,
+              _id: gender+ ':' + fixture_date + ':' + home_team,
               division: division,
               fixture_date: fixture_date,
               home_team: home_team,
-              away_team: away_team
+              away_team: away_team,
+              gender: gender
             });
           }
         }
