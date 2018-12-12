@@ -32,20 +32,23 @@ const repository = (db) => {
     })
   }
   const refreshAllFixtures = () => {
-    return scrape.EMLTables()
-      .then((league) => {
-        return scrape.EMLFixturesAsCollection(scrape.getLeagueDivisions(league))
-      })
-      .then((fixtures) => {
-        fixtures_collection.drop((err, res) => {
-          if (err) throw err
-          console.log('Collection dropped:')
+    return new Promise((resolve, reject) => {
+      return scrape.EMLTablesAsCollection()
+        .then((team_performances) => {
+          return scrape.EMLFixturesAsCollection(scrape.getDivisionsFrom(team_performances))
         })
-        fixtures_collection.insertMany(fixtures, (err, res) => {
-          if (err) throw err
-          console.log('No. of documents inserted:', res.insertedCount)
+        .then((fixtures) => {
+          fixtures_collection.drop((err, res) => {
+            if (err) reject(err)
+            console.log('Collection dropped:')
+          })
+          fixtures_collection.insertMany(fixtures, (err, res) => {
+            if (err) reject(err)
+            console.log('No. of documents inserted:', res.insertedCount)
+            resolve(fixtures)
+          })
         })
-      })
+    })
   }
   const getFixturesFor = (team) => {
     const query_team = {$or: [{home_team: team},{away_team: team} ] },

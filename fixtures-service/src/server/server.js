@@ -17,8 +17,14 @@ const start = (options) => {
     const app = express()
 
 
+    //CORS
+    app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
 
-//Cache
+    //Cache
     let memCache = new cache.Cache();
     let cacheMiddleware = (duration) => {
       return (req, res, next) => {

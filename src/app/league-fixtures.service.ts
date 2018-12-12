@@ -4,30 +4,42 @@ import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {ServiceHelpers} from './service-helpers';
 import {environment} from '../environments/environment';
+import {TeamFixture} from "./team-fixture";
 
-const API_URL = environment.apiURL;
+const FIXTURES_API_URL = environment.fixturesApiURL
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeagueFixturesService {
 
-
   constructor(
     private http: HttpClient) {
   }
 
-  public getFixtureList(): Observable<any> {
-    return this.http.get<string>(API_URL + '/league_fixtures')
+  public refreshFixtures(): Observable<TeamFixture[]> {
+    return this.http.post<TeamFixture[]>(FIXTURES_API_URL + '/fixtures',null, {})
       .pipe(
-        catchError(ServiceHelpers.handleErrorAndContinue('get league_fixtures', []))
+        catchError(ServiceHelpers.handleErrorAndContinue('refresh fixtures from source', []))
+      );
+  }
+  public getFixtures(): Observable<any> {
+    return this.http.get<string>(FIXTURES_API_URL + '/fixtures')
+      .pipe(
+        catchError(ServiceHelpers.handleErrorAndContinue('get /fixtures', []))
       );
   }
 
-  public getFixtureListFor(team: string): Observable<any> {
-    return this.http.get<string>(API_URL + '/league_fixtures/' + team)
+  public getFixturesCollectionFor(team: string): Observable<any> {
+    return this.http.get<string>(FIXTURES_API_URL + '/fixtures/' + team)
       .pipe(
-        catchError(ServiceHelpers.handleErrorAndContinue('get league_fixtures/' + team, []))
+        catchError(ServiceHelpers.handleErrorAndContinue('get /fixtures/' + team, []))
+      );
+  }
+  public getNextFixtureFor(team: string): Observable<any> {
+    return this.http.get<string>(FIXTURES_API_URL + '/next_fixture_for/' + team)
+      .pipe(
+        catchError(ServiceHelpers.handleErrorAndContinue('get /next_fixture_for/' + team, []))
       );
   }
 }
