@@ -7,6 +7,25 @@ const expect = require('chai').expect,
   ewl_table_html = require('./stub_responses/EWLTablesResponse.js'),
   eml_fixtures_html = require('./stub_responses/EMLFixturesResponse.js'),
   ewl_fixtures_html = require('./stub_responses/EWLFixturesResponse.js'),
+  eml_divisions = [
+    {division: '3se', gender: 'M'},
+    {division: '4se', gender: 'M'},
+    {division: '5se', gender: 'M'},
+    {division: '6se', gender: 'M'},
+    {division: '7se', gender: 'M'},
+    {division: '8se', gender: 'M'},
+    {division: '9se', gender: 'M'},
+    {division: '10se', gender: 'M'}
+  ],
+  ewl_divisions = [
+    {division: 'prem', gender: 'F'},
+    {division: '1s', gender: 'F'},
+    {division: '2ne', gender: 'F'},
+    {division: '2nw', gender: 'F'},
+    {division: '2se', gender: 'F'},
+    {division: '2sw', gender: 'F'},
+    {division: '5nw(s)', gender: 'F'}
+  ]
   expected_eml_performances_as_collection = require('./expectations/expected_eml_performances_as_collection'),
   expected_ewl_performances_as_collection = require('./expectations/expected_ewl_performances_as_collection'),
   expected_eml_fixtures_as_collection = require('./expectations/expected_eml_fixtures_as_collection'),
@@ -32,7 +51,7 @@ describe('Scraping..', function () {
   });
   describe('the EML divisions ', function () {
     it('gets the divisions from the team performances collection', function () {
-      expect(Scrape().getDivisionsFrom(expected_eml_performances_as_collection())).to.deep.equal([ '3se', '4se', '5se', '6se', '7se', '8se', '9se', '10se' ])
+      expect(Scrape().getDivisionsFrom(expected_eml_performances_as_collection())).to.deep.equal(eml_divisions)
     });
   });
   describe('the EWL Tables', function () {
@@ -49,6 +68,11 @@ describe('Scraping..', function () {
       }).done(done);
     });
   });
+  describe('the EWL divisions ', function () {
+    it('gets the divisions from the team performances collection', function () {
+      expect(Scrape().getDivisionsFrom(expected_ewl_performances_as_collection())).to.deep.equal(ewl_divisions)
+    });
+  });
   describe('the All Tables', function () {
     beforeEach(function () {
       sandbox = sinon.sandbox.create();
@@ -59,15 +83,15 @@ describe('Scraping..', function () {
     afterEach(function () {
       sandbox.restore();
     });
-    it('should parse the EWL Table html into a JSON collection for mongodb', function (done) {
+    it('should parse the EML and EWL Table html into a JSON collection for mongodb', function (done) {
       Scrape().ALLTablesAsCollection().then(function (result) {
         expect(result).to.deep.equal(_.union( expected_eml_performances_as_collection(), expected_ewl_performances_as_collection()));
       }).done(done);
     });
   });
-  describe('the EWL divisions ', function () {
-    it('gets the divisions from the team performances collection', function () {
-      expect(Scrape().getDivisionsFrom(expected_ewl_performances_as_collection())).to.deep.equal(['prem', '1s', '2ne', '2nw', '2se', '2sw', '5nw(s)'])
+  describe('the ALL divisions ', function () {
+    it('gets ALL divisions from the team performances collection', function () {
+      expect(Scrape().getDivisionsFrom(_.union(expected_eml_performances_as_collection(), expected_ewl_performances_as_collection()))).to.deep.equal(_.union(eml_divisions, ewl_divisions))
     });
   });
 

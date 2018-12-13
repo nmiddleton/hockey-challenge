@@ -81,7 +81,10 @@ function Scrape() {
   }
 
   function getDivisionsFrom(team_performances) {
-    return _.sortedUniq(_.map(team_performances, (perf) => perf.division));
+    return _.uniqWith(_.map(team_performances, (perf) => ({
+      division: perf.division,
+      gender: perf.gender
+    })), _.isEqual)
   }
 
   function EWLFixturesAsCollection(divisions) {
