@@ -22,7 +22,7 @@ function Scrape() {
           .then(function (ewl_team_performances) {
             return _.union(team_performances, ewl_team_performances)
           })
-          .catch((err) => deferred.reject(err))
+          .catch((err) => {throw new Error(err)})
       })
   }
   function EMLTablesAsCollection() {
@@ -85,6 +85,19 @@ function Scrape() {
       division: perf.division,
       gender: perf.gender
     })), _.isEqual)
+  }
+
+  function ALLFixturesAsCollection() {
+    let fixtures = [];
+    return EMLFixturesAsCollection()
+      .then(function (eml_team_performances) {
+        fixtures = eml_team_performances;
+        return EWLFixturesAsCollection()
+          .then(function (ewl_team_performances) {
+            return _.union(fixtures, ewl_team_performances)
+          })
+          .catch((err) => {throw new Error(err)})
+      })
   }
 
   function EWLFixturesAsCollection(divisions) {
@@ -220,6 +233,7 @@ function Scrape() {
     return deferred.promise;
   }
 
+
   function sanitiseDate(date) {
     if (date.length === 8) {
       return 0 + date; //pad leading zero in 1-Dec-18 > 01-Dec-18
@@ -236,8 +250,8 @@ function Scrape() {
     EMLTablesAsCollection: EMLTablesAsCollection,
     EMLFixturesAsCollection: EMLFixturesAsCollection,
     EWLTablesAsCollection: EWLTablesAsCollection,
-    EWLFixturesAsCollection: EWLFixturesAsCollection
-  }
+    EWLFixturesAsCollection: EWLFixturesAsCollection,
+    ALLFixturesAsCollection: ALLFixturesAsCollection  }
 }
 
 module.exports = Scrape;

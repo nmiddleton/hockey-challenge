@@ -123,4 +123,22 @@ describe('Scraping..', function () {
       }).done(done);
     });
   });
+  describe('the ALL Fixtures collection', function () {
+    beforeEach(function () {
+      sandbox = sinon.sandbox.create();
+      let http_stub = sandbox.stub(request, 'get')
+      http_stub.withArgs(eml_url).resolves(eml_fixtures_html());
+      http_stub.withArgs(ewl_url).resolves(ewl_fixtures_html());
+      sandbox = sinon.sandbox.create();
+
+    });
+    afterEach(function () {
+      sandbox.restore();
+    });
+    it('should parse the EWL Fixtures html into a JSON collection for mongodb', function (done) {
+      Scrape().ALLFixturesAsCollection(_.union(eml_divisions, ewl_divisions)).then(function (result) {
+        expect(result).to.deep.equal(_.union(expected_eml_fixtures_as_collection(), expected_ewl_fixtures_as_collection()));
+      }).done(done);
+    });
+  });
 });
