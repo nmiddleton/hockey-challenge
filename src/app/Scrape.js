@@ -4,7 +4,7 @@ const request = require('request-promise'),
   _ = require('lodash'),
   moment = require('moment'),
   api_url_EMLTable = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tablesmen.asp?divblock=SE&Submit=League+table',
-  api_url_EWLTable = 'view-source:http://www.east-hockey.com/leagues2/showdata/sqlresults/tableswomen.asp',
+  api_url_EWLTable = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tableswomen.asp',
   api_url_EMLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/resultsmen.asp?division=',
   api_url_EWLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/venueswomen.asp?division='
 let fixture_collection_eml = [],
@@ -13,6 +13,18 @@ let fixture_collection_eml = [],
 function Scrape() {
   const performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
 
+  function ALLTablesAsCollection() {
+    let team_performances = [];
+    return EMLTablesAsCollection()
+      .then(function (eml_team_performances) {
+        team_performances = eml_team_performances;
+        return EWLTablesAsCollection()
+          .then(function (ewl_team_performances) {
+            return _.union(team_performances, ewl_team_performances)
+          })
+          .catch((err) => deferred.reject(err))
+      })
+  }
   function EMLTablesAsCollection() {
     return tableAsCollection(api_url_EMLTable, 'M')
   }
@@ -216,6 +228,7 @@ function Scrape() {
   return {
     fixture_collection_eml: fixture_collection_eml,
     fixture_collection_ewl: fixture_collection_ewl,
+    ALLTablesAsCollection: ALLTablesAsCollection,
     getDivisionsFrom: getDivisionsFrom,
     EMLTablesAsCollection: EMLTablesAsCollection,
     EMLFixturesAsCollection: EMLFixturesAsCollection,

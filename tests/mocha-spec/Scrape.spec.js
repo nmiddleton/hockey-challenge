@@ -1,6 +1,7 @@
 const expect = require('chai').expect,
   sinon = require('sinon'),
   request = require('request-promise'),
+  _ = require('lodash'),
   Scrape = require('../../src/app/Scrape'),
   eml_table_html = require('./stub_responses/EMLTablesResponse.js'),
   ewl_table_html = require('./stub_responses/EWLTablesResponse.js'),
@@ -9,7 +10,9 @@ const expect = require('chai').expect,
   expected_eml_performances_as_collection = require('./expectations/expected_eml_performances_as_collection'),
   expected_ewl_performances_as_collection = require('./expectations/expected_ewl_performances_as_collection'),
   expected_eml_fixtures_as_collection = require('./expectations/expected_eml_fixtures_as_collection'),
-  expected_ewl_fixtures_as_collection = require('./expectations/expected_ewl_fixtures_as_collection');
+  expected_ewl_fixtures_as_collection = require('./expectations/expected_ewl_fixtures_as_collection'),
+  eml_url ='http://www.east-hockey.com/leagues2/showdata/sqlresults/tablesmen.asp?divblock=SE&Submit=League+table',
+  ewl_url = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tableswomen.asp';
 
 let sandbox;
 describe('Scraping..', function () {
@@ -43,6 +46,22 @@ describe('Scraping..', function () {
     it('should parse the EWL Table html into a JSON collection for mongodb', function (done) {
       Scrape().EWLTablesAsCollection().then(function (result) {
         expect(result).to.deep.equal(expected_ewl_performances_as_collection());
+      }).done(done);
+    });
+  });
+  describe('the All Tables', function () {
+    beforeEach(function () {
+      sandbox = sinon.sandbox.create();
+      let http_stub = sandbox.stub(request, 'get')
+      http_stub.withArgs(eml_url).resolves(eml_table_html());
+      http_stub.withArgs(ewl_url).resolves(ewl_table_html());
+    });
+    afterEach(function () {
+      sandbox.restore();
+    });
+    it('should parse the EWL Table html into a JSON collection for mongodb', function (done) {
+      Scrape().ALLTablesAsCollection().then(function (result) {
+        expect(result).to.deep.equal(_.union( expected_eml_performances_as_collection(), expected_ewl_performances_as_collection()));
       }).done(done);
     });
   });
