@@ -1,8 +1,9 @@
 <app-team-performances (teamPredictionEmitter)="makePredictions($event)"></app-team-performances>
 <table border="1">
-  <tr><td>TEAM</td><td>Defensive weakness</td><td>Offensive Strength</td><td>Opposition Team</td><td>Opposition Defensive weakness</td><td>Opposition Offensive Strength</td><td>score defence</td><td>score attack</td><td>League</td><td>score total</td><td>Location</td></tr>
+  <tr><td>TEAM</td><td>M/F</td><td>Defensive weakness</td><td>Offensive Strength</td><td>OPPOSITION</td><td>Defensive weakness</td><td>Offensive Strength</td><td>concede by defence</td><td>score by attack</td><td>League Dominance</td><td>Game Rating</td><td>Location</td></tr>
   <tr *ngFor="let prediction of filtered_team_predictions">
     <td style="text-align: left">{{ prediction.team }}</td>
+    <td style="text-align: left">{{ prediction.gender }}</td>
     <td style="text-align: center">{{ prediction.str_defence }}</td>
     <td style="text-align: center">{{ prediction.str_offence }}</td>
     <td style="text-align: left">{{ prediction.oppo_team }}</td>
@@ -10,7 +11,7 @@
     <td style="text-align: center">{{ prediction.oppo_offence }}</td>
     <td style="text-align: center">{{prediction.score_def}}</td>
     <td style="text-align: center">{{prediction.score_off}}</td>
-    <td style="text-align: center"> {{prediction.str_league}} v {{prediction.oppo_league}} = {{prediction.str_league - prediction.oppo_league}}</td>
+    <td style="text-align: center"> {{prediction.str_league}} v {{prediction.oppo_league}} = {{(prediction.str_league*10 - prediction.oppo_league*10)/10}}</td>
     <td style="text-align: center">{{prediction.score_total}}</td>
     <td style="text-align: center">{{prediction.home_or_away}}</td>
   </tr>

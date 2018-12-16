@@ -14,15 +14,19 @@ import {TeamFixture} from '../team-fixture';
 export class TeamPredictionComponent implements OnInit {
   filtered_team_performances: TeamPerformance[];
   filtered_team_predictions: TeamPrediction[];
-  filtered_team_fixture$: Observable<TeamFixture>;
+  next_team_fixture$: Observable<TeamFixture>;
   oppo_team_performance$: Observable<TeamPerformance>;
 
 
   constructor(private leagueFixturesService: LeagueFixturesService, private teamPerformanceService: TeamPerformanceService) {
     this.filtered_team_predictions = [];
+
   }
 
   ngOnInit() {
+    // Refresh fixtures from source with POST to /fixtures
+    this.leagueFixturesService.refreshFixtures().subscribe(() => {})
+
   }
 
   getLeagueStrength(team_performance: TeamPerformance) {
@@ -38,7 +42,7 @@ export class TeamPredictionComponent implements OnInit {
   }
 
   getNextFixture(team: string) {
-    this.filtered_team_fixture$ = this.leagueFixturesService.getFixtureListFor(team);
+    this.next_team_fixture$ = this.leagueFixturesService.getNextFixtureFor(team);
   }
 
   getOppoTeamPerformance(team: string) {
@@ -48,16 +52,18 @@ export class TeamPredictionComponent implements OnInit {
   makePredictions(event) {
     this.filtered_team_predictions = [];
     this.filtered_team_performances = event;
-    event.forEach(team_performance => {
-        this.getNextFixture(team_performance.id);
-        this.filtered_team_fixture$.subscribe(team_fixture => {
-          const oppo_team = team_fixture.id === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
-          const home_fixture_bonus = team_fixture.id === team_fixture.home_team ? 1 : 0;
+
+    event.forEach((team_performance) => {
+        this.getNextFixture(team_performance.team);
+        this.next_team_fixture$.subscribe(team_fixture => {
+          const oppo_team = team_performance.team === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
+          const home_fixture_bonus = team_performance.team === team_fixture.home_team ? 1 : 0;
           this.getOppoTeamPerformance(oppo_team);
-          this.oppo_team_performance$.subscribe(oppo_team_performance => {
+          this.oppo_team_performance$.subscribe((oppo_team_performance) => {
             this.filtered_team_predictions.push(new TeamPrediction(
               team_performance,
-              team_performance.id,
+              team_performance.team,
+              team_performance.gender,
               this.getLeagueStrength(team_performance),
               this.getDefensiveWeakness(team_performance),
               this.getOffensiveStrength(team_performance),
@@ -69,12 +75,21 @@ export class TeamPredictionComponent implements OnInit {
                 this.getOffensiveStrength(oppo_team_performance)) / 2) - home_fixture_bonus,
               Math.round((this.getOffensiveStrength(team_performance) +
                 this.getDefensiveWeakness(oppo_team_performance)) / 2) + home_fixture_bonus,
-              (this.getOffensiveStrength(team_performance) +
+              Math.round((this.getOffensiveStrength(team_performance) +
                 this.getDefensiveWeakness(oppo_team_performance)) / 2 + home_fixture_bonus -
               (this.getDefensiveWeakness(team_performance) + this.getOffensiveStrength(oppo_team_performance)) / 2 +
-              this.getLeagueStrength(team_performance) - this.getLeagueStrength(oppo_team_performance),
+              this.getLeagueStrength(team_performance) - this.getLeagueStrength(oppo_team_performance)),
               home_fixture_bonus === 1 ? 'Home' : 'Away'
             ));
+            this.filtered_team_predictions.sort((team_prediction_a, team_prediction_b) => {
+              let comparison = 0
+              if (team_prediction_a.score_total > team_prediction_b.score_total){
+                comparison = -1
+              } else if (team_prediction_a.score_total < team_prediction_b.score_total ){
+                comparison = 1
+              }
+              return comparison
+            })
           });
         });
       }

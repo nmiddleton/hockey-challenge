@@ -29,7 +29,9 @@ describe('TeamPerformanceService', () => {
         goal_difference: '24',
         points: '18',
         division: '3se',
-        id: 'Brentwood 1'
+        gender: 'M',
+        team: 'Brentwood 1',
+        id: 'M:Brentwood 1'
       },
     expectedTeamPerformances: TeamPerformance[] = [
       {
@@ -42,7 +44,9 @@ describe('TeamPerformanceService', () => {
         goal_difference: '24',
         points: '18',
         division: '3se',
-        id: 'Brentwood 1'
+        gender: 'M',
+        team: 'Brentwood 1',
+        id: 'M:Brentwood 1'
       }, {
         played: '6',
         win: '5',
@@ -53,7 +57,9 @@ describe('TeamPerformanceService', () => {
         goal_difference: '20',
         points: '16',
         division: '3se',
-        id: 'Wapping 5'
+        gender: 'M',
+        team: 'Wapping 5',
+        id: 'M:Wapping 5'
       }
     ];
   beforeEach(() => {
@@ -73,7 +79,7 @@ describe('TeamPerformanceService', () => {
     HttpClientResolvedSpy.get.and.returnValue(promisedResponseResolved(expectedTeamPerformances));
     // inject into service constructor
     teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientResolvedSpy);
-    teamPerformanceServiceWithHTTPStub.getTeamPerformance().subscribe(result => {
+    teamPerformanceServiceWithHTTPStub.getTeamPerformance().subscribe((result: TeamPerformance[]) => {
       expect(result).toBe(expectedTeamPerformances);
       done();
     });
@@ -90,7 +96,7 @@ describe('TeamPerformanceService', () => {
   it('continues to pass through if the team performance call fails but increments an error count', (done: DoneFn) => {
     // inject into service constructor
     teamPerformanceServiceWithHTTPStub = new TeamPerformanceService(<any> HttpClientRejectedSpy);
-    teamPerformanceServiceWithHTTPStub.getTeamPerformance().subscribe(result => {
+    teamPerformanceServiceWithHTTPStub.getTeamPerformance().subscribe((result: TeamPerformance[]) => {
       expect(result).toEqual([]);
       done();
     });

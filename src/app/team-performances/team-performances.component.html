@@ -5,7 +5,8 @@
 <table>
   <tr>
     <td> division</td>
-    <td> id</td>
+    <td> gender</td>
+    <td> team</td>
     <td> played</td>
     <td> win</td>
     <td> draw</td>
@@ -18,7 +19,8 @@
   </tr>
   <tr *ngFor="let teamPerformance of all_team_performances$ | async" [hidden]="!!filtered_team_performances">
     <td> {{ teamPerformance.division }}</td>
-    <td> {{ teamPerformance.id }}</td>
+    <td> {{ teamPerformance.gender }}</td>
+    <td> {{ teamPerformance.team }}</td>
     <td> {{ teamPerformance.played }}</td>
     <td> {{ teamPerformance.win }}</td>
     <td> {{ teamPerformance.draw }}</td>
@@ -30,7 +32,8 @@
   </tr>
   <tr *ngFor="let teamPerformance of filtered_team_performances">
     <td> {{ teamPerformance.division }}</td>
-    <td> {{ teamPerformance.id }}</td>
+    <td> {{ teamPerformance.gender }}</td>
+    <td> {{ teamPerformance.team }}</td>
     <td> {{ teamPerformance.played }}</td>
     <td> {{ teamPerformance.win }}</td>
     <td> {{ teamPerformance.draw }}</td>
