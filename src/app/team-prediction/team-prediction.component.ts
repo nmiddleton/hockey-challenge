@@ -54,15 +54,16 @@ export class TeamPredictionComponent implements OnInit {
     this.filtered_team_performances = event;
 
     event.forEach((team_performance) => {
-        this.getNextFixture(team_performance.id);
+        this.getNextFixture(team_performance.team);
         this.next_team_fixture$.subscribe(team_fixture => {
-          const oppo_team = team_performance.id === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
-          const home_fixture_bonus = team_performance.id === team_fixture.home_team ? 1 : 0;
+          const oppo_team = team_performance.team === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
+          const home_fixture_bonus = team_performance.team === team_fixture.home_team ? 1 : 0;
           this.getOppoTeamPerformance(oppo_team);
           this.oppo_team_performance$.subscribe((oppo_team_performance) => {
             this.filtered_team_predictions.push(new TeamPrediction(
               team_performance,
-              team_performance.id,
+              team_performance.team,
+              team_performance.gender,
               this.getLeagueStrength(team_performance),
               this.getDefensiveWeakness(team_performance),
               this.getOffensiveStrength(team_performance),

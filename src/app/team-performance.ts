@@ -1,6 +1,8 @@
 export class TeamPerformance {
   id: string;
   division: string;
+  team: string;
+  gender: string;
   played: string;
   win: string;
   draw: string;
@@ -13,6 +15,8 @@ export class TeamPerformance {
   constructor(
     id: string,
     division: string,
+    team: string,
+    gender: string,
     played: string,
     win: string,
     draw: string,
@@ -24,6 +28,8 @@ export class TeamPerformance {
   ) {
     this.id = id;
     this.division = division;
+    this.team = team;
+    this.gender = gender;
     this.played = played;
     this.win = win;
     this.draw = draw;
