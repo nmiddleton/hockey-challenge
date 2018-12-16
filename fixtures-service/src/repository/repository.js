@@ -33,20 +33,31 @@ const repository = (db) => {
   }
   const refreshAllFixtures = () => {
     return new Promise((resolve, reject) => {
-      return scrape.EMLTablesAsCollection()
+      return scrape.ALLTablesAsCollection()
         .then((team_performances) => {
-          return scrape.EMLFixturesAsCollection(scrape.getDivisionsFrom(team_performances))
+          return scrape.ALLFixturesAsCollection(scrape.getDivisionsFrom(team_performances))
         })
         .then((fixtures) => {
-          fixtures_collection.drop((err, res) => {
-            if (err) reject(err)
-            console.log('Collection dropped:')
-          })
-          fixtures_collection.insertMany(fixtures, (err, res) => {
-            if (err) reject(err)
-            console.log('No. of documents inserted:', res.insertedCount)
-            resolve(fixtures)
-          })
+          try {
+            fixtures_collection.drop((err, res) => {
+              if (err) reject(err)
+              console.log('Collection dropped:')
+              console.log('Inserting', fixtures.length)
+              fixtures_collection.insertMany(fixtures, (err, res) => {
+                if (err) reject(err)
+                console.log('No. of documents inserted:', res.insertedCount)
+                resolve(fixtures)
+              })
+
+            });
+          } catch (e) {
+            if (e.code === 26) {
+              console.log('namespace %s not found',fixtures_collection.name)
+            } else {
+              throw e;
+            }
+          }
+
         })
     })
   }

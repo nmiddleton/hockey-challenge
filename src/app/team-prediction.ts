@@ -3,6 +3,7 @@ import {TeamPerformance} from './team-performance';
 export class TeamPrediction {
   performance: TeamPerformance;
   team: string;
+  gender: string;
   str_league: number;
   str_defence: number;
   str_offence: number;
@@ -17,6 +18,7 @@ export class TeamPrediction {
 
   constructor(team_performance: TeamPerformance,
               team: string,
+              gender: string,
               strength_league: number,
               strength_defence: number,
               strength_offence: number,
@@ -30,6 +32,7 @@ export class TeamPrediction {
               home_or_away: string) {
     this.performance = team_performance;
     this.team = team;
+    this.gender = gender;
     this.str_league = strength_league;
     this.str_defence = strength_defence;
     this.str_offence = strength_offence;

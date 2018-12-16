@@ -16,8 +16,6 @@ const repository = (db) => {
       cursor.forEach((performance) => {
         console.log('found!', performances.length, 'matches');
         // saves to private variable performances
-        performance['id'] = performance['_id']
-        delete performance['_id']
         performances.push(performance)
       }, (err, doc) => {
         if (err) {
@@ -32,16 +30,12 @@ const repository = (db) => {
     })
   }
   const getPerformanceFor = (team) => {
-    let team_query = {'_id': team}
-    console.log('getPerformanceFor looking for', team_query);
+    let team_query = {'team': team}
 
     return new Promise((resolve, reject) => {
       // Get the documents as a cursor (for iteration through)
       performances_collection.findOne(team_query, (err,performance) => {
         if (err) reject(err);
-
-        performance['id'] = performance['_id']
-        delete performance['_id']
         resolve(performance)
         }
       )
@@ -52,7 +46,7 @@ const repository = (db) => {
     team_partial = team_partial.replace('*', '.*')
 
     let performances = [],
-      team_query = {'_id': new RegExp('^' + team_partial, 'i') }
+      team_query = {'team': new RegExp('^' + team_partial, 'i') }
 
     return new Promise((resolve, reject) => {
       const cursor = performances_collection.find(team_query)
@@ -60,8 +54,6 @@ const repository = (db) => {
       cursor.forEach((performance) => {
         console.log('found!', team_query, JSON.stringify(performance, null, 4));
         // saves to private variable performances
-        performance['id'] = performance['_id']
-        delete performance['_id']
         performances.push(performance)
       }, (err, doc) => {
         if (err) {
@@ -78,12 +70,18 @@ const repository = (db) => {
 
   const refreshAllPerformances = () => {
     return new Promise((resolve, reject) => {
-      return Scrape().EMLTablesAsCollection()
+      return Scrape().ALLTablesAsCollection()
         .then((performances) => {
 
-          performances_collection.drop((err, res) => {
-            console.log('Collection dropped:')
-          })
+          try {
+            performances_collection.drop();
+          } catch (e) {
+            if (e.code === 26) {
+              console.log('namespace %s not found',performances_collection.name)
+            } else {
+              throw e;
+            }
+          }
           performances_collection.insertMany(performances, (err, res) => {
             if (err) reject(err)
             console.log('No. of performances inserted:', res.insertedCount)

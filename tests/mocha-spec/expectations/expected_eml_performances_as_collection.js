@@ -1,7 +1,8 @@
 module.exports = function () {
   return [
     {
-      _id: 'Brentwood 1',
+      gender: 'M',
+      _id: 'M:Brentwood 1',
       division: '3se',
       played: '6',
       win: '6',
@@ -13,7 +14,8 @@ module.exports = function () {
       points: '18'
     },
     {
-      _id: 'Wapping 5',
+      gender: 'M',
+      _id: 'M:Wapping 5',
       division: '3se',
       played: '6',
       win: '5',
@@ -25,7 +27,8 @@ module.exports = function () {
       points: '16'
     },
     {
-      _id: 'Braintree 1',
+      gender: 'M',
+      _id: 'M:Braintree 1',
       division: '3se',
       played: '6',
       win: '4',
@@ -37,7 +40,8 @@ module.exports = function () {
       points: '13'
     },
     {
-      _id: 'Upminster 2',
+      gender: 'M',
+      _id: 'M:Upminster 2',
       division: '3se',
       played: '6',
       win: '3',
@@ -49,7 +53,8 @@ module.exports = function () {
       points: '11'
     },
     {
-      _id: 'Redbridge & Ilford 1',
+      gender: 'M',
+      _id: 'M:Redbridge & Ilford 1',
       division: '3se',
       played: '6',
       win: '3',
@@ -61,7 +66,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Southend 1',
+      gender: 'M',
+      _id: 'M:Southend 1',
       division: '3se',
       played: '6',
       win: '2',
@@ -73,7 +79,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Wapping 6',
+      gender: 'M',
+      _id: 'M:Wapping 6',
       division: '3se',
       played: '6',
       win: '2',
@@ -85,7 +92,8 @@ module.exports = function () {
       points: '8'
     },
     {
-      _id: 'Maldon 1',
+      gender: 'M',
+      _id: 'M:Maldon 1',
       division: '3se',
       played: '6',
       win: '2',
@@ -97,7 +105,8 @@ module.exports = function () {
       points: '6'
     },
     {
-      _id: 'Clacton 1',
+      gender: 'M',
+      _id: 'M:Clacton 1',
       division: '3se',
       played: '6',
       win: '1',
@@ -109,7 +118,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'East London 3',
+      gender: 'M',
+      _id: 'M:East London 3',
       division: '3se',
       played: '6',
       win: '1',
@@ -121,7 +131,8 @@ module.exports = function () {
       points: '3'
     },
     {
-      _id: 'Crostyx 2',
+      gender: 'M',
+      _id: 'M:Crostyx 2',
       division: '3se',
       played: '6',
       win: '1',
@@ -133,7 +144,8 @@ module.exports = function () {
       points: '3'
     },
     {
-      _id: 'Brentwood 2',
+      gender: 'M',
+      _id: 'M:Brentwood 2',
       division: '3se',
       played: '6',
       win: '1',
@@ -145,7 +157,8 @@ module.exports = function () {
       points: '3'
     },
     {
-      _id: 'Saffron Walden 3',
+      gender: 'M',
+      _id: 'M:Saffron Walden 3',
       division: '4se',
       played: '6',
       win: '5',
@@ -157,7 +170,8 @@ module.exports = function () {
       points: '16'
     },
     {
-      _id: 'Plashet 1',
+      gender: 'M',
+      _id: 'M:Plashet 1',
       division: '4se',
       played: '6',
       win: '5',
@@ -169,7 +183,8 @@ module.exports = function () {
       points: '15'
     },
     {
-      _id: 'Chelmsford 3',
+      gender: 'M',
+      _id: 'M:Chelmsford 3',
       division: '4se',
       played: '6',
       win: '5',
@@ -181,7 +196,8 @@ module.exports = function () {
       points: '15'
     },
     {
-      _id: 'Waltham Forest 2',
+      gender: 'M',
+      _id: 'M:Waltham Forest 2',
       division: '4se',
       played: '6',
       win: '4',
@@ -193,7 +209,8 @@ module.exports = function () {
       points: '12'
     },
     {
-      _id: 'Wapping 7',
+      gender: 'M',
+      _id: 'M:Wapping 7',
       division: '4se',
       played: '6',
       win: '4',
@@ -205,7 +222,8 @@ module.exports = function () {
       points: '12'
     },
     {
-      _id: 'East London 4',
+      gender: 'M',
+      _id: 'M:East London 4',
       division: '4se',
       played: '6',
       win: '3',
@@ -217,7 +235,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Witham 2',
+      gender: 'M',
+      _id: 'M:Witham 2',
       division: '4se',
       played: '6',
       win: '2',
@@ -229,7 +248,8 @@ module.exports = function () {
       points: '8'
     },
     {
-      _id: 'Old Southendian 2',
+      gender: 'M',
+      _id: 'M:Old Southendian 2',
       division: '4se',
       played: '6',
       win: '2',
@@ -241,7 +261,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Romford 1',
+      gender: 'M',
+      _id: 'M:Romford 1',
       division: '4se',
       played: '6',
       win: '1',
@@ -253,7 +274,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'Brentwood 3',
+      gender: 'M',
+      _id: 'M:Brentwood 3',
       division: '4se',
       played: '6',
       win: '1',
@@ -265,7 +287,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'Havering 2',
+      gender: 'M',
+      _id: 'M:Havering 2',
       division: '4se',
       played: '6',
       win: '1',
@@ -277,7 +300,8 @@ module.exports = function () {
       points: '3'
     },
     {
-      _id: 'Colchester 2',
+      gender: 'M',
+      _id: 'M:Colchester 2',
       division: '4se',
       played: '6',
       win: '0',
@@ -289,7 +313,8 @@ module.exports = function () {
       points: '0'
     },
     {
-      _id: 'Thurrock 1',
+      gender: 'M',
+      _id: 'M:Thurrock 1',
       division: '5se',
       played: '6',
       win: '6',
@@ -301,7 +326,8 @@ module.exports = function () {
       points: '18'
     },
     {
-      _id: 'Rochford 1',
+      gender: 'M',
+      _id: 'M:Rochford 1',
       division: '5se',
       played: '6',
       win: '5',
@@ -313,7 +339,8 @@ module.exports = function () {
       points: '15'
     },
     {
-      _id: 'Crostyx 3',
+      gender: 'M',
+      _id: 'M:Crostyx 3',
       division: '5se',
       played: '6',
       win: '3',
@@ -325,7 +352,8 @@ module.exports = function () {
       points: '10'
     },
     {
-      _id: 'Wapping 8',
+      gender: 'M',
+      _id: 'M:Wapping 8',
       division: '5se',
       played: '6',
       win: '3',
@@ -337,7 +365,8 @@ module.exports = function () {
       points: '10'
     },
     {
-      _id: 'Upminster 3',
+      gender: 'M',
+      _id: 'M:Upminster 3',
       division: '5se',
       played: '6',
       win: '2',
@@ -349,7 +378,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Southend 2',
+      gender: 'M',
+      _id: 'M:Southend 2',
       division: '5se',
       played: '6',
       win: '2',
@@ -361,7 +391,8 @@ module.exports = function () {
       points: '8'
     },
     {
-      _id: 'Redbridge & Ilford 2',
+      gender: 'M',
+      _id: 'M:Redbridge & Ilford 2',
       division: '5se',
       played: '6',
       win: '2',
@@ -373,7 +404,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Waltham Forest 3',
+      gender: 'M',
+      _id: 'M:Waltham Forest 3',
       division: '5se',
       played: '6',
       win: '2',
@@ -385,7 +417,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'East London 5',
+      gender: 'M',
+      _id: 'M:East London 5',
       division: '5se',
       played: '6',
       win: '2',
@@ -397,7 +430,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Witham 3',
+      gender: 'M',
+      _id: 'M:Witham 3',
       division: '5se',
       played: '6',
       win: '2',
@@ -409,7 +443,8 @@ module.exports = function () {
       points: '6'
     },
     {
-      _id: 'Old Southendian 3',
+      gender: 'M',
+      _id: 'M:Old Southendian 3',
       division: '5se',
       played: '6',
       win: '1',
@@ -421,7 +456,8 @@ module.exports = function () {
       points: '5'
     },
     {
-      _id: 'Clacton 2',
+      gender: 'M',
+      _id: 'M:Clacton 2',
       division: '5se',
       played: '6',
       win: '0',
@@ -433,7 +469,8 @@ module.exports = function () {
       points: '0'
     },
     {
-      _id: 'Old Loughts Academy',
+      gender: 'M',
+      _id: 'M:Old Loughts Academy',
       division: '6se',
       played: '6',
       win: '6',
@@ -445,7 +482,8 @@ module.exports = function () {
       points: '18'
     },
     {
-      _id: 'Chelmsford 4',
+      gender: 'M',
+      _id: 'M:Chelmsford 4',
       division: '6se',
       played: '6',
       win: '4',
@@ -457,7 +495,8 @@ module.exports = function () {
       points: '13'
     },
     {
-      _id: 'East London 7',
+      gender: 'M',
+      _id: 'M:East London 7',
       division: '6se',
       played: '6',
       win: '4',
@@ -469,7 +508,8 @@ module.exports = function () {
       points: '12'
     },
     {
-      _id: 'East London 6',
+      gender: 'M',
+      _id: 'M:East London 6',
       division: '6se',
       played: '6',
       win: '3',
@@ -481,7 +521,8 @@ module.exports = function () {
       points: '10'
     },
     {
-      _id: 'Saffron Walden 4',
+      gender: 'M',
+      _id: 'M:Saffron Walden 4',
       division: '6se',
       played: '6',
       win: '3',
@@ -493,7 +534,8 @@ module.exports = function () {
       points: '10'
     },
     {
-      _id: 'Wapping 9',
+      gender: 'M',
+      _id: 'M:Wapping 9',
       division: '6se',
       played: '6',
       win: '3',
@@ -505,7 +547,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Braintree 2',
+      gender: 'M',
+      _id: 'M:Braintree 2',
       division: '6se',
       played: '6',
       win: '2',
@@ -517,7 +560,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Chelmsford 5',
+      gender: 'M',
+      _id: 'M:Chelmsford 5',
       division: '6se',
       played: '6',
       win: '2',
@@ -529,7 +573,8 @@ module.exports = function () {
       points: '6'
     },
     {
-      _id: 'Basildon 1',
+      gender: 'M',
+      _id: 'M:Basildon 1',
       division: '6se',
       played: '6',
       win: '2',
@@ -541,7 +586,8 @@ module.exports = function () {
       points: '6'
     },
     {
-      _id: 'Colchester 3',
+      gender: 'M',
+      _id: 'M:Colchester 3',
       division: '6se',
       played: '6',
       win: '1',
@@ -553,7 +599,8 @@ module.exports = function () {
       points: '5'
     },
     {
-      _id: 'Maldon 2',
+      gender: 'M',
+      _id: 'M:Maldon 2',
       division: '6se',
       played: '6',
       win: '1',
@@ -565,7 +612,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'Brentwood 4',
+      gender: 'M',
+      _id: 'M:Brentwood 4',
       division: '6se',
       played: '6',
       win: '1',
@@ -577,7 +625,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'Old Loughts Loppers',
+      gender: 'M',
+      _id: 'M:Old Loughts Loppers',
       division: '7se',
       played: '6',
       win: '5',
@@ -589,7 +638,8 @@ module.exports = function () {
       points: '16'
     },
     {
-      _id: 'Saffron Walden 5',
+      gender: 'M',
+      _id: 'M:Saffron Walden 5',
       division: '7se',
       played: '6',
       win: '5',
@@ -601,7 +651,8 @@ module.exports = function () {
       points: '16'
     },
     {
-      _id: 'Havering 3',
+      gender: 'M',
+      _id: 'M:Havering 3',
       division: '7se',
       played: '6',
       win: '4',
@@ -613,7 +664,8 @@ module.exports = function () {
       points: '13'
     },
     {
-      _id: 'Upminster 4',
+      gender: 'M',
+      _id: 'M:Upminster 4',
       division: '7se',
       played: '6',
       win: '3',
@@ -625,7 +677,8 @@ module.exports = function () {
       points: '11'
     },
     {
-      _id: 'Witham 4',
+      gender: 'M',
+      _id: 'M:Witham 4',
       division: '7se',
       played: '6',
       win: '3',
@@ -637,7 +690,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Redbridge & Ilford 3',
+      gender: 'M',
+      _id: 'M:Redbridge & Ilford 3',
       division: '7se',
       played: '6',
       win: '2',
@@ -649,7 +703,8 @@ module.exports = function () {
       points: '8'
     },
     {
-      _id: 'Chelmsford 6',
+      gender: 'M',
+      _id: 'M:Chelmsford 6',
       division: '7se',
       played: '6',
       win: '2',
@@ -661,7 +716,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Saffron Walden 6',
+      gender: 'M',
+      _id: 'M:Saffron Walden 6',
       division: '7se',
       played: '6',
       win: '2',
@@ -673,7 +729,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Witham Academy',
+      gender: 'M',
+      _id: 'M:Witham Academy',
       division: '7se',
       played: '6',
       win: '2',
@@ -685,7 +742,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Braintree 3',
+      gender: 'M',
+      _id: 'M:Braintree 3',
       division: '7se',
       played: '6',
       win: '1',
@@ -697,7 +755,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'Wapping X',
+      gender: 'M',
+      _id: 'M:Wapping X',
       division: '7se',
       played: '6',
       win: '1',
@@ -709,7 +768,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'Waltham Forest 4',
+      gender: 'M',
+      _id: 'M:Waltham Forest 4',
       division: '7se',
       played: '6',
       win: '0',
@@ -721,7 +781,8 @@ module.exports = function () {
       points: '0'
     },
     {
-      _id: 'Tower Hamlets 1',
+      gender: 'M',
+      _id: 'M:Tower Hamlets 1',
       division: '8se',
       played: '6',
       win: '6',
@@ -733,7 +794,8 @@ module.exports = function () {
       points: '18'
     },
     {
-      _id: 'Romford 2',
+      gender: 'M',
+      _id: 'M:Romford 2',
       division: '8se',
       played: '6',
       win: '5',
@@ -745,7 +807,8 @@ module.exports = function () {
       points: '15'
     },
     {
-      _id: 'Wapping XI',
+      gender: 'M',
+      _id: 'M:Wapping XI',
       division: '8se',
       played: '6',
       win: '4',
@@ -757,7 +820,8 @@ module.exports = function () {
       points: '13'
     },
     {
-      _id: 'Old Southendian 4',
+      gender: 'M',
+      _id: 'M:Old Southendian 4',
       division: '8se',
       played: '6',
       win: '3',
@@ -769,7 +833,8 @@ module.exports = function () {
       points: '11'
     },
     {
-      _id: 'Brentwood Academy',
+      gender: 'M',
+      _id: 'M:Brentwood Academy',
       division: '8se',
       played: '6',
       win: '2',
@@ -781,7 +846,8 @@ module.exports = function () {
       points: '8'
     },
     {
-      _id: 'East London 8',
+      gender: 'M',
+      _id: 'M:East London 8',
       division: '8se',
       played: '6',
       win: '2',
@@ -793,7 +859,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Braintree Knights',
+      gender: 'M',
+      _id: 'M:Braintree Knights',
       division: '8se',
       played: '6',
       win: '2',
@@ -805,7 +872,8 @@ module.exports = function () {
       points: '7'
     },
     {
-      _id: 'Colchester 4',
+      gender: 'M',
+      _id: 'M:Colchester 4',
       division: '8se',
       played: '6',
       win: '2',
@@ -817,7 +885,8 @@ module.exports = function () {
       points: '6'
     },
     {
-      _id: 'Saffron Walden 7',
+      gender: 'M',
+      _id: 'M:Saffron Walden 7',
       division: '8se',
       played: '6',
       win: '1',
@@ -829,7 +898,8 @@ module.exports = function () {
       points: '5'
     },
     {
-      _id: 'Thurrock 2',
+      gender: 'M',
+      _id: 'M:Thurrock 2',
       division: '8se',
       played: '6',
       win: '1',
@@ -841,7 +911,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'Old Southendian 5',
+      gender: 'M',
+      _id: 'M:Old Southendian 5',
       division: '8se',
       played: '6',
       win: '2',
@@ -853,7 +924,8 @@ module.exports = function () {
       points: '3'
     },
     {
-      _id: 'Brentwood 5',
+      gender: 'M',
+      _id: 'M:Brentwood 5',
       division: '8se',
       played: '6',
       win: '0',
@@ -865,7 +937,8 @@ module.exports = function () {
       points: '2'
     },
     {
-      _id: 'Old Loughts Willows 1',
+      gender: 'M',
+      _id: 'M:Old Loughts Willows 1',
       division: '9se',
       played: '6',
       win: '5',
@@ -877,7 +950,8 @@ module.exports = function () {
       points: '16'
     },
     {
-      _id: 'Upminster 5',
+      gender: 'M',
+      _id: 'M:Upminster 5',
       division: '9se',
       played: '6',
       win: '4',
@@ -889,7 +963,8 @@ module.exports = function () {
       points: '12'
     },
     {
-      _id: 'Southend 3',
+      gender: 'M',
+      _id: 'M:Southend 3',
       division: '9se',
       played: '6',
       win: '3',
@@ -901,7 +976,8 @@ module.exports = function () {
       points: '11'
     },
     {
-      _id: 'Crostyx 4',
+      gender: 'M',
+      _id: 'M:Crostyx 4',
       division: '9se',
       played: '6',
       win: '3',
@@ -913,7 +989,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Havering 4',
+      gender: 'M',
+      _id: 'M:Havering 4',
       division: '9se',
       played: '6',
       win: '2',
@@ -925,7 +1002,8 @@ module.exports = function () {
       points: '8'
     },
     {
-      _id: 'Maldon Academy',
+      gender: 'M',
+      _id: 'M:Maldon Academy',
       division: '9se',
       played: '6',
       win: '1',
@@ -937,7 +1015,8 @@ module.exports = function () {
       points: '5'
     },
     {
-      _id: 'Rochford 2',
+      gender: 'M',
+      _id: 'M:Rochford 2',
       division: '9se',
       played: '6',
       win: '1',
@@ -949,7 +1028,8 @@ module.exports = function () {
       points: '4'
     },
     {
-      _id: 'London Royals 1',
+      gender: 'M',
+      _id: 'M:London Royals 1',
       division: '9se',
       played: '6',
       win: '1',
@@ -961,7 +1041,8 @@ module.exports = function () {
       points: '3'
     },
     {
-      _id: 'Braintree 5',
+      gender: 'M',
+      _id: 'M:Braintree 5',
       division: '10se',
       played: '6',
       win: '4',
@@ -973,7 +1054,8 @@ module.exports = function () {
       points: '14'
     },
     {
-      _id: 'Old Loughts Willows 2',
+      gender: 'M',
+      _id: 'M:Old Loughts Willows 2',
       division: '10se',
       played: '6',
       win: '3',
@@ -985,7 +1067,8 @@ module.exports = function () {
       points: '11'
     },
     {
-      _id: 'East London 9',
+      gender: 'M',
+      _id: 'M:East London 9',
       division: '10se',
       played: '6',
       win: '3',
@@ -997,7 +1080,8 @@ module.exports = function () {
       points: '10'
     },
     {
-      _id: 'Chelmsford 7',
+      gender: 'M',
+      _id: 'M:Chelmsford 7',
       division: '10se',
       played: '6',
       win: '2',
@@ -1009,7 +1093,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Romford 3',
+      gender: 'M',
+      _id: 'M:Romford 3',
       division: '10se',
       played: '6',
       win: '3',
@@ -1021,7 +1106,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Old Southendian 6',
+      gender: 'M',
+      _id: 'M:Old Southendian 6',
       division: '10se',
       played: '6',
       win: '3',
@@ -1033,7 +1119,8 @@ module.exports = function () {
       points: '9'
     },
     {
-      _id: 'Saffron Walden 8',
+      gender: 'M',
+      _id: 'M:Saffron Walden 8',
       division: '10se',
       played: '6',
       win: '1',
@@ -1045,7 +1132,8 @@ module.exports = function () {
       points: '3'
     },
     {
-      _id: 'Waltham Forest 5',
+      gender: 'M',
+      _id: 'M:Waltham Forest 5',
       division: '10se',
       played: '6',
       win: '0',

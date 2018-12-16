@@ -4,18 +4,43 @@ const request = require('request-promise'),
   _ = require('lodash'),
   moment = require('moment'),
   api_url_EMLTable = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tablesmen.asp?divblock=SE&Submit=League+table',
-  api_url_EMLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/resultsmen.asp?division='
-let fixture_collection = [];
+  api_url_EWLTable = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tableswomen.asp',
+  api_url_EMLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/resultsmen.asp?division=',
+  api_url_EWLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/venueswomen.asp?division='
+
 
 function Scrape() {
   const performance_property = ['played', 'win', 'draw', 'lose', 'for', 'against', 'goal_difference', 'points'];
 
+  function ALLTablesAsCollection() {
+    let team_performances = [];
+    return EMLTablesAsCollection()
+      .then(function (eml_team_performances) {
+        team_performances = eml_team_performances;
+        return EWLTablesAsCollection()
+          .then(function (ewl_team_performances) {
+            return _.union(team_performances, ewl_team_performances)
+          })
+          .catch((err) => {
+            throw new Error(err)
+          })
+      })
+  }
+
   function EMLTablesAsCollection() {
+    return tableAsCollection(api_url_EMLTable, 'M')
+  }
+
+  function EWLTablesAsCollection() {
+    return tableAsCollection(api_url_EWLTable, 'F')
+  }
+
+  function tableAsCollection(url, gender) {
     let division,
       value_count,
       deferred = q.defer();
 
-    request.get(api_url_EMLTable).then(function (result) {
+    request.get(url).then(function (result) {
       const $ = cheerio.load(result);
 
       let team_performances = [];
@@ -26,13 +51,17 @@ function Scrape() {
         if ($(this).attr('width') === '150') {
           // DIV/team_name are both in the width 150 element
           td_text = td_text.trim();
-          if (_.startsWith(td_text, 'DIVISION')) {
-            division = _.trim(td_text.toLowerCase(), '\s+division ');
+          if (_.startsWith(td_text, 'DIVISION') || _.startsWith(td_text, 'PREMIER')) {
+            let pattern = /division /gi
+            division = td_text.replace(pattern, '').toLowerCase();
+            division = _.replace(division, 'ier', '');
           } else if (_.words(td_text).length > 0) {
             // It's a team_name
             team_performance = {
-              _id: td_text,
-              division: division
+              _id: gender + ':' + td_text,
+              team: td_text,
+              division: division,
+              gender: gender
             }
             value_count = 0; //start tracking the performance counter in the array of performance_property
           }
@@ -56,42 +85,25 @@ function Scrape() {
   }
 
   function getDivisionsFrom(team_performances) {
-    return _.sortedUniq(_.map(team_performances, (perf) => perf.division));
+    return _.uniqWith(_.map(team_performances, (perf) => ({
+      division: perf.division,
+      gender: perf.gender
+    })), _.isEqual)
   }
 
-  function EMLFixturesAsCollection(divisions) {
-    let deferred = q.defer();
-    // create array of promises
-    let division_get_promises = _.map(divisions, function (division) {
-      return EMLFixturesAsCollectionFor(division);
-    });
-    q.allSettled(division_get_promises).then(function (division_responses) {
-      _.forEach(division_responses, function (response) {
-
-        fixture_collection = _.union(fixture_collection, response.value);
-      });
-      deferred.resolve(fixture_collection);
-    }).done();
-    return deferred.promise;
-  }
-
-  function EMLFixturesAsCollectionFor(division) {
-    //Initialize the division object
-    let eml_performance_url = api_url_EMLFixtures + division,
+  function parseEML(division_metadata) {
+    let home_team = '',
+      away_team = '',
+      fixture_date = '',
       fixtures = [],
       deferred = q.defer();
-
-    request.get(eml_performance_url).then(function (result) {
+    request.get(api_url_EMLFixtures + division_metadata.division).then(function (result) {
       const $ = cheerio.load(result);
-      let
-        fixture_date = '',
-        home_team = '',
-        away_team = '';
-
       return q($('td').each(function (i, elem) {
         let td_text = $(this).text().trim();
 
-        //Again, no cheerio anchors except for td width :(
+        // no cheerio anchors except for td width :(
+
         if ($(this).attr('width') === '225') {
           // Is the td the date or home team in fixture?
           if (moment(td_text, 'DD-MMM-YY', true).isValid() || moment(td_text, 'D-MMM-YY', true).isValid()) {
@@ -108,11 +120,12 @@ function Scrape() {
             away_team = td_text;
             // date, home_team and away_team found, create the JSON record
             fixtures.push({
-              _id: fixture_date + ':' + home_team,
-              division: division,
+              _id: division_metadata.gender + ':' + division_metadata.division + ':' + fixture_date + ':' + home_team,
+              division: division_metadata.division,
               fixture_date: fixture_date,
               home_team: home_team,
-              away_team: away_team
+              away_team: away_team,
+              gender: division_metadata.gender
             });
           }
         }
@@ -122,9 +135,86 @@ function Scrape() {
       }).catch(function (err) {
         deferred.reject(new Error('Error with fixture list: ' + err));
       });
-    });
+    })
     return deferred.promise;
   }
+
+  function parseEWL(division_metadata) {
+    let home_team = '',
+      away_team = '',
+      fixture_date = '',
+      fixtures = [],
+      deferred = q.defer();
+
+    request.get(api_url_EWLFixtures + division_metadata.division).then(function (result) {
+      const $ = cheerio.load(result);
+      return q($('td').each(function (i, elem) {
+        let td_text = $(this).text().trim();
+        //Again, no cheerio anchors except for td width :(
+        if ($(this).attr('width') === '294') {
+          let maybe_date = td_text
+          maybe_date = maybe_date.replace(/\s+:/g, '')
+          // Is the td the date or home team in fixture?
+          if (moment(maybe_date, 'DD-MMM-YY', true).isValid() || moment(maybe_date, 'D-MMM-YY', true).isValid()) {
+            // is a date
+            fixture_date = sanitiseDate(maybe_date);
+          } else {
+            [home_team, away_team] = _.split(td_text, ' : ');
+            fixtures.push({
+              _id: division_metadata.gender + ':' + division_metadata.division + ':' + fixture_date + ':' + home_team,
+              division: division_metadata.division,
+              fixture_date: fixture_date,
+              home_team: home_team,
+              away_team: away_team,
+              gender: division_metadata.gender
+            });
+          }
+        }
+      })).then(function () {
+        // return the fixtures for this division
+        deferred.resolve(fixtures);
+      }).catch(function (err) {
+        deferred.reject(new Error('Error with fixture list: ' + err));
+      });
+    })
+    return deferred.promise;
+  }
+  function ALLFixturesAsCollection(divisions) {
+    let deferred = q.defer(),
+      fixture_collection = [];
+    // create array of promises
+    let division_get_promises = _.map(divisions, function (division) {
+      return ALLFixturesAsCollectionFor(division);
+    });
+    q.allSettled(division_get_promises).then(function (division_responses) {
+      _.forEach(division_responses, function (response) {
+        fixture_collection = _.union(fixture_collection, response.value);
+      });
+      deferred.resolve(fixture_collection);
+    })
+    return deferred.promise;
+  }
+
+    function ALLFixturesAsCollectionFor(division_metadata) {
+      //Initialize the division object
+      let deferred = q.defer();
+      if (division_metadata.gender === 'M') {
+        parseEML(division_metadata).then(function (division_fixtures) {
+          // return the fixtures for this division
+          deferred.resolve(_.uniqBy(division_fixtures, '_id'));
+        }).catch(function (err) {
+          deferred.reject(new Error('Error with fixture list: ' + err));
+        });
+      } else if (division_metadata.gender === 'F') {
+        parseEWL(division_metadata).then(function (division_fixtures) {
+          // return the fixtures for this division
+          deferred.resolve(_.uniqBy(division_fixtures, '_id'));
+        }).catch(function (err) {
+          deferred.reject(new Error('Error with fixture list: ' + err));
+        });
+      }
+      return deferred.promise;
+    }
 
   function sanitiseDate(date) {
     if (date.length === 8) {
@@ -135,10 +225,13 @@ function Scrape() {
   }
 
   return {
-    fixture_collection: fixture_collection,
+    ALLTablesAsCollection: ALLTablesAsCollection,
     getDivisionsFrom: getDivisionsFrom,
+    parseEML: parseEML,
+    parseEWL: parseEWL,
     EMLTablesAsCollection: EMLTablesAsCollection,
-    EMLFixturesAsCollection: EMLFixturesAsCollection
+    EWLTablesAsCollection: EWLTablesAsCollection,
+    ALLFixturesAsCollection: ALLFixturesAsCollection
   }
 }
 
