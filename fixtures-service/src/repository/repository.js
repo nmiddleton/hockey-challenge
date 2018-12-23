@@ -71,8 +71,8 @@ const repository = (db) => {
         })
     })
   }
-  const getFixturesFor = (team) => {
-    const query_team = {$or: [{home_team: team},{away_team: team} ] },
+  const getFixturesFor = (team, gender) => {
+    const query_team = { $or: [{home_team: team},{away_team: team}], gender: gender},
       team_fixtures = []
     return new Promise((resolve, reject) => {
       // Get the documents as a cursor (for iteration through)
@@ -96,9 +96,9 @@ const repository = (db) => {
     })
   }
 
-  const getNextFixtureFor = (team, dd_mmm_yy) => {
+  const getNextFixtureFor = (team, gender, dd_mmm_yy) => {
     return new Promise((resolve, reject) => {
-      getFixturesFor(team)
+      getFixturesFor(team, gender)
         .then((fixtures) => {
           resolve(getNextFixtureFrom(fixtures, dd_mmm_yy))
         })

@@ -36,10 +36,10 @@ export class LeagueFixturesService {
         catchError(ServiceHelpers.handleErrorAndContinue('get /fixtures/' + team, []))
       );
   }
-  public getNextFixtureFor(team: string): Observable<any> {
-    return this.http.get<string>(FIXTURES_API_URL + '/next_fixture_for/' + team)
+  public getNextFixtureFor(team: string, gender: string): Observable<any> {
+    return this.http.get<string>(FIXTURES_API_URL + '/next_fixture_for/' + team + (!!gender ? '?gender=' + gender : '') )
       .pipe(
-        catchError(ServiceHelpers.handleErrorAndContinue('get /next_fixture_for/' + team, []))
+        catchError(ServiceHelpers.handleErrorAndContinue('get /next_fixture_for/' + team +  (!!gender ? '?gender=' + gender : ''), []))
       );
   }
 }

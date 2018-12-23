@@ -27,13 +27,13 @@ module.exports = (app, options) => {
       .catch(next)
   })
   app.get('/fixtures/:id', (req, res, next) => {
-    repo.getFixturesFor(req.query.id).then(fixtures => {
+    repo.getFixturesFor(req.params.id, req.query.gender).then(fixtures => {
       checkDebugMode(req, fixtures)
       res.status(status.OK).json(fixtures)
     }).catch(next)
   })
   app.get('/next_fixture_for/:id', (req, res, next) => {
-    repo.getNextFixtureFor(req.params.id).then(fixtures => {
+    repo.getNextFixtureFor(req.params.id, req.query.gender).then(fixtures => {
       checkDebugMode(req, fixtures)
       res.status(status.OK).json(fixtures)
     }).catch(next)

@@ -16,7 +16,7 @@ export class TeamPredictionComponent implements OnInit {
   filtered_team_predictions: TeamPrediction[];
   next_team_fixture$: Observable<TeamFixture>;
   oppo_team_performance$: Observable<TeamPerformance>;
-
+  fixtures_last_updated: string;
 
   constructor(private leagueFixturesService: LeagueFixturesService, private teamPerformanceService: TeamPerformanceService) {
     this.filtered_team_predictions = [];
@@ -25,8 +25,13 @@ export class TeamPredictionComponent implements OnInit {
 
   ngOnInit() {
     // Refresh fixtures from source with POST to /fixtures
-    this.leagueFixturesService.refreshFixtures().subscribe(() => {})
-
+    this.leagueFixturesService.refreshFixtures().subscribe((fixtures) => {
+        fixtures.forEach((fixtures_metadata) => {
+          if (fixtures_metadata.hasOwnProperty('_id') && fixtures_metadata['_id'] === 'last_refreshed') {
+            this.fixtures_last_updated = fixtures_metadata['timestamp']
+          }
+        })
+      })
   }
 
   getLeagueStrength(team_performance: TeamPerformance) {
@@ -41,8 +46,8 @@ export class TeamPredictionComponent implements OnInit {
     return Math.round((parseInt(team_performance.for, 10) / parseInt(team_performance.played, 10)) * 10) / 10;
   }
 
-  getNextFixture(team: string) {
-    this.next_team_fixture$ = this.leagueFixturesService.getNextFixtureFor(team);
+  getNextFixture(team: string, gender: string) {
+    this.next_team_fixture$ = this.leagueFixturesService.getNextFixtureFor(team, gender);
   }
 
   getOppoTeamPerformance(team: string) {
@@ -54,7 +59,7 @@ export class TeamPredictionComponent implements OnInit {
     this.filtered_team_performances = event;
 
     event.forEach((team_performance) => {
-        this.getNextFixture(team_performance.team);
+        this.getNextFixture(team_performance.team, team_performance.gender);
         this.next_team_fixture$.subscribe(team_fixture => {
           const oppo_team = team_performance.team === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
           const home_fixture_bonus = team_performance.team === team_fixture.home_team ? 1 : 0;
