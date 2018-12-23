@@ -2,11 +2,18 @@
 const status = require('http-status')
 
 module.exports = (app, options) => {
-  const {repo} = options
+  const {repo} = options,
+    checkDebugMode = (req, response) => {
+        console.log('DEBUG Mode is ON');
+        console.log('REQ Query', JSON.stringify(req.query ,null,4));
+        console.log('REQ PARAMS', JSON.stringify(req.params ,null,4));
+        console.log(JSON.stringify(response, null, 4))
+    }
 
   app.get('/fixtures', (req, res, next) => {
     repo.getAllFixtures()
       .then(fixtures => {
+        checkDebugMode(req, fixtures)
         res.status(status.OK).json(fixtures)
       })
       .catch(next)
@@ -14,17 +21,20 @@ module.exports = (app, options) => {
   app.post('/fixtures', (req, res, next) => {
     repo.refreshAllFixtures()
       .then(fixtures => {
+        checkDebugMode(req, fixtures)
         res.status(status.OK).json(fixtures)
       })
       .catch(next)
   })
   app.get('/fixtures/:id', (req, res, next) => {
-    repo.getFixturesFor(req.params.id).then(fixtures => {
+    repo.getFixturesFor(req.query.id).then(fixtures => {
+      checkDebugMode(req, fixtures)
       res.status(status.OK).json(fixtures)
     }).catch(next)
   })
   app.get('/next_fixture_for/:id', (req, res, next) => {
     repo.getNextFixtureFor(req.params.id).then(fixtures => {
+      checkDebugMode(req, fixtures)
       res.status(status.OK).json(fixtures)
     }).catch(next)
   })
