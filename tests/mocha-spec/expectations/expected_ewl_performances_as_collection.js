@@ -6,11 +6,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '2',
       'for': '21',
+      'gender': 'F',
       'goal_difference': '9',
       'lose': '2',
       'played': '12',
-      'gender': 'F',
       'points': '26',
+      'team': 'Chelmsford 1',
       'win': '8'
     },
     {
@@ -19,11 +20,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '2',
       'for': '16',
+      'gender': 'F',
       'goal_difference': '5',
       'lose': '3',
       'played': '12',
-      'gender': 'F',
       'points': '23',
+      'team': 'Canterbury 2',
       'win': '7'
     },
     {
@@ -32,11 +34,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '1',
       'for': '42',
+      'gender': 'F',
       'goal_difference': '24',
       'lose': '2',
       'played': '10',
-      'gender': 'F',
       'points': '22',
+      'team': 'Brom & Becks 1',
       'win': '7'
     },
     {
@@ -45,11 +48,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '1',
       'for': '23',
+      'gender': 'F',
       'goal_difference': '12',
       'lose': '3',
       'played': '11',
-      'gender': 'F',
       'points': '22',
+      'team': 'Broxbourne 1',
       'win': '7'
     },
     {
@@ -58,11 +62,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '2',
       'for': '18',
+      'gender': 'F',
       'goal_difference': '0',
       'lose': '4',
       'played': '12',
-      'gender': 'F',
       'points': '20',
+      'team': 'CoP 1',
       'win': '6'
     },
     {
@@ -71,11 +76,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '4',
       'for': '20',
+      'gender': 'F',
       'goal_difference': '4',
       'lose': '3',
       'played': '12',
-      'gender': 'F',
       'points': '19',
+      'team': 'Cambridge City 2',
       'win': '5'
     },
     {
@@ -84,11 +90,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '2',
       'for': '14',
+      'gender': 'F',
       'goal_difference': '-2',
       'lose': '5',
       'played': '11',
-      'gender': 'F',
       'points': '14',
+      'team': 'Wapping 1',
       'win': '4'
     },
     {
@@ -97,11 +104,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '3',
       'for': '23',
+      'gender': 'F',
       'goal_difference': '-5',
       'lose': '6',
       'played': '12',
-      'gender': 'F',
       'points': '12',
+      'team': 'St Albans 2',
       'win': '3'
     },
     {
@@ -110,11 +118,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '5',
       'for': '17',
+      'gender': 'F',
       'goal_difference': '-8',
       'lose': '5',
       'played': '12',
-      'gender': 'F',
       'points': '11',
+      'team': 'Harleston Magpies 2',
       'win': '2'
     },
     {
@@ -123,11 +132,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '1',
       'for': '10',
+      'gender': 'F',
       'goal_difference': '-17',
       'lose': '7',
       'played': '11',
-      'gender': 'F',
       'points': '10',
+      'team': 'Norwich City 1',
       'win': '3'
     },
     {
@@ -136,11 +146,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '3',
       'for': '19',
+      'gender': 'F',
       'goal_difference': '-9',
       'lose': '6',
       'played': '11',
-      'gender': 'F',
       'points': '9',
+      'team': 'West Herts 1',
       'win': '2'
     },
     {
@@ -149,11 +160,12 @@ module.exports = function () {
       'division': 'prem',
       'draw': '2',
       'for': '10',
+      'gender': 'F',
       'goal_difference': '-13',
       'lose': '9',
       'played': '12',
-      'gender': 'F',
       'points': '5',
+      'team': 'Sevenoaks 2',
       'win': '1'
     },
     {
@@ -162,11 +174,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '2',
       'for': '44',
+      'gender': 'F',
       'goal_difference': '35',
       'lose': '1',
       'played': '12',
-      'gender': 'F',
       'points': '29',
+      'team': 'East London 1',
       'win': '9'
     },
     {
@@ -175,11 +188,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '1',
       'for': '55',
+      'gender': 'F',
       'goal_difference': '34',
       'lose': '2',
       'played': '12',
-      'gender': 'F',
       'points': '28',
+      'team': 'Maidstone 1',
       'win': '9'
     },
     {
@@ -188,11 +202,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '1',
       'for': '29',
+      'gender': 'F',
       'goal_difference': '22',
       'lose': '1',
       'played': '11',
-      'gender': 'F',
       'points': '28',
+      'team': 'Upminster 1',
       'win': '9'
     },
     {
@@ -201,11 +216,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '3',
       'for': '31',
+      'gender': 'F',
       'goal_difference': '13',
       'lose': '1',
       'played': '11',
-      'gender': 'F',
       'points': '24',
+      'team': 'Blueharts 1',
       'win': '7'
     },
     {
@@ -214,11 +230,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '2',
       'for': '17',
+      'gender': 'F',
       'goal_difference': '-5',
       'lose': '4',
       'played': '11',
-      'gender': 'F',
       'points': '17',
+      'team': 'Chelmsford 2',
       'win': '5'
     },
     {
@@ -227,11 +244,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '3',
       'for': '24',
+      'gender': 'F',
       'goal_difference': '5',
       'lose': '4',
       'played': '11',
-      'gender': 'F',
       'points': '15',
+      'team': 'Bishops Stortford 1',
       'win': '4'
     },
     {
@@ -240,11 +258,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '3',
       'for': '10',
+      'gender': 'F',
       'goal_difference': '-6',
       'lose': '4',
       'played': '11',
-      'gender': 'F',
       'points': '15',
+      'team': 'Crostyx 1',
       'win': '4'
     },
     {
@@ -253,11 +272,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '3',
       'for': '16',
+      'gender': 'F',
       'goal_difference': '-3',
       'lose': '5',
       'played': '11',
-      'gender': 'F',
       'points': '12',
+      'team': 'Old Loughts 1',
       'win': '3'
     },
     {
@@ -266,11 +286,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '2',
       'for': '11',
+      'gender': 'F',
       'goal_difference': '-24',
       'lose': '8',
       'played': '12',
-      'gender': 'F',
       'points': '8',
+      'team': 'Tunbridge Wells 1',
       'win': '2'
     },
     {
@@ -279,11 +300,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '1',
       'for': '15',
+      'gender': 'F',
       'goal_difference': '-26',
       'lose': '9',
       'played': '12',
-      'gender': 'F',
       'points': '7',
+      'team': 'Ashford 1',
       'win': '2'
     },
     {
@@ -292,11 +314,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '0',
       'for': '16',
+      'gender': 'F',
       'goal_difference': '-21',
       'lose': '10',
       'played': '12',
-      'gender': 'F',
       'points': '6',
+      'team': 'Colchester 1',
       'win': '2'
     },
     {
@@ -305,11 +328,12 @@ module.exports = function () {
       'division': '1s',
       'draw': '3',
       'for': '10',
+      'gender': 'F',
       'goal_difference': '-24',
       'lose': '7',
       'played': '10',
-      'gender': 'F',
       'points': '3',
+      'team': 'Canterbury 2A',
       'win': '0'
     },
     {
@@ -318,11 +342,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '1',
       'for': '45',
+      'gender': 'F',
       'goal_difference': '33',
       'lose': '1',
       'played': '12',
-      'gender': 'F',
       'points': '31',
+      'team': 'North Norfolk 1',
       'win': '10'
     },
     {
@@ -331,11 +356,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '1',
       'for': '43',
+      'gender': 'F',
       'goal_difference': '30',
       'lose': '1',
       'played': '12',
-      'gender': 'F',
       'points': '31',
+      'team': 'Watton 1',
       'win': '10'
     },
     {
@@ -344,11 +370,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '0',
       'for': '36',
+      'gender': 'F',
       'goal_difference': '23',
       'lose': '3',
       'played': '12',
-      'gender': 'F',
       'points': '27',
+      'team': 'Bury St Edmunds 1',
       'win': '9'
     },
     {
@@ -357,11 +384,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '0',
       'for': '32',
+      'gender': 'F',
       'goal_difference': '17',
       'lose': '3',
       'played': '12',
-      'gender': 'F',
       'points': '27',
+      'team': 'Norwich Dragons 2',
       'win': '9'
     },
     {
@@ -370,11 +398,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '3',
       'for': '23',
+      'gender': 'F',
       'goal_difference': '3',
       'lose': '4',
       'played': '12',
-      'gender': 'F',
       'points': '18',
+      'team': 'Harleston Magpies 3',
       'win': '5'
     },
     {
@@ -383,11 +412,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '2',
       'for': '41',
+      'gender': 'F',
       'goal_difference': '5',
       'lose': '5',
       'played': '12',
-      'gender': 'F',
       'points': '17',
+      'team': 'UEA Women 1',
       'win': '5'
     },
     {
@@ -396,11 +426,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '0',
       'for': '20',
+      'gender': 'F',
       'goal_difference': '5',
       'lose': '7',
       'played': '12',
-      'gender': 'F',
       'points': '15',
+      'team': 'Norwich City 2',
       'win': '5'
     },
     {
@@ -409,11 +440,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '0',
       'for': '19',
+      'gender': 'F',
       'goal_difference': '-22',
       'lose': '7',
       'played': '12',
-      'gender': 'F',
       'points': '15',
+      'team': 'Norwich Dragons 3',
       'win': '5'
     },
     {
@@ -422,11 +454,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '2',
       'for': '20',
+      'gender': 'F',
       'goal_difference': '-4',
       'lose': '6',
       'played': '12',
-      'gender': 'F',
       'points': '14',
+      'team': 'Christchurch 1',
       'win': '4'
     },
     {
@@ -435,11 +468,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '2',
       'for': '20',
+      'gender': 'F',
       'goal_difference': '-7',
       'lose': '7',
       'played': '12',
-      'gender': 'F',
       'points': '11',
+      'team': 'Yarmouth 1',
       'win': '3'
     },
     {
@@ -448,11 +482,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '1',
       'for': '8',
+      'gender': 'F',
       'goal_difference': '-16',
       'lose': '10',
       'played': '12',
-      'gender': 'F',
       'points': '4',
+      'team': 'Dereham 2',
       'win': '1'
     },
     {
@@ -461,11 +496,12 @@ module.exports = function () {
       'division': '2ne',
       'draw': '0',
       'for': '1',
+      'gender': 'F',
       'goal_difference': '-67',
       'lose': '12',
       'played': '12',
-      'gender': 'F',
       'points': '0',
+      'team': 'Felixstowe 1',
       'win': '0'
     },
     {
@@ -474,11 +510,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '1',
       'for': '53',
+      'gender': 'F',
       'goal_difference': '48',
       'lose': '0',
       'played': '12',
-      'gender': 'F',
       'points': '34',
+      'team': 'CoP 2',
       'win': '11'
     },
     {
@@ -487,11 +524,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '3',
       'for': '27',
+      'gender': 'F',
       'goal_difference': '11',
       'lose': '2',
       'played': '12',
-      'gender': 'F',
       'points': '24',
+      'team': 'St Ives 1',
       'win': '7'
     },
     {
@@ -500,11 +538,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '2',
       'for': '27',
+      'gender': 'F',
       'goal_difference': '12',
       'lose': '3',
       'played': '12',
-      'gender': 'F',
       'points': '23',
+      'team': 'Cambridge Nomads 1',
       'win': '7'
     },
     {
@@ -513,11 +552,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '2',
       'for': '28',
+      'gender': 'F',
       'goal_difference': '6',
       'lose': '4',
       'played': '12',
-      'gender': 'F',
       'points': '20',
+      'team': 'Cambridge South 1',
       'win': '6'
     },
     {
@@ -526,11 +566,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '2',
       'for': '20',
+      'gender': 'F',
       'goal_difference': '1',
       'lose': '5',
       'played': '12',
-      'gender': 'F',
       'points': '17',
+      'team': 'Cambridge City 4',
       'win': '5'
     },
     {
@@ -539,11 +580,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '2',
       'for': '21',
+      'gender': 'F',
       'goal_difference': '0',
       'lose': '5',
       'played': '12',
-      'gender': 'F',
       'points': '17',
+      'team': 'Bourne Deeping 1',
       'win': '5'
     },
     {
@@ -552,11 +594,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '1',
       'for': '36',
+      'gender': 'F',
       'goal_difference': '15',
       'lose': '6',
       'played': '12',
-      'gender': 'F',
       'points': '16',
+      'team': 'Pelicans 1',
       'win': '5'
     },
     {
@@ -565,11 +608,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '0',
       'for': '24',
+      'gender': 'F',
       'goal_difference': '-13',
       'lose': '7',
       'played': '12',
-      'gender': 'F',
       'points': '15',
+      'team': 'St Ives 2',
       'win': '5'
     },
     {
@@ -578,11 +622,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '2',
       'for': '15',
+      'gender': 'F',
       'goal_difference': '-13',
       'lose': '6',
       'played': '12',
-      'gender': 'F',
       'points': '14',
+      'team': 'Spalding 1',
       'win': '4'
     },
     {
@@ -591,11 +636,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '1',
       'for': '20',
+      'gender': 'F',
       'goal_difference': '-9',
       'lose': '8',
       'played': '12',
-      'gender': 'F',
       'points': '10',
+      'team': 'Long Sutton 1',
       'win': '3'
     },
     {
@@ -604,11 +650,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '0',
       'for': '18',
+      'gender': 'F',
       'goal_difference': '-27',
       'lose': '9',
       'played': '12',
-      'gender': 'F',
       'points': '9',
+      'team': 'Alford & District 1',
       'win': '3'
     },
     {
@@ -617,11 +664,12 @@ module.exports = function () {
       'division': '2nw',
       'draw': '0',
       'for': '7',
+      'gender': 'F',
       'goal_difference': '-31',
       'lose': '9',
       'played': '12',
-      'gender': 'F',
       'points': '9',
+      'team': 'Newmarket 1',
       'win': '3'
     },
     {
@@ -630,11 +678,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '1',
       'for': '32',
+      'gender': 'F',
       'goal_difference': '21',
       'lose': '1',
       'played': '11',
-      'gender': 'F',
       'points': '28',
+      'team': 'Basildon 1',
       'win': '9'
     },
     {
@@ -643,11 +692,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '0',
       'for': '36',
+      'gender': 'F',
       'goal_difference': '25',
       'lose': '2',
       'played': '11',
-      'gender': 'F',
       'points': '27',
+      'team': 'Burnt Ash 1',
       'win': '9'
     },
     {
@@ -656,11 +706,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '1',
       'for': '29',
+      'gender': 'F',
       'goal_difference': '15',
       'lose': '3',
       'played': '11',
-      'gender': 'F',
       'points': '22',
+      'team': 'Folkestone 1',
       'win': '7'
     },
     {
@@ -669,11 +720,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '2',
       'for': '21',
+      'gender': 'F',
       'goal_difference': '11',
       'lose': '2',
       'played': '10',
-      'gender': 'F',
       'points': '20',
+      'team': 'Holcombe 1A',
       'win': '6'
     },
     {
@@ -682,11 +734,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '1',
       'for': '24',
+      'gender': 'F',
       'goal_difference': '6',
       'lose': '5',
       'played': '11',
-      'gender': 'F',
       'points': '16',
+      'team': 'Kings and Alleyns 1',
       'win': '5'
     },
     {
@@ -695,11 +748,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '1',
       'for': '23',
+      'gender': 'F',
       'goal_difference': '-3',
       'lose': '5',
       'played': '11',
-      'gender': 'F',
       'points': '16',
+      'team': 'Brom & Becks 2',
       'win': '5'
     },
     {
@@ -708,11 +762,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '2',
       'for': '23',
+      'gender': 'F',
       'goal_difference': '10',
       'lose': '5',
       'played': '11',
-      'gender': 'F',
       'points': '14',
+      'team': 'Sevenoaks 3',
       'win': '4'
     },
     {
@@ -721,11 +776,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '1',
       'for': '22',
+      'gender': 'F',
       'goal_difference': '1',
       'lose': '6',
       'played': '11',
-      'gender': 'F',
       'points': '13',
+      'team': 'Southend 1',
       'win': '4'
     },
     {
@@ -734,11 +790,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '2',
       'for': '26',
+      'gender': 'F',
       'goal_difference': '-18',
       'lose': '7',
       'played': '11',
-      'gender': 'F',
       'points': '8',
+      'team': 'Havering 1',
       'win': '2'
     },
     {
@@ -747,11 +804,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '3',
       'for': '17',
+      'gender': 'F',
       'goal_difference': '-16',
       'lose': '7',
       'played': '11',
-      'gender': 'F',
       'points': '6',
+      'team': 'Southend & Benfleet 1',
       'win': '1'
     },
     {
@@ -760,11 +818,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '0',
       'for': '8',
+      'gender': 'F',
       'goal_difference': '-52',
       'lose': '10',
       'played': '11',
-      'gender': 'F',
       'points': '3',
+      'team': 'Redbridge & Ilford 1',
       'win': '1'
     },
     {
@@ -773,11 +832,12 @@ module.exports = function () {
       'division': '2se',
       'draw': '0',
       'for': '',
+      'gender': 'F',
       'goal_difference': '',
       'lose': '0',
       'played': '0',
-      'gender': 'F',
       'points': '0',
+      'team': 'Tunbridge Wells 2',
       'win': '0'
     },
     {
@@ -786,11 +846,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '3',
       'for': '38',
+      'gender': 'F',
       'goal_difference': '24',
       'lose': '0',
       'played': '11',
-      'gender': 'F',
       'points': '27',
+      'team': 'Letchworth 1',
       'win': '8'
     },
     {
@@ -799,11 +860,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '2',
       'for': '22',
+      'gender': 'F',
       'goal_difference': '16',
       'lose': '2',
       'played': '11',
-      'gender': 'F',
       'points': '23',
+      'team': 'Wapping 2',
       'win': '7'
     },
     {
@@ -812,11 +874,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '2',
       'for': '31',
+      'gender': 'F',
       'goal_difference': '11',
       'lose': '3',
       'played': '11',
-      'gender': 'F',
       'points': '20',
+      'team': 'Waltham Forest 1',
       'win': '6'
     },
     {
@@ -825,11 +888,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '5',
       'for': '25',
+      'gender': 'F',
       'goal_difference': '6',
       'lose': '2',
       'played': '11',
-      'gender': 'F',
       'points': '17',
+      'team': 'St Albans 3',
       'win': '4'
     },
     {
@@ -838,11 +902,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '4',
       'for': '14',
+      'gender': 'F',
       'goal_difference': '3',
       'lose': '2',
       'played': '10',
-      'gender': 'F',
       'points': '16',
+      'team': 'Brentwood 1',
       'win': '4'
     },
     {
@@ -851,11 +916,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '4',
       'for': '23',
+      'gender': 'F',
       'goal_difference': '2',
       'lose': '3',
       'played': '11',
-      'gender': 'F',
       'points': '16',
+      'team': 'East London 2',
       'win': '4'
     },
     {
@@ -864,11 +930,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '2',
       'for': '25',
+      'gender': 'F',
       'goal_difference': '5',
       'lose': '5',
       'played': '11',
-      'gender': 'F',
       'points': '14',
+      'team': 'Stevenage 1',
       'win': '4'
     },
     {
@@ -877,11 +944,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '1',
       'for': '18',
+      'gender': 'F',
       'goal_difference': '-9',
       'lose': '6',
       'played': '11',
-      'gender': 'F',
       'points': '13',
+      'team': 'Shefford & Sandy 1',
       'win': '4'
     },
     {
@@ -890,11 +958,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '2',
       'for': '13',
+      'gender': 'F',
       'goal_difference': '-21',
       'lose': '7',
       'played': '11',
-      'gender': 'F',
       'points': '8',
+      'team': 'Leighton Buzzard 1',
       'win': '2'
     },
     {
@@ -903,11 +972,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '4',
       'for': '14',
+      'gender': 'F',
       'goal_difference': '-12',
       'lose': '6',
       'played': '11',
-      'gender': 'F',
       'points': '7',
+      'team': 'West Herts 2',
       'win': '1'
     },
     {
@@ -916,11 +986,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '3',
       'for': '9',
+      'gender': 'F',
       'goal_difference': '-25',
       'lose': '8',
       'played': '11',
-      'gender': 'F',
       'points': '3',
+      'team': 'Harpenden 1',
       'win': '0'
     },
     {
@@ -929,11 +1000,12 @@ module.exports = function () {
       'division': '2sw',
       'draw': '0',
       'for': '',
+      'gender': 'F',
       'goal_difference': '',
       'lose': '0',
       'played': '0',
-      'gender': 'F',
       'points': '0',
+      'team': 'Old Loughts 2',
       'win': '0'
     },
     {
@@ -942,11 +1014,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '0',
       'for': '70',
+      'gender': 'F',
       'goal_difference': '61',
       'lose': '0',
       'played': '10',
-      'gender': 'F',
       'points': '30',
+      'team': 'Ely City 2',
       'win': '10'
     },
     {
@@ -955,11 +1028,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '0',
       'for': '52',
+      'gender': 'F',
       'goal_difference': '42',
       'lose': '2',
       'played': '11',
-      'gender': 'F',
       'points': '27',
+      'team': 'Cambridge City 6',
       'win': '9'
     },
     {
@@ -968,11 +1042,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '1',
       'for': '36',
+      'gender': 'F',
       'goal_difference': '25',
       'lose': '2',
       'played': '11',
-      'gender': 'F',
       'points': '25',
+      'team': 'St Ives 4',
       'win': '8'
     },
     {
@@ -981,11 +1056,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '1',
       'for': '19',
+      'gender': 'F',
       'goal_difference': '3',
       'lose': '3',
       'played': '11',
-      'gender': 'F',
       'points': '22',
+      'team': 'Newmarket 3',
       'win': '7'
     },
     {
@@ -994,11 +1070,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '2',
       'for': '45',
+      'gender': 'F',
       'goal_difference': '8',
       'lose': '4',
       'played': '11',
-      'gender': 'F',
       'points': '17',
+      'team': 'Bury St Edmunds 4',
       'win': '5'
     },
     {
@@ -1007,11 +1084,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '0',
       'for': '18',
+      'gender': 'F',
       'goal_difference': '-16',
       'lose': '7',
       'played': '11',
-      'gender': 'F',
       'points': '12',
+      'team': 'Cambridge South 4',
       'win': '4'
     },
     {
@@ -1020,11 +1098,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '1',
       'for': '34',
+      'gender': 'F',
       'goal_difference': '5',
       'lose': '5',
       'played': '11',
-      'gender': 'F',
       'points': '10',
+      'team': 'Sudbury 3',
       'win': '5'
     },
     {
@@ -1033,11 +1112,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '0',
       'for': '10',
+      'gender': 'F',
       'goal_difference': '-30',
       'lose': '8',
       'played': '11',
-      'gender': 'F',
       'points': '9',
+      'team': 'Wisbech Town 3',
       'win': '3'
     },
     {
@@ -1046,11 +1126,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '1',
       'for': '19',
+      'gender': 'F',
       'goal_difference': '-14',
       'lose': '7',
       'played': '11',
-      'gender': 'F',
       'points': '7',
+      'team': 'Huntingdon 2',
       'win': '3'
     },
     {
@@ -1059,11 +1140,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '0',
       'for': '7',
+      'gender': 'F',
       'goal_difference': '-35',
       'lose': '10',
       'played': '11',
-      'gender': 'F',
       'points': '3',
+      'team': 'Ely City 3',
       'win': '1'
     },
     {
@@ -1072,11 +1154,12 @@ module.exports = function () {
       'division': '5nw(s)',
       'draw': '0',
       'for': '11',
+      'gender': 'F',
       'goal_difference': '-49',
       'lose': '9',
       'played': '11',
-      'gender': 'F',
       'points': '3',
+      'team': 'Newmarket 4',
       'win': '2'
     }
   ]
