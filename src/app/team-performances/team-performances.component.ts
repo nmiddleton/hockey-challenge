@@ -15,6 +15,7 @@ export class TeamPerformancesComponent implements OnInit {
   team_filter_changed_to: string;
   all_team_performances$: Observable<TeamPerformance[]>;
   filtered_team_performances$: Observable<TeamPerformance[]>;
+  predictions_last_updated: string;
 
   constructor(private teamPerformanceService: TeamPerformanceService) {}
 
@@ -22,7 +23,7 @@ export class TeamPerformancesComponent implements OnInit {
 
   ngOnInit() {
     // Refresh performances from source with POST to /performances
-    this.all_team_performances$ = this.teamPerformanceService.refreshTeamPerformance();
+    this.refreshTeamPerformances()
   }
 
   handleTeamFilterChanged(event) {
@@ -32,6 +33,17 @@ export class TeamPerformancesComponent implements OnInit {
     this.filtered_team_performances$.subscribe(filtered_team_performances => {
       this.filtered_team_performances = filtered_team_performances;
     });
+  }
+
+  refreshTeamPerformances() {
+    this.teamPerformanceService.refreshTeamPerformance().subscribe(team_performances => {
+      team_performances.forEach((performances_metadata) => {
+        if (performances_metadata.hasOwnProperty('timestamp')) {
+          this.predictions_last_updated = performances_metadata['timestamp']
+        }
+      })
+      this.getTeamPerformances()
+    })
   }
 
   getTeamPerformances() {

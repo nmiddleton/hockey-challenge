@@ -1,5 +1,13 @@
 <app-team-performances (teamPredictionEmitter)="makePredictions($event)"></app-team-performances>
-<table border="1">
+
+<br/>
+<span>Fixture Data last refreshed:
+  <span *ngIf="!!predictions_last_updated"> {{predictions_last_updated | date: 'EEE dd MMM, yyyy - HH:mm:ss' }} </span>
+<span *ngIf="! !!predictions_last_updated"> Never </span>
+<br/>
+
+
+<table border="1" *ngIf="filtered_team_predictions.length >0">
   <tr><td>TEAM</td><td>M/F</td><td>Defensive weakness</td><td>Offensive Strength</td><td>OPPOSITION</td><td>Defensive weakness</td><td>Offensive Strength</td><td>concede by defence</td><td>score by attack</td><td>League Dominance</td><td>Game Rating</td><td>Location</td></tr>
   <tr *ngFor="let prediction of filtered_team_predictions">
     <td style="text-align: left">{{ prediction.team }}</td>
@@ -16,3 +24,5 @@
     <td style="text-align: center">{{prediction.home_or_away}}</td>
   </tr>
 </table>
+
+  </span>

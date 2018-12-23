@@ -38,31 +38,41 @@ const repository = (db) => {
           return scrape.ALLFixturesAsCollection(scrape.getDivisionsFrom(team_performances))
         })
         .then((fixtures) => {
-          try {
-            fixtures_collection.drop((err, res) => {
-              if (err) reject(err)
-              console.log('Collection dropped:')
-              console.log('Inserting', fixtures.length)
-              fixtures_collection.insertMany(fixtures, (err, res) => {
-                if (err) reject(err)
-                console.log('No. of documents inserted:', res.insertedCount)
-                resolve(fixtures)
+          if (fixtures.length === 0) {
+            // use cached
+            resolve(getAllFixtures())
+          }
+          else {
+            fixtures.push(
+              {
+                '_id': 'last_refreshed',
+                'timestamp': new Date().toISOString()
               })
+            try {
+              fixtures_collection.drop((err, res) => {
+                if (err) reject(err)
+                console.log('Collection dropped:')
+                console.log('Inserting', fixtures.length)
+                fixtures_collection.insertMany(fixtures, (err, res) => {
+                  if (err) reject(err)
+                  console.log('No. of documents inserted:', res.insertedCount)
+                  resolve(fixtures)
+                })
 
-            });
-          } catch (e) {
-            if (e.code === 26) {
-              console.log('namespace %s not found',fixtures_collection.name)
-            } else {
-              throw e;
+              });
+            } catch (e) {
+              if (e.code === 26) {
+                console.log('namespace %s not found', fixtures_collection.name)
+              } else {
+                throw e;
+              }
             }
           }
-
         })
     })
   }
-  const getFixturesFor = (team) => {
-    const query_team = {$or: [{home_team: team},{away_team: team} ] },
+  const getFixturesFor = (team, gender) => {
+    const query_team = { $or: [{home_team: team},{away_team: team}], gender: gender},
       team_fixtures = []
     return new Promise((resolve, reject) => {
       // Get the documents as a cursor (for iteration through)
@@ -86,9 +96,9 @@ const repository = (db) => {
     })
   }
 
-  const getNextFixtureFor = (team, dd_mmm_yy) => {
+  const getNextFixtureFor = (team, gender, dd_mmm_yy) => {
     return new Promise((resolve, reject) => {
-      getFixturesFor(team)
+      getFixturesFor(team, gender)
         .then((fixtures) => {
           resolve(getNextFixtureFrom(fixtures, dd_mmm_yy))
         })

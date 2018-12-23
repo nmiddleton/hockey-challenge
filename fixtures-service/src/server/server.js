@@ -30,13 +30,13 @@ const start = (options) => {
       return (req, res, next) => {
         let key =  '__express__' + req.originalUrl || req.url;
         let cacheContent = memCache.get(key);
-        if(cacheContent){
-          console.log('cache hit', req.originalUrl);
+        if(cacheContent && req.method === 'GET'){
+          console.log('cache hit', req.method, req.originalUrl);
           res.send( cacheContent );
           return;
         }else{
           res.sendResponse = res.send;
-          console.log('cache miss', req.originalUrl);
+          console.log('cache miss', req.method, req.originalUrl);
           res.send = (body) => {
             memCache.put(key,body,duration*1000);
             res.sendResponse(body);
