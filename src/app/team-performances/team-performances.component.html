@@ -1,6 +1,10 @@
 <app-team-filter (teamFilterChangedEmitter)="handleTeamFilterChanged($event)"></app-team-filter>
-<button (click)="getTeamPerformances()">Refresh</button>
-<button (click)="getTeamPredictions()">Predict</button>
+<button (click)="refreshTeamPerformances()">Refresh</button>
+
+
+<br/> Performance Data last refreshed:
+<span *ngIf="!!predictions_last_updated"> {{predictions_last_updated | date: 'EEE dd MMM, yyyy - HH:mm:ss' }} </span>
+<span *ngIf="! !!predictions_last_updated"> Never </span>
 <br/>
 <table>
   <tr>
@@ -44,3 +48,5 @@
     <td> {{ teamPerformance.points }}</td>
   </tr>
 </table>
+<button (click)="getTeamPredictions()">Predict</button>
+

@@ -38,26 +38,36 @@ const repository = (db) => {
           return scrape.ALLFixturesAsCollection(scrape.getDivisionsFrom(team_performances))
         })
         .then((fixtures) => {
-          try {
-            fixtures_collection.drop((err, res) => {
-              if (err) reject(err)
-              console.log('Collection dropped:')
-              console.log('Inserting', fixtures.length)
-              fixtures_collection.insertMany(fixtures, (err, res) => {
-                if (err) reject(err)
-                console.log('No. of documents inserted:', res.insertedCount)
-                resolve(fixtures)
+          if (fixtures.length === 0) {
+            // use cached
+            resolve(getAllFixtures())
+          }
+          else {
+            fixtures.push(
+              {
+                '_id': 'last_refreshed',
+                'timestamp': new Date().toISOString()
               })
+            try {
+              fixtures_collection.drop((err, res) => {
+                if (err) reject(err)
+                console.log('Collection dropped:')
+                console.log('Inserting', fixtures.length)
+                fixtures_collection.insertMany(fixtures, (err, res) => {
+                  if (err) reject(err)
+                  console.log('No. of documents inserted:', res.insertedCount)
+                  resolve(fixtures)
+                })
 
-            });
-          } catch (e) {
-            if (e.code === 26) {
-              console.log('namespace %s not found',fixtures_collection.name)
-            } else {
-              throw e;
+              });
+            } catch (e) {
+              if (e.code === 26) {
+                console.log('namespace %s not found', fixtures_collection.name)
+              } else {
+                throw e;
+              }
             }
           }
-
         })
     })
   }

@@ -6,7 +6,8 @@ const request = require('request-promise'),
   api_url_EMLTable = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tablesmen.asp?divblock=SE&Submit=League+table',
   api_url_EWLTable = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tableswomen.asp',
   api_url_EMLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/resultsmen.asp?division=',
-  api_url_EWLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/venueswomen.asp?division='
+  api_url_EWLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/venueswomen.asp?division=',
+  http_timeout = 1000;
 
 
 function Scrape() {
@@ -39,6 +40,7 @@ function Scrape() {
     let division,
       value_count,
       deferred = q.defer();
+    setTimeout(() => deferred.resolve([]), http_timeout)
 
     request.get(url).then(function (result) {
       const $ = cheerio.load(result);
@@ -97,6 +99,7 @@ function Scrape() {
       fixture_date = '',
       fixtures = [],
       deferred = q.defer();
+    setTimeout(() => deferred.resolve([]), http_timeout)
     request.get(api_url_EMLFixtures + division_metadata.division).then(function (result) {
       const $ = cheerio.load(result);
       return q($('td').each(function (i, elem) {
@@ -145,7 +148,7 @@ function Scrape() {
       fixture_date = '',
       fixtures = [],
       deferred = q.defer();
-
+    setTimeout(() => deferred.resolve([]), http_timeout)
     request.get(api_url_EWLFixtures + division_metadata.division).then(function (result) {
       const $ = cheerio.load(result);
       return q($('td').each(function (i, elem) {

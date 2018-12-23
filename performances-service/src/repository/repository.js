@@ -2,7 +2,8 @@
 const Scrape = require('../../../src/app/Scrape')
 
 const repository = (db) => {
-  const performances_collection = db.collection('performances')
+  const collection_name = 'performances'
+  const performances_collection = db.collection(collection_name)
   const performances = []
   const query = {}
 
@@ -14,7 +15,6 @@ const repository = (db) => {
 
 
       cursor.forEach((performance) => {
-        console.log('found!', performances.length, 'matches');
         // saves to private variable performances
         performances.push(performance)
       }, (err, doc) => {
@@ -24,6 +24,7 @@ const repository = (db) => {
           if (!!doc && doc.count === 0) {
             console.log('None found')
           }
+          console.log(performances.length, 'found')
           resolve(performances)
         }
       })
@@ -72,22 +73,41 @@ const repository = (db) => {
     return new Promise((resolve, reject) => {
       return Scrape().ALLTablesAsCollection()
         .then((performances) => {
-
-          try {
-            performances_collection.drop();
-          } catch (e) {
-            if (e.code === 26) {
-              console.log('namespace %s not found',performances_collection.name)
-            } else {
-              throw e;
+          if (performances.length === 0){
+            // use cached
+            resolve(getAllPerformances())
+          }
+          else {
+            performances.push(
+              {
+                '_id': 'last_refreshed',
+                'timestamp': new Date().toISOString()
+              })
+            try {
+              performances_collection.drop((err, res) => {
+                if (err) reject(err)
+                console.log('Collection dropped:')
+                db.createCollection(collection_name, (err, res) => {
+                  if (err) reject(err)
+                  console.log('Collection Created!')
+                  console.log('Inserting', performances.length)
+                  performances_collection.insertMany(performances, (err, res) => {
+                    if (err) reject(err)
+                    console.log('No. of documents inserted:', res.insertedCount)
+                    resolve(performances)
+                  })
+                })
+              });
+            } catch (e) {
+              if (e.code === 26) {
+                console.log('namespace %s not found', performances_collection.name)
+              } else {
+                throw e;
+              }
             }
           }
-          performances_collection.insertMany(performances, (err, res) => {
-            if (err) reject(err)
-            console.log('No. of performances inserted:', res.insertedCount)
-            resolve(performances)
-          })
         })
+
     })
   }
 
