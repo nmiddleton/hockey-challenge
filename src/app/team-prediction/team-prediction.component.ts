@@ -80,10 +80,8 @@ export class TeamPredictionComponent implements OnInit {
                 this.getOffensiveStrength(oppo_team_performance)) / 2) - home_fixture_bonus,
               Math.round((this.getOffensiveStrength(team_performance) +
                 this.getDefensiveWeakness(oppo_team_performance)) / 2) + home_fixture_bonus,
-              Math.round((this.getOffensiveStrength(team_performance) +
-                this.getDefensiveWeakness(oppo_team_performance)) / 2 + home_fixture_bonus -
-              (this.getDefensiveWeakness(team_performance) + this.getOffensiveStrength(oppo_team_performance)) / 2 +
-              this.getLeagueStrength(team_performance) - this.getLeagueStrength(oppo_team_performance)),
+              parseFloat(((this.getOffensiveStrength(team_performance) + this.getDefensiveWeakness(oppo_team_performance)) / 2 + home_fixture_bonus - (this.getDefensiveWeakness(team_performance) + this.getOffensiveStrength(oppo_team_performance)) / 2 +
+              this.getLeagueStrength(team_performance) - this.getLeagueStrength(oppo_team_performance)).toPrecision(3)),
               home_fixture_bonus === 1 ? 'Home' : 'Away'
             ));
             this.filtered_team_predictions.sort((team_prediction_a, team_prediction_b) => {

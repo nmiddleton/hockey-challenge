@@ -9,18 +9,22 @@ import { TeamPerformancesComponent } from './team-performances/team-performances
 import { TeamFilterComponent } from './team-filter/team-filter.component';
 import { TeamPredictionComponent } from './team-prediction/team-prediction.component';
 import {LeagueFixturesService} from './league-fixtures.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamPerformancesComponent,
     TeamFilterComponent,
-    TeamPredictionComponent
+    TeamPredictionComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     TeamPerformanceService,

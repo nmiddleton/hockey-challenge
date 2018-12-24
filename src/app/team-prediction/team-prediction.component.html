@@ -2,25 +2,26 @@
 
 <br/>
 <span>Fixture Data last refreshed:
-  <span *ngIf="!!predictions_last_updated"> {{predictions_last_updated | date: 'EEE dd MMM, yyyy - HH:mm:ss' }} </span>
-<span *ngIf="! !!predictions_last_updated"> Never </span>
+  <span *ngIf="!!fixtures_last_updated"> {{fixtures_last_updated | date: 'EEE dd MMM, yyyy - HH:mm:ss' }} </span>
+<span *ngIf="! !!fixtures_last_updated"> Never </span>
 <br/>
 
 
 <table border="1" *ngIf="filtered_team_predictions.length >0">
-  <tr><td>TEAM</td><td>M/F</td><td>Defensive weakness</td><td>Offensive Strength</td><td>OPPOSITION</td><td>Defensive weakness</td><td>Offensive Strength</td><td>concede by defence</td><td>score by attack</td><td>League Dominance</td><td>Game Rating</td><td>Location</td></tr>
+  <tr><th>TEAM</th><th>M/F</th><th>Defensive weakness</th><th>Offensive Strength</th><th>OPPOSITION</th><th>Defensive weakness</th><th>Offensive Strength</th><th>concede by defence</th><th>score by attack</th><th>League Dominance</th><th>Game Rating</th><th>Location</th></tr>
   <tr *ngFor="let prediction of filtered_team_predictions">
-    <td style="text-align: left">{{ prediction.team }}</td>
+    <td style="text-align: left" nowrap>{{ prediction.team }}</td>
     <td style="text-align: left">{{ prediction.gender }}</td>
     <td style="text-align: center">{{ prediction.str_defence }}</td>
     <td style="text-align: center">{{ prediction.str_offence }}</td>
-    <td style="text-align: left">{{ prediction.oppo_team }}</td>
+    <td style="text-align: left" nowrap>{{ prediction.oppo_team }}</td>
     <td style="text-align: center">{{ prediction.oppo_defence }}</td>
     <td style="text-align: center">{{ prediction.oppo_offence }}</td>
     <td style="text-align: center">{{prediction.score_def}}</td>
     <td style="text-align: center">{{prediction.score_off}}</td>
-    <td style="text-align: center"> {{prediction.str_league}} v {{prediction.oppo_league}} = {{(prediction.str_league*10 - prediction.oppo_league*10)/10}}</td>
-    <td style="text-align: center">{{prediction.score_total}}</td>
+    <td style="text-align: left"> {{prediction.str_league}} v {{prediction.oppo_league}} = {{(prediction.str_league*10 - prediction.oppo_league*10)/10}}</td>
+    <td style="text-align: center"><star-rating-component [setRating]="prediction.score_total"></star-rating-component>
+</td>
     <td style="text-align: center">{{prediction.home_or_away}}</td>
   </tr>
 </table>
