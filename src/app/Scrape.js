@@ -7,7 +7,7 @@ const request = require('request-promise'),
   api_url_EWLTable = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/tableswomen.asp',
   api_url_EMLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/resultsmen.asp?division=',
   api_url_EWLFixtures = 'http://www.east-hockey.com/leagues2/showdata/sqlresults/venueswomen.asp?division=',
-  http_timeout = 1000;
+  http_timeout = 5000;
 
 
 function Scrape() {
