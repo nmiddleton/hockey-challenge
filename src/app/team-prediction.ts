@@ -8,6 +8,7 @@ export class TeamPrediction {
   str_defence: number;
   str_offence: number;
   oppo_team: string;
+  oppo_date: string;
   oppo_league: number;
   oppo_defence: number;
   oppo_offence: number;
@@ -23,6 +24,7 @@ export class TeamPrediction {
               strength_defence: number,
               strength_offence: number,
               oppo_team: string,
+              oppo_date: string,
               oppo_league: number,
               oppo_defence: number,
               oppo_offence: number,
@@ -37,6 +39,7 @@ export class TeamPrediction {
     this.str_defence = strength_defence;
     this.str_offence = strength_offence;
     this.oppo_team = oppo_team;
+    this.oppo_date = oppo_date;
     this.oppo_league = oppo_league;
     this.oppo_defence = oppo_defence;
     this.oppo_offence = oppo_offence;
