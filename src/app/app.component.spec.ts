@@ -5,19 +5,25 @@ import { TeamPerformancesComponent} from './team-performances/team-performances.
 import {HttpClientModule} from '@angular/common/http';
 import {TeamFilterComponent} from './team-filter/team-filter.component';
 import {TeamPredictionComponent} from './team-prediction/team-prediction.component';
+import {StarRatingComponent} from "./star-rating/star-rating.component";
+import {FormsModule} from "@angular/forms";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        NgbModule
       ],
       declarations: [
         AppComponent,
         TeamPerformancesComponent,
         TeamFilterComponent,
-        TeamPredictionComponent
+        TeamPredictionComponent,
+        StarRatingComponent
       ],
     }).compileComponents();
   }));

@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TeamPerformancesComponent } from './team-performances.component';
 import { TeamFilterComponent } from '../team-filter/team-filter.component';
 import { HttpClientModule } from '@angular/common/http';
+import {StarRatingComponent} from "../star-rating/star-rating.component";
+import {FormsModule} from "@angular/forms";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 describe('TeamPerformancesComponent', () => {
   let component: TeamPerformancesComponent;
@@ -12,9 +15,13 @@ describe('TeamPerformancesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         TeamPerformancesComponent,
-        TeamFilterComponent
+        TeamFilterComponent,
+        StarRatingComponent
       ],
-      imports: [ HttpClientModule ]
+      imports: [
+        HttpClientModule,
+        FormsModule,
+        NgbModule ]
     })
     .compileComponents();
   }));

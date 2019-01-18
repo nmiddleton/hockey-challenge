@@ -6,6 +6,9 @@ import {TeamPerformancesComponent} from '../team-performances/team-performances.
 import {TeamFilterComponent} from '../team-filter/team-filter.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TeamPrediction} from '../team-prediction';
+import {StarRatingComponent} from "../star-rating/star-rating.component";
+import {FormsModule} from "@angular/forms";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 describe('TeamPredictionComponent', () => {
   let component: TeamPredictionComponent;
@@ -16,8 +19,11 @@ describe('TeamPredictionComponent', () => {
       declarations: [
         TeamPredictionComponent,
         TeamPerformancesComponent,
-        TeamFilterComponent],
-      imports: [HttpClientModule]
+        TeamFilterComponent,
+        StarRatingComponent],
+      imports: [HttpClientModule,
+        FormsModule,
+        NgbModule ]
     })
       .compileComponents();
   }));

@@ -54,7 +54,6 @@ export class TeamPredictionComponent implements OnInit {
     this.oppo_team_performance$ = this.teamPerformanceService.getTeamPerformanceFor(team);
   }
   sanitizeTeam(team: string) {
-    let rest: string
     if (team.includes(' Now ')){
       team =team.split(' Now ', 1)[0]
       team =team.trim()
