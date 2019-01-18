@@ -62,6 +62,7 @@ export class TeamPredictionComponent implements OnInit {
         this.getNextFixture(team_performance.team, team_performance.gender);
         this.next_team_fixture$.subscribe(team_fixture => {
           const oppo_team = team_performance.team === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
+          const oppo_date = team_fixture.fixture_date;
           const home_fixture_bonus = team_performance.team === team_fixture.home_team ? 1 : 0;
           this.getOppoTeamPerformance(oppo_team);
           this.oppo_team_performance$.subscribe((oppo_team_performance) => {
@@ -73,6 +74,7 @@ export class TeamPredictionComponent implements OnInit {
               this.getDefensiveWeakness(team_performance),
               this.getOffensiveStrength(team_performance),
               oppo_team,
+              oppo_date,
               this.getLeagueStrength(oppo_team_performance),
               this.getDefensiveWeakness(oppo_team_performance),
               this.getOffensiveStrength(oppo_team_performance),

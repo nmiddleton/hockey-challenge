@@ -8,13 +8,14 @@
 
 
 <table border="1" *ngIf="filtered_team_predictions.length >0">
-  <tr><th>TEAM</th><th>M/F</th><th>Defensive weakness</th><th>Offensive Strength</th><th>OPPOSITION</th><th>Defensive weakness</th><th>Offensive Strength</th><th>concede by defence</th><th>score by attack</th><th>League Dominance</th><th>Game Rating</th><th>Location</th></tr>
+  <tr><th>TEAM</th><th>M/F</th><th>Defensive weakness</th><th>Offensive Strength</th><th>OPPOSITION</th><th>Date</th><th>Defensive weakness</th><th>Offensive Strength</th><th>concede by defence</th><th>score by attack</th><th>League Dominance</th><th>Game Rating</th><th>Location</th></tr>
   <tr *ngFor="let prediction of filtered_team_predictions">
     <td style="text-align: left" nowrap>{{ prediction.team }}</td>
     <td style="text-align: left">{{ prediction.gender }}</td>
     <td style="text-align: center">{{ prediction.str_defence }}</td>
     <td style="text-align: center">{{ prediction.str_offence }}</td>
     <td style="text-align: left" nowrap>{{ prediction.oppo_team }}</td>
+    <td style="text-align: left" nowrap>{{ prediction.oppo_date }}</td>
     <td style="text-align: center">{{ prediction.oppo_defence }}</td>
     <td style="text-align: center">{{ prediction.oppo_offence }}</td>
     <td style="text-align: center">{{prediction.score_def}}</td>
