@@ -53,6 +53,14 @@ export class TeamPredictionComponent implements OnInit {
   getOppoTeamPerformance(team: string) {
     this.oppo_team_performance$ = this.teamPerformanceService.getTeamPerformanceFor(team);
   }
+  sanitizeTeam(team: string) {
+    let rest: string
+    if (team.includes(' Now ')){
+      team =team.split(' Now ', 1)[0]
+      team =team.trim()
+    }
+    return team;
+  }
 
   makePredictions(event) {
     this.filtered_team_predictions = [];
@@ -61,7 +69,7 @@ export class TeamPredictionComponent implements OnInit {
     event.forEach((team_performance) => {
         this.getNextFixture(team_performance.team, team_performance.gender);
         this.next_team_fixture$.subscribe(team_fixture => {
-          const oppo_team = team_performance.team === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team;
+          const oppo_team = this.sanitizeTeam(team_performance.team === team_fixture.home_team ? team_fixture.away_team : team_fixture.home_team);
           const oppo_date = team_fixture.fixture_date;
           const home_fixture_bonus = team_performance.team === team_fixture.home_team ? 1 : 0;
           this.getOppoTeamPerformance(oppo_team);
