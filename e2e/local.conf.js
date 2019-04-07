@@ -1,31 +1,16 @@
-// Protractor configuration file, see link for more information
-// https://github.com/angular/protractor/blob/master/lib/config.ts
-const browserstack = require('browserstack-local');
+var browserstack = require('browserstack-local');
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
-  allScriptsTimeout: 11000,
-  // seleniumAddress: 'http://localhost:4444/wd/hub'
   'seleniumAddress': 'http://hub-cloud.browserstack.com/wd/hub',
   specs: [
-    './src/**/*.e2e-spec.ts'
+    './src/**/local.spec.js'
   ],
-  capabilities: {
+  'capabilities': {
     'browserstack.user': 'annmensah1',
     'browserstack.key': 'tJzJsAdBFM4kFvnqXfFH',
     'browserstack.local': true,
     'browserName': 'chrome'
-  },
-  plugins: [{
-    package: 'protractor-browserstack-reporter'
-  }],
-  // directConnect: true,
-  // baseUrl: 'http://localhost:4200/',
-  framework: 'jasmine',
-  jasmineNodeOpts: {
-    showColors: true,
-    defaultTimeoutInterval: 30000,
-    print: function() {}
   },
   onPrepare() {
     require('ts-node').register({
