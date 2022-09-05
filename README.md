@@ -1,6 +1,6 @@
 # HockeyChallenge
 
-This project resulted as a friendly challenge between a few technically minded people at my hockey club. Can we use code to gain an advantage on each other and the rest of the field to improve our chances of winning a fantasy sports game? How am I doing? Let's go and see? https://chelmsford.fantasyclubhockey.co.uk/team-standings
+This project resulted as a friendly challenge between a few technically minded people at my hockey club. Can we use code to gain an advantage on each other and the rest of the field to improve our chances of winning a fantasy sports game? How am I doing? Let's go and see? https://chelmsford.fantasyclubhockey.co.uk/team-standings. Post season Update. it won!
 
 ## Development server
 Requires Node version 10.9.0
